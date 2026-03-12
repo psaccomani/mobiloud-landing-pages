@@ -20,7 +20,7 @@ const { competitor, rows } = Astro.props;
 <section class="py-20 bg-neutral-50">
   <Container>
     <div class="text-center mb-14">
-      <h2 class="font-display text-display-3 text-heading">How MobiLoud compares to {competitor}</h2>
+      <h2 class="font-display text-display-3 text-heading" id={`mobiloud-vs-${competitor.toLowerCase().replace(/\s+/g, '-')}-comparison`} aria-label={`How MobiLoud compares to ${competitor}`}>How MobiLoud compares to {competitor}</h2>
       <p class="text-neutral-500 text-base mt-3 max-w-2xl mx-auto">A side-by-side look at what you get with each platform.</p>
     </div>
 

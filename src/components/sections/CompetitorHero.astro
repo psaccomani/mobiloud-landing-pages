@@ -18,8 +18,8 @@ const { competitor, headline, subhead, checklist, cta = 'Get Your Free Preview' 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       <!-- Left: Text -->
       <div>
-        <p class="text-primary-400 font-semibold text-sm uppercase tracking-wide mb-4">MobiLoud vs {competitor}</p>
-        <h1 class="font-display text-display-1 text-white mb-6 lg:text-[60px] lg:leading-[68px]">{headline}</h1>
+        <p class="text-primary-400 font-semibold text-sm uppercase tracking-wide mb-4" id={`mobiloud-vs-${competitor.toLowerCase().replace(/\s+/g, '-')}`}>MobiLoud vs {competitor}</p>
+        <h1 class="font-display text-display-1 text-white mb-6 lg:text-[60px] lg:leading-[68px]" aria-label={`MobiLoud vs ${competitor} - ${headline}`}>{headline}</h1>
         <p class="text-neutral-400 text-lg leading-relaxed mb-8 max-w-lg">{subhead}</p>
 
         <div class="flex flex-wrap gap-3 mb-8">

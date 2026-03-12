@@ -27,19 +27,69 @@ const testimonials = [
     logo: `${base}/images/Tobi-Womens-Clothing.avif`,
     logoAlt: 'Tobi',
   },
+  {
+    quote: "No one believed we'd have an app in under a month, but within two weeks, it was done.",
+    name: 'Ahmed Yousef',
+    role: 'Director of Ecommerce',
+    photo: `${base}/images/ahmed-yousef_1.avif`,
+    logo: `${base}/images/pharmazone-icon.webp`,
+    logoAlt: 'Pharmazone',
+  },
+  {
+    quote: "The expense isn't that big...it's a no-brainer.",
+    name: 'David Cost',
+    role: 'VP of Ecommerce & Marketing',
+    photo: `${base}/images/david-cost_1.webp`,
+    logo: `${base}/images/rainbow-shops.svg`,
+    logoAlt: 'Rainbow Shops',
+  },
+  {
+    quote: "It's a no-brainer for every business to have an app.",
+    name: 'Adam Taylor',
+    role: 'Founder & CEO',
+    photo: `${base}/images/adam-taylor.jpeg`,
+    logo: `${base}/images/petshop-icon.avif`,
+    logoAlt: 'PetShop.co.uk',
+  },
+  {
+    quote: "The app's been invaluable to us. The cost we're paying versus what we're getting back is tenfold.",
+    name: 'Nick Barbarise',
+    role: 'Director of IT',
+    photo: `${base}/images/nick-barbise.webp`,
+    logo: `${base}/images/john-varvatos.svg`,
+    logoAlt: 'John Varvatos',
+  },
+  {
+    quote: "MobiLoud keeps this whole thing simple and streamlined. No more juggling two different platforms.",
+    name: 'Eric Lowe',
+    role: 'Director of Ecommerce',
+    photo: `${base}/images/eric-portrait_1.avif`,
+    logo: null,
+    logoAlt: 'XCVI',
+    logoText: 'XCVI',
+  },
+  {
+    quote: "MobiLoud made launching our app fast, simple, and incredibly effective...it runs almost on autopilot.",
+    name: 'Summer Duan',
+    role: 'Ecommerce Manager',
+    photo: `${base}/images/nihal-portrait.avif`,
+    logo: null,
+    logoAlt: 'Kiokii',
+    logoText: 'Kiokii',
+  },
 ];
 ---
 
-<section class="py-20 bg-neutral-50">
+<section class="py-20 bg-neutral-50" id="testimonials">
   <Container>
     <div class="text-center mb-14">
-      <h2 class="font-display text-display-2 text-heading mb-4">Trusted by 2,000+ brands to drive mobile revenue</h2>
+      <h2 class="font-display text-display-2 text-heading mb-4" id="shopify-app-reviews" aria-label="Shopify mobile app reviews and testimonials">Trusted by 2,000+ brands to drive mobile revenue</h2>
       <p class="text-neutral-600 text-lg max-w-2xl mx-auto leading-relaxed">From launch through ongoing growth, our team partners with you to make your app a real revenue channel.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {testimonials.map((t) => (
-        <div class="bg-neutral-50 border border-neutral-200 rounded-testimonial p-8 lg:p-11 flex flex-col">
+    <div id="testimonials-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {testimonials.map((t, i) => (
+        <div class:list={['testimonial-card bg-neutral-50 border border-neutral-200 rounded-testimonial p-8 lg:p-11 flex flex-col', i >= 3 && 'hidden']}>
           <!-- Stars -->
           <div class="flex gap-1 mb-5">
             {Array.from({length: 5}).map(() => (
@@ -58,13 +108,53 @@ const testimonials = [
               <p class="text-primary-700 text-sm">{t.role}</p>
             </div>
           </div>
-          <img src={t.logo} alt={t.logoAlt} width="140" height="30" class="mt-5 max-h-[30px] w-auto object-contain self-start" loading="lazy">
+          {t.logo ? (
+            <img src={t.logo} alt={t.logoAlt} width="140" height="30" class="mt-5 max-h-[30px] w-auto object-contain self-start" loading="lazy">
+          ) : t.logoText ? (
+            <p class="mt-5 font-display font-bold text-neutral-400 text-sm tracking-wide">{t.logoText}</p>
+          ) : null}
         </div>
       ))}
     </div>
 
-    <div class="text-center mt-10">
-      <a href="https://www.mobiloud.com/demo" class="btn-primary">Get Your Free Preview</a>
+    <div class="text-center mt-10" id="testimonials-cta">
+      <button id="load-more-testimonials" class="inline-flex items-center justify-center gap-2 bg-white border border-neutral-300 rounded-[10px] px-6 py-3 font-display font-semibold text-sm text-neutral-700 hover:bg-neutral-50 hover:border-neutral-400 transition-all cursor-pointer shadow-sm">
+        Load More Reviews
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="load-more-arrow transition-transform"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
   </Container>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('load-more-testimonials');
+    const grid = document.getElementById('testimonials-grid');
+    const ctaWrap = document.getElementById('testimonials-cta');
+    if (!btn || !grid) return;
+
+    let revealed = 3;
+    const cards = grid.querySelectorAll('.testimonial-card');
+    const total = cards.length;
+
+    btn.addEventListener('click', () => {
+      const next = Math.min(revealed + 3, total);
+      for (let i = revealed; i < next; i++) {
+        cards[i].classList.remove('hidden');
+        cards[i].style.opacity = '0';
+        cards[i].style.transform = 'translateY(12px)';
+        requestAnimationFrame(() => {
+          cards[i].style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+          cards[i].style.opacity = '1';
+          cards[i].style.transform = 'translateY(0)';
+        });
+      }
+      revealed = next;
+
+      if (revealed >= total) {
+        // Replace button with CTA
+        ctaWrap.innerHTML = '<a href="https://www.mobiloud.com/demo" class="btn-primary">Get Your Free Preview</a>';
+      }
+    });
+  });
+</script>
