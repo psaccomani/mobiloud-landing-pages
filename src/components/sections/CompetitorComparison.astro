@@ -1,0 +1,104 @@
+---
+import Container from '../ui/Container.astro';
+
+interface ComparisonRow {
+  feature: string;
+  competitor: string;
+  mobiloud: string;
+  competitorBad?: boolean;
+  mobiloudGood?: boolean;
+}
+
+interface Props {
+  competitor: string;
+  rows: ComparisonRow[];
+}
+
+const { competitor, rows } = Astro.props;
+---
+
+<section class="py-20 bg-neutral-50">
+  <Container>
+    <div class="text-center mb-14">
+      <h2 class="font-display text-display-3 text-heading">How MobiLoud compares to {competitor}</h2>
+      <p class="text-neutral-500 text-base mt-3 max-w-2xl mx-auto">A side-by-side look at what you get with each platform.</p>
+    </div>
+
+    <!-- Desktop table -->
+    <div class="hidden md:block max-w-4xl mx-auto">
+      <div class="grid grid-cols-[1fr_1fr_1fr] border border-neutral-200 rounded-card overflow-hidden">
+        <!-- Header row -->
+        <div class="bg-neutral-100 px-6 py-4 border-b border-r border-neutral-200">
+          <p class="font-display font-bold text-neutral-500 text-sm uppercase tracking-wide">&nbsp;</p>
+        </div>
+        <div class="bg-neutral-100 px-6 py-4 border-b border-r border-neutral-200 text-center">
+          <p class="font-display font-bold text-neutral-900 text-sm uppercase tracking-wide">{competitor}</p>
+        </div>
+        <div class="bg-primary-50 px-6 py-4 border-b border-neutral-200 text-center">
+          <p class="font-display font-bold text-primary-700 text-sm uppercase tracking-wide">MobiLoud</p>
+        </div>
+
+        {rows.map((row, i) => (
+          <>
+            <div class:list={['px-6 py-4 border-r border-neutral-200 flex items-center', i < rows.length - 1 && 'border-b']}>
+              <p class="font-display font-semibold text-neutral-900 text-sm">{row.feature}</p>
+            </div>
+            <div class:list={['px-6 py-4 border-r border-neutral-200 flex items-start gap-2', i < rows.length - 1 && 'border-b']}>
+              {row.competitorBad && (
+                <span class="flex-shrink-0 mt-0.5">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#DC2626"/><path d="M5.5 5.5L10.5 10.5M10.5 5.5L5.5 10.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </span>
+              )}
+              <p class="text-neutral-600 text-sm leading-relaxed">{row.competitor}</p>
+            </div>
+            <div class:list={['px-6 py-4 bg-primary-50/50 flex items-start gap-2', i < rows.length - 1 && 'border-b border-neutral-200']}>
+              {row.mobiloudGood && (
+                <span class="flex-shrink-0 mt-0.5">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#047857"/><path d="M5 8L7 10L11 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              )}
+              <p class="text-neutral-900 text-sm leading-relaxed font-medium">{row.mobiloud}</p>
+            </div>
+          </>
+        ))}
+      </div>
+    </div>
+
+    <!-- Mobile cards -->
+    <div class="md:hidden space-y-4 max-w-lg mx-auto">
+      {rows.map((row) => (
+        <div class="border border-neutral-200 rounded-card bg-white overflow-hidden">
+          <div class="bg-neutral-100 px-5 py-3 border-b border-neutral-200">
+            <p class="font-display font-semibold text-neutral-900 text-sm">{row.feature}</p>
+          </div>
+          <div class="px-5 py-3 border-b border-neutral-200 flex items-start gap-2">
+            {row.competitorBad && (
+              <span class="flex-shrink-0 mt-0.5">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#DC2626"/><path d="M5.5 5.5L10.5 10.5M10.5 5.5L5.5 10.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </span>
+            )}
+            <div>
+              <p class="text-neutral-400 text-xs font-semibold uppercase tracking-wide mb-0.5">{competitor}</p>
+              <p class="text-neutral-600 text-sm">{row.competitor}</p>
+            </div>
+          </div>
+          <div class="px-5 py-3 bg-primary-50/50 flex items-start gap-2">
+            {row.mobiloudGood && (
+              <span class="flex-shrink-0 mt-0.5">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#047857"/><path d="M5 8L7 10L11 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            )}
+            <div>
+              <p class="text-primary-600 text-xs font-semibold uppercase tracking-wide mb-0.5">MobiLoud</p>
+              <p class="text-neutral-900 text-sm font-medium">{row.mobiloud}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="https://www.mobiloud.com/demo" class="btn-primary">See the Difference for Yourself</a>
+    </div>
+  </Container>
+</section>

@@ -1,0 +1,96 @@
+---
+import Container from '../ui/Container.astro';
+
+interface RevenueExample {
+  monthlyRevenue: string;
+  competitorFee: string;
+  competitorTotal: string;
+  mobiloudTotal: string;
+}
+
+interface Props {
+  competitor: string;
+  feeDescription: string;
+  examples: RevenueExample[];
+}
+
+const { competitor, feeDescription, examples } = Astro.props;
+---
+
+<section class="py-20 bg-white">
+  <Container>
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-display-3 text-heading mb-4">The hidden cost of {competitor}</h2>
+        <p class="text-neutral-600 text-lg leading-relaxed max-w-2xl mx-auto">{feeDescription}</p>
+      </div>
+
+      <!-- Cost comparison table (desktop) -->
+      <div class="hidden md:block border border-neutral-200 rounded-card overflow-hidden">
+        <!-- Header -->
+        <div class="grid grid-cols-4 bg-neutral-100 border-b border-neutral-200">
+          <div class="px-5 py-4">
+            <p class="font-display font-bold text-neutral-500 text-xs uppercase tracking-wide">Monthly app revenue</p>
+          </div>
+          <div class="px-5 py-4 text-center">
+            <p class="font-display font-bold text-neutral-500 text-xs uppercase tracking-wide">{competitor} fee</p>
+          </div>
+          <div class="px-5 py-4 text-center">
+            <p class="font-display font-bold text-neutral-500 text-xs uppercase tracking-wide">{competitor} total</p>
+          </div>
+          <div class="px-5 py-4 text-center bg-primary-50">
+            <p class="font-display font-bold text-primary-700 text-xs uppercase tracking-wide">MobiLoud total</p>
+          </div>
+        </div>
+
+        {examples.map((ex, i) => (
+          <div class:list={['grid grid-cols-4', i < examples.length - 1 && 'border-b border-neutral-200']}>
+            <div class="px-5 py-4">
+              <p class="text-neutral-900 text-sm font-semibold">{ex.monthlyRevenue}</p>
+            </div>
+            <div class="px-5 py-4 text-center">
+              <p class="text-red-600 text-sm font-medium">{ex.competitorFee}</p>
+            </div>
+            <div class="px-5 py-4 text-center">
+              <p class="text-neutral-900 text-sm font-semibold">{ex.competitorTotal}</p>
+            </div>
+            <div class="px-5 py-4 text-center bg-primary-50/50">
+              <p class="text-primary-700 text-sm font-bold">{ex.mobiloudTotal}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Cost comparison cards (mobile) -->
+      <div class="md:hidden space-y-3">
+        {examples.map((ex) => (
+          <div class="border border-neutral-200 rounded-card overflow-hidden bg-white">
+            <div class="bg-neutral-100 px-4 py-3 border-b border-neutral-200">
+              <p class="font-display font-semibold text-neutral-900 text-sm">{ex.monthlyRevenue}/mo in app revenue</p>
+            </div>
+            <div class="px-4 py-3 border-b border-neutral-200 flex justify-between items-center">
+              <p class="text-neutral-500 text-xs uppercase font-semibold tracking-wide">{competitor} total</p>
+              <p class="text-neutral-900 text-sm font-semibold">{ex.competitorTotal}</p>
+            </div>
+            <div class="px-4 py-3 bg-primary-50/50 flex justify-between items-center">
+              <p class="text-primary-600 text-xs uppercase font-semibold tracking-wide">MobiLoud total</p>
+              <p class="text-primary-700 text-sm font-bold">{ex.mobiloudTotal}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Callout -->
+      <div class="mt-8 bg-primary-50 border border-primary-200 rounded-card p-6 text-center">
+        <p class="text-primary-800 text-base font-medium">
+          MobiLoud's price stays the same no matter how much revenue your app generates.
+          <span class="text-primary-600">No revenue share. No success fees. Ever.</span>
+        </p>
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="https://www.mobiloud.com/demo" class="btn-primary">Get Your Free Preview</a>
+      </div>
+    </div>
+  </Container>
+</section>
