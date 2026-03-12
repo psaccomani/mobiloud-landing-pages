@@ -1,5 +1,6 @@
 ---
 import Container from '../ui/Container.astro';
+const base = import.meta.env.BASE_URL;
 
 const features = [
   {
@@ -45,7 +46,7 @@ const features = [
 
       <!-- Right: Image -->
       <div>
-        <img src="/images/mbp-iphone-side-by-side_1.avif" alt="MacBook and iPhone showing synced app and website" width="640" height="480" class="w-full h-auto rounded-xl" loading="lazy">
+        <img src={`${base}images/mbp-iphone-side-by-side_1.avif`} alt="MacBook and iPhone showing synced app and website" width="640" height="480" class="w-full h-auto rounded-xl" loading="lazy">
       </div>
     </div>
 

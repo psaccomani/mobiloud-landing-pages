@@ -5,6 +5,7 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://www.mobiloud.com',
+  base: '/pages',
   integrations: [
     react(),
     tailwind({ applyBaseStyles: false }),

@@ -1,5 +1,6 @@
 ---
 import Container from '../ui/Container.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <section class="py-20" style="background: linear-gradient(135deg, #047857 0%, #065f46 100%)">
@@ -12,10 +13,10 @@ import Container from '../ui/Container.astro';
 
       <!-- Logo strip -->
       <div class="flex items-center justify-center gap-6 sm:gap-10 pt-10 mt-10 border-t border-white/20">
-        <img src="/images/jack--jones.svg" alt="Jack & Jones" width="80" height="20" class="h-4 w-auto opacity-40 brightness-0 invert" loading="lazy">
-        <img src="/images/bestseller-logo.webp" alt="Bestseller" width="90" height="20" class="h-4 w-auto opacity-40 brightness-0 invert" loading="lazy">
-        <img src="/images/buybuybaby-logo.svg" alt="BuyBuyBaby" width="90" height="20" class="h-4 w-auto opacity-40 brightness-0 invert" loading="lazy">
-        <img src="/images/john-varvatos.svg" alt="John Varvatos" width="80" height="20" class="h-4 w-auto opacity-40 brightness-0 invert" loading="lazy">
+        <img src={`${base}images/jack--jones.svg`} alt="Jack & Jones" width="80" height="20" class="h-4 w-auto opacity-40 brightness-0 invert" loading="lazy">
+        <img src={`${base}images/bestseller-logo.webp`} alt="Bestseller" width="90" height="20" class="h-4 w-auto opacity-40 brightness-0 invert" loading="lazy">
+        <img src={`${base}images/buybuybaby-logo.svg`} alt="BuyBuyBaby" width="90" height="20" class="h-4 w-auto opacity-40 brightness-0 invert" loading="lazy">
+        <img src={`${base}images/john-varvatos.svg`} alt="John Varvatos" width="80" height="20" class="h-4 w-auto opacity-40 brightness-0 invert" loading="lazy">
       </div>
     </div>
   </Container>

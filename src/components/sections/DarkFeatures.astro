@@ -1,9 +1,10 @@
 ---
 import Container from '../ui/Container.astro';
+const base = import.meta.env.BASE_URL;
 
 const features = [
   {
-    image: '/images/tobi-app-ui_1.avif',
+    image: `${base}images/tobi-app-ui_1.avif`,
     imageAlt: 'TOBI app UI showing product pages',
     title: 'Everything on your site works in your app',
     description: 'Your custom design, integrations, third party tools, and anything else you have on your website will work automatically in your mobile app with no compatibility issues.',
@@ -11,7 +12,7 @@ const features = [
     imageFirst: true,
   },
   {
-    image: '/images/jv-website-to-app_1.avif',
+    image: `${base}images/jv-website-to-app_1.avif`,
     imageAlt: 'John Varvatos website synced to mobile app',
     title: "Get an app you don't have to maintain separately",
     description: 'Just keep managing your website and your app will automatically update with your site in real time. No additional work necessary.',
@@ -19,7 +20,7 @@ const features = [
     imageFirst: false,
   },
   {
-    image: '/images/tobi-support_1.avif',
+    image: `${base}images/tobi-support_1.avif`,
     imageAlt: 'MobiLoud support team chat',
     title: 'White-glove, fully managed service',
     description: "You'll work with dedicated project and customer success managers who take care of everything related to your apps. You can focus on your business while we run your mobile apps on autopilot.",
@@ -28,7 +29,7 @@ const features = [
     imageFirst: true,
   },
   {
-    image: '/images/jv-app-stores_1.avif',
+    image: `${base}images/jv-app-stores_1.avif`,
     imageAlt: 'John Varvatos app in the App Store and Google Play',
     title: 'Launch a Shopify mobile app risk-free',
     description: "You get the app you want at an affordable cost, without adding to your workload. We also guarantee you'll love your app or you get your money back.",
