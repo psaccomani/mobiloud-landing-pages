@@ -1,0 +1,36 @@
+---
+import Container from '../ui/Container.astro';
+
+const integrations = [
+  'Klaviyo', 'Yotpo', 'Judge.me', 'Gorgias', 'ReCharge',
+  'Omnisend', 'Loox', 'Stamped', 'Tidio', 'Smile.io',
+  'OneSignal', 'Shopify Flow', 'Google Analytics', 'Privy',
+  'AfterSell', 'Zapiet', 'Klevu', 'Fast Simon', 'Growave',
+  'Happy Returns', 'PostPilot', 'Tolstoy', 'Digioh',
+];
+---
+
+<section class="py-20 bg-background">
+  <Container>
+    <div class="text-center mb-12">
+      <p class="text-primary-700 font-semibold text-sm uppercase tracking-wide mb-3">Full Tech Stack Compatibility</p>
+      <h2 class="font-display text-display-3 text-heading mb-4">Your entire tech stack, already compatible</h2>
+      <p class="text-neutral-600 text-lg max-w-2xl mx-auto leading-relaxed">Because your app is powered by your live website, every Shopify app, third-party tool, and custom integration you already use works automatically. No rebuilding, no compatibility issues.</p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto mb-10">
+      {integrations.map((name) => (
+        <span class="inline-flex items-center px-4 py-2 bg-white border border-neutral-200 rounded-full text-sm text-neutral-700 font-medium shadow-sm">
+          {name}
+        </span>
+      ))}
+      <span class="inline-flex items-center px-4 py-2 bg-primary-50 border border-primary-200 rounded-full text-sm text-primary-700 font-medium">
+        + 50 more
+      </span>
+    </div>
+
+    <div class="text-center">
+      <a href="https://www.mobiloud.com/demo" class="btn-primary">Try It With Your Store</a>
+    </div>
+  </Container>
+</section>

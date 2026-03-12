@@ -1,0 +1,93 @@
+---
+import Container from '../ui/Container.astro';
+
+const features = [
+  {
+    image: '/images/tobi-app-ui_1.avif',
+    imageAlt: 'TOBI app UI showing product pages',
+    title: 'Everything on your site works in your app',
+    description: 'Your custom design, integrations, third party tools, and anything else you have on your website will work automatically in your mobile app with no compatibility issues.',
+    imageFirst: true,
+  },
+  {
+    image: '/images/jv-website-to-app_1.avif',
+    imageAlt: 'John Varvatos website synced to mobile app',
+    title: "Get an app you don't have to maintain separately",
+    description: 'Just keep managing your website and your app will automatically update with your site in real time. No additional work necessary.',
+    imageFirst: false,
+  },
+  {
+    image: '/images/tobi-support_1.avif',
+    imageAlt: 'MobiLoud support team chat',
+    title: 'White-glove, fully managed service',
+    description: "You'll work with dedicated project and customer success managers who take care of everything related to your apps. You can focus on your business while we run your mobile apps on autopilot.",
+    checkmarks: ['No DIY', 'No coding', 'No rebuild'],
+    imageFirst: true,
+  },
+  {
+    image: '/images/jv-app-stores_1.avif',
+    imageAlt: 'John Varvatos app in the App Store and Google Play',
+    title: 'Launch a Shopify mobile app risk-free',
+    description: "You get the app you want at an affordable cost, without adding to your workload. We also guarantee you'll love your app or you get your money back.",
+    imageFirst: false,
+  },
+];
+---
+
+<section class="bg-neutral-900 py-20">
+  <Container>
+    <!-- Header -->
+    <div class="text-center mb-6">
+      <h2 class="font-display text-display-2 text-white mb-4">A premium app without the premium complexity</h2>
+      <p class="text-neutral-400 text-lg max-w-3xl mx-auto leading-relaxed">MobiLoud is a fully managed service. We build, launch, and maintain your app so you can focus on growing your business.</p>
+    </div>
+
+    <!-- Stats row -->
+    <div class="flex flex-wrap items-center justify-center gap-10 md:gap-16 mb-16 mt-10">
+      <div class="text-center">
+        <p class="text-white font-display font-bold text-3xl">2,000+</p>
+        <p class="text-neutral-400 text-sm">apps launched</p>
+      </div>
+      <div class="text-center">
+        <p class="text-white font-display font-bold text-3xl">4.7/5</p>
+        <p class="text-neutral-400 text-sm">average rating</p>
+      </div>
+      <div class="text-center">
+        <p class="text-white font-display font-bold text-3xl">30 days</p>
+        <p class="text-neutral-400 text-sm">avg. time to launch</p>
+      </div>
+    </div>
+
+    <!-- Feature rows -->
+    <div class="space-y-16">
+      {features.map((f) => (
+        <div class:list={[
+          'grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center',
+          !f.imageFirst && 'lg:[&>*:first-child]:order-2',
+        ]}>
+          <div class="bg-neutral-800 border border-neutral-700 rounded-xl overflow-hidden max-w-md mx-auto lg:mx-0">
+            <img src={f.image} alt={f.imageAlt} width="448" height="300" class="w-full h-auto" loading="lazy">
+          </div>
+          <div class={!f.imageFirst ? 'lg:order-1' : ''}>
+            <h3 class="font-display text-display-4 text-white mb-4">{f.title}</h3>
+            <p class="text-neutral-400 text-base leading-relaxed">{f.description}</p>
+            {f.checkmarks && (
+              <div class="flex flex-wrap gap-4 mt-4">
+                {f.checkmarks.map((c: string) => (
+                  <span class="inline-flex items-center gap-1.5 text-primary-400 text-sm font-medium">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#047857"/><path d="M5 8L7 10L11 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    {c}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-16">
+      <a href="https://www.mobiloud.com/demo" class="inline-flex items-center justify-center bg-white text-primary-800 rounded-[10px] px-8 py-4 font-display font-semibold text-base hover:bg-primary-50 transition-colors shadow-lg">See Your Store as an App</a>
+    </div>
+  </Container>
+</section>

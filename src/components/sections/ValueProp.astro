@@ -1,0 +1,56 @@
+---
+import Container from '../ui/Container.astro';
+
+const features = [
+  {
+    title: 'Preview your app',
+    description: 'See a working preview of your store as a native app. No commitment, no code. Just your site, wrapped in a real app experience.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  },
+  {
+    title: 'We build and launch it',
+    description: 'Our team handles everything: custom design, app store submission, and approval. You review and approve, we do the work.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 4V9H4.582M4.582 9C5.24585 7.35812 6.43568 5.9829 7.96503 5.08985C9.49438 4.1968 11.2768 3.8364 13.033 4.06513C14.7891 4.29386 16.4198 5.09878 17.6694 6.35377C18.919 7.60875 19.7168 9.24285 19.938 11M4.582 9H9M20 20V15H19.418M19.418 15C18.7542 16.6419 17.5643 18.0171 16.035 18.9101C14.5056 19.8032 12.7232 20.1636 10.967 19.9349C9.21089 19.7061 7.58016 18.9012 6.33057 17.6462C5.08097 16.3913 4.28316 14.7571 4.062 13M19.418 15H15" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  },
+  {
+    title: 'Grow with your app',
+    description: 'Push notifications, analytics, and ongoing optimization. Your app stays in sync with your site and our team keeps it running smoothly.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2V22M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  },
+];
+---
+
+<section class="py-20 bg-neutral-50">
+  <Container>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Left: Features -->
+      <div>
+        <p class="text-primary-700 font-semibold text-sm uppercase tracking-wide mb-3">How It Works</p>
+        <h2 class="font-display text-display-2 text-heading mb-10">From your Shopify store to the App Store in 3 steps</h2>
+
+        <div class="space-y-8">
+          {features.map((f) => (
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center">
+                <Fragment set:html={f.icon} />
+              </div>
+              <div>
+                <h3 class="font-display font-bold text-neutral-900 text-lg mb-1">{f.title}</h3>
+                <p class="text-neutral-600 text-base leading-relaxed">{f.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div>
+        <img src="/images/mbp-iphone-side-by-side_1.avif" alt="MacBook and iPhone showing synced app and website" width="640" height="480" class="w-full h-auto rounded-xl" loading="lazy">
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="https://www.mobiloud.com/demo" class="btn-primary">Start Your Free Preview</a>
+    </div>
+  </Container>
+</section>

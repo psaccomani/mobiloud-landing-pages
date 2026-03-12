@@ -1,0 +1,46 @@
+---
+import Container from '../ui/Container.astro';
+
+const logos = [
+  { src: '/images/bestseller-logo.webp', alt: 'Bestseller', width: 178 },
+  { src: '/images/john-varvatos.svg', alt: 'John Varvatos', width: 154 },
+  { src: '/images/only-1.svg', alt: 'Only', width: 120 },
+  { src: '/images/buybuybaby-logo.svg', alt: 'BuyBuyBaby', width: 164 },
+  { src: '/images/bottle-shop-icon-p-500.png', alt: 'Bottle Stop', width: 120 },
+  { src: '/images/jack--jones.svg', alt: 'Jack & Jones', width: 154 },
+  { src: '/images/riot-fest.svg', alt: 'Riot Fest', width: 154 },
+  { src: '/images/Tobi-Womens-Clothing.avif', alt: 'Tobi', width: 75 },
+  { src: '/images/perfume_logo.svg', alt: 'Perfume', width: 120 },
+  { src: '/images/euractiv-logo_1.avif', alt: 'Euractiv', width: 145 },
+  { src: '/images/national-observer-logo.svg', alt: 'National Observer', width: 120 },
+];
+---
+
+<section class="py-12 overflow-hidden">
+  <Container>
+    <p class="text-center text-neutral-500 text-base mb-8">Trusted by 2,000+ brands including:</p>
+  </Container>
+
+  <div class="relative" style="--gap: 40px; --speed: 80s;">
+    <!-- Fade edges -->
+    <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
+
+    <div class="flex overflow-hidden">
+      {[0, 1, 2, 3].map(() => (
+        <div class="flex shrink-0 items-center gap-[var(--gap)] animate-marquee pr-[var(--gap)]">
+          {logos.map((logo) => (
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              width={logo.width}
+              height="30"
+              loading="lazy"
+              class="h-[30px] w-auto object-contain opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all"
+            />
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

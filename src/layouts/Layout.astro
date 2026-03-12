@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "MobiLoud converts your website into premium mobile apps." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/images/favicon.png" type="image/png">
+  <link rel="icon" href="/images/favicon.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/webclip.png">
+</head>
+<body class="overflow-x-hidden">
+  <slot />
+</body>
+</html>

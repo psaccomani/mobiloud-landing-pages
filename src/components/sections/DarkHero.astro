@@ -1,0 +1,58 @@
+---
+import Container from '../ui/Container.astro';
+---
+
+<section class="bg-neutral-900 pt-16 pb-20 overflow-hidden" style="background: linear-gradient(135deg, #1a1a2e 0%, #171717 40%, #0f2016 100%)">
+  <Container>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Left: Text -->
+      <div>
+        <p class="text-primary-400 font-semibold text-sm uppercase tracking-wide mb-4">A Better Mobile App Builder For Shopify</p>
+        <h1 class="font-display text-display-1 text-white mb-6 lg:text-[60px] lg:leading-[68px]">Your Shopify store, as a native app. Live in 30 days.</h1>
+        <p class="text-neutral-400 text-lg leading-relaxed mb-8 max-w-lg">Give your best customers a reason to keep coming back. Launch a native iOS and Android app that syncs with your Shopify store. No rebuilding, no extra maintenance.</p>
+
+        <div class="flex flex-wrap gap-3 mb-8">
+          <a href="https://www.mobiloud.com/demo" class="btn-primary">Get Your Free App Preview</a>
+        </div>
+
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3 text-neutral-300 text-sm">
+            <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Fully managed service. No DIY, no coding, no rebuild required
+          </li>
+          <li class="flex items-start gap-3 text-neutral-300 text-sm">
+            <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            We submit your app to the App Store and Google Play and manage approvals
+          </li>
+          <li class="flex items-start gap-3 text-neutral-300 text-sm">
+            <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Flat monthly pricing. No revenue share, no hidden fees
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right: Phone mockups -->
+      <div class="hidden sm:flex items-end justify-center gap-4 lg:gap-6">
+        <img src="/images/jv-home-april-2024_1.avif" alt="John Varvatos app home screen" width="294" height="600" class="rounded-2xl shadow-2xl max-w-[45%] h-auto" loading="eager">
+        <img src="/images/jv-product-april-2024_1.avif" alt="John Varvatos app product page" width="294" height="600" class="rounded-2xl shadow-2xl max-w-[45%] h-auto -mt-8" loading="eager">
+      </div>
+      <!-- Mobile: single phone mockup -->
+      <div class="flex sm:hidden justify-center mt-4">
+        <img src="/images/jv-home-april-2024_1.avif" alt="John Varvatos app home screen" width="220" height="450" class="rounded-2xl shadow-2xl max-w-[55%] h-auto" loading="eager">
+      </div>
+    </div>
+
+    <!-- Badge row -->
+    <div class="flex flex-wrap items-center justify-center gap-6 mt-16 pt-10 border-t border-neutral-800">
+      <img src="/images/G2-Review-Badge.svg" alt="G2 Review Badge" width="54" height="60" class="h-[54px] w-auto" loading="eager">
+      <img src="/images/capterra-rating-badge_1.svg" alt="Capterra Rating Badge" width="162" height="54" class="h-[54px] w-auto" loading="eager">
+      <img src="/images/producthunt-badge.svg" alt="Product Hunt Badge" width="250" height="54" class="h-[54px] w-auto" loading="eager">
+    </div>
+  </Container>
+</section>

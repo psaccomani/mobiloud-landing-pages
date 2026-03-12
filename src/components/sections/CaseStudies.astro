@@ -1,0 +1,231 @@
+---
+import Container from '../ui/Container.astro';
+
+const caseStudies = [
+  {
+    id: 'john-varvatos',
+    brand: 'John Varvatos',
+    icon: '/images/jv.webp',
+    metric: '10x',
+    metricLabel: 'revenue per user vs mobile web',
+    quote: "MobiLoud gave us a way to offer our customers a true native app experience without rebuilding our entire digital platform.",
+    person: 'Nick Barbarise',
+    role: 'Director of IT',
+    photo: '/images/nick-barbise.webp',
+  },
+  {
+    id: 'jack-jones',
+    brand: 'Jack & Jones',
+    icon: '/images/jack-jones-app-icon.webp',
+    metric: '10',
+    metricLabel: 'brand apps launched with MobiLoud',
+    quote: "We couldn't find another company that could offer the same features at the same price point, same time to market, and make it as easy as MobiLoud could.",
+    person: 'Svend Hansen',
+    role: 'Product Owner at BESTSELLER',
+    photo: '/images/svend-hansen.avif',
+  },
+  {
+    id: 'pharmazone',
+    brand: 'Pharmazone',
+    icon: '/images/pharmazone-icon.webp',
+    metric: '30 days',
+    metricLabel: 'from kickoff to live in app stores',
+    quote: "MobiLoud allowed us to launch our mobile app in weeks rather than months, keeping all our pharmacy-specific features intact.",
+    person: 'Ahmad Yousef',
+    role: 'Director of eCommerce',
+    photo: '/images/ahmed-yousef_1.avif',
+  },
+  {
+    id: 'sleefs',
+    brand: 'Sleefs',
+    icon: '/images/sleefs-icon.avif',
+    metric: '5.75x',
+    metricLabel: 'more sessions vs mobile web',
+    quote: "The app has become a key channel for us. Our customers love the push notifications and the seamless shopping experience.",
+    person: 'Jamie Schuster',
+    role: 'CEO',
+    photo: '/images/jamie-schuster.webp',
+  },
+  {
+    id: 'bottle-stop',
+    brand: 'Bottle Stop',
+    icon: '/images/bottle-shop-icon.png',
+    metric: '10%',
+    metricLabel: 'of total revenue from the app',
+    quote: "Our app now drives 10% of our total revenue with minimal effort from our team.",
+    person: 'Damien Smith',
+    role: 'CEO of BoozeBud',
+    photo: '/images/damien-smith.avif',
+  },
+  {
+    id: 'tobi',
+    brand: 'TOBI',
+    icon: '/images/tobi-icon.webp',
+    metric: '2.4x',
+    metricLabel: 'higher conversion rate in-app',
+    quote: "Your level of service is unmatched. You are always there when we need you, and go above and beyond to make sure everything runs smoothly for us.",
+    person: 'Kenneth Chan',
+    role: 'Founder/CEO',
+    photo: '/images/kenneth-portrait.avif',
+  },
+];
+---
+
+<section class="py-20 bg-background">
+  <Container>
+    <div class="text-center mb-12">
+      <h2 class="font-display text-display-2 text-heading">Leading brands get better apps at a fraction of the cost</h2>
+    </div>
+
+    <!-- Tab icons -->
+    <div class="grid grid-cols-3 sm:grid-cols-6 justify-items-center gap-3 max-w-md sm:max-w-none mx-auto mb-10" role="tablist">
+      {caseStudies.map((cs, i) => (
+        <button
+          role="tab"
+          aria-selected={i === 0 ? 'true' : 'false'}
+          aria-controls={`cs-panel-${cs.id}`}
+          data-cs-tab={cs.id}
+          class:list={[
+            'cs-tab w-14 h-14 rounded-xl overflow-hidden border-2 transition-all cursor-pointer hover:border-primary-400',
+            i === 0 ? 'border-primary-600 ring-2 ring-primary-200' : 'border-neutral-200',
+          ]}
+        >
+          <img src={cs.icon} alt={cs.brand} width="56" height="56" class="w-full h-full object-cover" loading="lazy">
+        </button>
+      ))}
+    </div>
+
+    <!-- Tab panels -->
+    {caseStudies.map((cs, i) => (
+      <div
+        id={`cs-panel-${cs.id}`}
+        role="tabpanel"
+        data-cs-panel={cs.id}
+        class:list={['cs-panel max-w-3xl mx-auto', i !== 0 && 'hidden']}
+      >
+        <div class="bg-neutral-50 border border-neutral-200 rounded-testimonial p-6 lg:p-8 flex flex-col lg:flex-row gap-6 lg:gap-10 items-center">
+          <!-- Metric highlight -->
+          <div class="flex-shrink-0 text-center lg:text-left lg:border-r lg:border-neutral-200 lg:pr-10">
+            <p class="text-primary-700 text-5xl lg:text-6xl font-display font-bold leading-none">{cs.metric}</p>
+            <p class="text-neutral-500 text-sm mt-1 max-w-[160px]">{cs.metricLabel}</p>
+          </div>
+
+          <!-- Quote + attribution -->
+          <div class="flex-1 text-center lg:text-left">
+            <blockquote class="text-neutral-800 text-lg font-medium leading-relaxed mb-5 font-display">
+              "{cs.quote}"
+            </blockquote>
+
+            <div class="flex items-center justify-center lg:justify-start gap-3">
+              <img src={cs.photo} alt={cs.person} width="40" height="40" class="rounded-full shrink-0" loading="lazy">
+              <div class="text-left">
+                <p class="font-semibold text-neutral-900 text-sm">{cs.person}</p>
+                <p class="text-neutral-500 text-xs">{cs.role}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+
+    <div class="text-center mt-10">
+      <a href="https://www.mobiloud.com/demo" class="btn-primary">Get Results Like These</a>
+    </div>
+  </Container>
+</section>
+
+<style>
+  @keyframes cs-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+  }
+  .cs-tab-hint {
+    animation: cs-pulse 1.8s ease-in-out infinite;
+  }
+  .cs-panel {
+    transition: opacity 0.3s ease;
+  }
+  .cs-panel.fading {
+    opacity: 0;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = Array.from(document.querySelectorAll('[data-cs-tab]'));
+    const panels = document.querySelectorAll('[data-cs-panel]');
+    let currentIndex = 0;
+    let autoplayTimer: ReturnType<typeof setInterval>;
+    let hintTimeout: ReturnType<typeof setTimeout>;
+
+    function activate(index: number) {
+      const id = (tabs[index] as HTMLElement).dataset.csTab;
+
+      // Remove hint animation from all tabs
+      tabs.forEach(t => t.classList.remove('cs-tab-hint'));
+
+      tabs.forEach(t => {
+        t.classList.remove('border-primary-600', 'ring-2', 'ring-primary-200');
+        t.classList.add('border-neutral-200');
+        t.setAttribute('aria-selected', 'false');
+      });
+
+      tabs[index].classList.add('border-primary-600', 'ring-2', 'ring-primary-200');
+      tabs[index].classList.remove('border-neutral-200');
+      tabs[index].setAttribute('aria-selected', 'true');
+
+      // Fade out current, then swap
+      const visiblePanel = document.querySelector('.cs-panel:not(.hidden)');
+      if (visiblePanel) {
+        visiblePanel.classList.add('fading');
+        setTimeout(() => {
+          panels.forEach(p => {
+            if ((p as HTMLElement).dataset.csPanel === id) {
+              p.classList.remove('hidden', 'fading');
+            } else {
+              p.classList.add('hidden');
+              p.classList.remove('fading');
+            }
+          });
+        }, 200);
+      }
+
+      currentIndex = index;
+    }
+
+    function startAutoplay() {
+      autoplayTimer = setInterval(() => {
+        const next = (currentIndex + 1) % tabs.length;
+        activate(next);
+      }, 5000);
+    }
+
+    function resetAutoplay() {
+      clearInterval(autoplayTimer);
+      startAutoplay();
+    }
+
+    // Hint animation: pulse the next 2 inactive tabs briefly on load
+    function showHint() {
+      tabs.forEach((t, i) => {
+        if (i !== 0) t.classList.add('cs-tab-hint');
+      });
+      hintTimeout = setTimeout(() => {
+        tabs.forEach(t => t.classList.remove('cs-tab-hint'));
+      }, 4000);
+    }
+
+    // Click handler
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => {
+        clearTimeout(hintTimeout);
+        tabs.forEach(t => t.classList.remove('cs-tab-hint'));
+        activate(i);
+        resetAutoplay();
+      });
+    });
+
+    showHint();
+    startAutoplay();
+  });
+</script>
