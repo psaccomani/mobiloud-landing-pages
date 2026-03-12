@@ -7,6 +7,7 @@ const features = [
     imageAlt: 'TOBI app UI showing product pages',
     title: 'Everything on your site works in your app',
     description: 'Your custom design, integrations, third party tools, and anything else you have on your website will work automatically in your mobile app with no compatibility issues.',
+    cta: 'See It in Action',
     imageFirst: true,
   },
   {
@@ -14,6 +15,7 @@ const features = [
     imageAlt: 'John Varvatos website synced to mobile app',
     title: "Get an app you don't have to maintain separately",
     description: 'Just keep managing your website and your app will automatically update with your site in real time. No additional work necessary.',
+    cta: 'Try It With Your Store',
     imageFirst: false,
   },
   {
@@ -22,6 +24,7 @@ const features = [
     title: 'White-glove, fully managed service',
     description: "You'll work with dedicated project and customer success managers who take care of everything related to your apps. You can focus on your business while we run your mobile apps on autopilot.",
     checkmarks: ['No DIY', 'No coding', 'No rebuild'],
+    cta: 'Talk to Our Team',
     imageFirst: true,
   },
   {
@@ -29,6 +32,7 @@ const features = [
     imageAlt: 'John Varvatos app in the App Store and Google Play',
     title: 'Launch a Shopify mobile app risk-free',
     description: "You get the app you want at an affordable cost, without adding to your workload. We also guarantee you'll love your app or you get your money back.",
+    cta: 'Start Risk-Free',
     imageFirst: false,
   },
 ];
@@ -65,8 +69,8 @@ const features = [
           'grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center',
           !f.imageFirst && 'lg:[&>*:first-child]:order-2',
         ]}>
-          <div class="bg-neutral-800 border border-neutral-700 rounded-xl overflow-hidden max-w-md mx-auto lg:mx-0">
-            <img src={f.image} alt={f.imageAlt} width="448" height="300" class="w-full h-auto" loading="lazy">
+          <div class="max-w-md mx-auto lg:mx-0">
+            <img src={f.image} alt={f.imageAlt} width="448" height="300" class="w-full h-auto rounded-xl" loading="lazy">
           </div>
           <div class={!f.imageFirst ? 'lg:order-1' : ''}>
             <h3 class="font-display text-display-4 text-white mb-4">{f.title}</h3>
@@ -81,6 +85,12 @@ const features = [
                 ))}
               </div>
             )}
+            <div class="mt-6">
+              <a href="https://www.mobiloud.com/demo" class="inline-flex items-center gap-2 text-primary-400 font-semibold text-sm hover:text-primary-300 transition-colors">
+                {f.cta}
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
           </div>
         </div>
       ))}
