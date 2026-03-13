@@ -16,49 +16,49 @@ import '../styles/global.css';
 const comparisonRows = [
   {
     feature: 'Approach',
-    competitor: 'Drag-and-drop app builder. You design and manage your app in their editor.',
+    competitor: 'AI-native React Native app builder. You build a separate native app through their platform.',
     mobiloud: 'Your existing website becomes your app. No separate platform to manage.',
     competitorBad: false,
     mobiloudGood: true,
   },
   {
     feature: 'Store rebuild',
-    competitor: 'You recreate your store layout in their block editor, separate from your website.',
+    competitor: 'You build your app in their editor. It\'s a separate native app, not connected to your website.',
     mobiloud: 'No rebuild. Your live site powers the app, including all custom code and design.',
     competitorBad: true,
     mobiloudGood: true,
   },
   {
     feature: 'Ongoing maintenance',
-    competitor: 'Changes to your website and app are managed separately.',
+    competitor: 'Products sync from Shopify, but app design and content are managed separately.',
     mobiloud: 'Update your site once. Your app syncs automatically.',
     competitorBad: true,
     mobiloudGood: true,
   },
   {
     feature: 'Integrations',
-    competitor: '80+ supported integrations via their platform.',
+    competitor: '100+ native integrations through their platform.',
     mobiloud: 'Unlimited. Every tool on your website works in your app automatically.',
     competitorBad: false,
     mobiloudGood: true,
   },
   {
     feature: 'Custom features',
-    competitor: 'Custom Blocks (React-based) for advanced customization. AI add-on available at $250/mo.',
+    competitor: 'AI-powered features including Milo assistant, AI Concierge, and AI Skin Analyzer.',
     mobiloud: 'All custom features from your website carry over with no extra development.',
     competitorBad: false,
     mobiloudGood: true,
   },
   {
     feature: 'Service model',
-    competitor: 'Primarily self-service. Dedicated account manager on Enterprise plan.',
+    competitor: 'Dedicated success manager and 24/7 Slack support on Pro plan.',
     mobiloud: 'Fully managed on Corporate. Dedicated success manager, Slack support, regular meetings.',
     competitorBad: false,
     mobiloudGood: true,
   },
   {
     feature: 'Pricing',
-    competitor: 'From $200/mo + 1.75-2.5% success fee on in-app sales. Enterprise from $1,000/mo.',
+    competitor: 'From $499/mo (Pro). Enterprise is custom pricing. Performance-based charges may apply.',
     mobiloud: 'From $799/mo (Growth) to $1,499/mo (Corporate). Flat fee, no revenue share.',
     competitorBad: false,
     mobiloudGood: true,
@@ -67,32 +67,36 @@ const comparisonRows = [
 
 const faqs = [
   {
-    q: 'How is MobiLoud different from app builders?',
-    a: 'App builders like Tapcart require you to design and manage your app in a separate editor, apart from your website. MobiLoud takes a different approach: your existing website becomes your app. Everything you already have — design, integrations, custom code — works automatically. No rebuilding, no managing two platforms.',
-  },
-  {
-    q: 'How does MobiLoud\'s pricing work?',
-    a: "MobiLoud charges a flat monthly fee with no variable costs — Growth at $799/mo and Corporate at $1,499/mo. Tapcart's base prices are lower, but they also charge a 1.75-2.5% success fee on in-app sales, which adds up as your app revenue grows. MobiLoud's Corporate plan includes a dedicated success manager, Slack and phone support, regular strategy meetings, and hands-on launch support. You're getting a team that builds, launches, and maintains your app — not a platform you manage yourself.",
+    q: 'What makes MobiLoud\'s approach different?',
+    a: 'Appbrew builds a separate native app using React Native — it\'s a standalone product you design and manage through their platform. MobiLoud takes a different approach: your existing website becomes your app. Everything you already have — design, integrations, custom code — works automatically. No rebuilding, no managing two platforms.',
   },
   {
     q: 'Do I need to rebuild my store?',
-    a: "No. With MobiLoud, there's nothing to rebuild. Your existing website becomes your app. All your custom code, third-party integrations, and design elements carry over automatically. Unlike Tapcart, where you recreate your store in their editor, MobiLoud uses your live site as-is.",
+    a: "No. With MobiLoud, there's nothing to rebuild. Your existing website becomes your app. All your custom code, third-party integrations, and design elements carry over automatically. With Appbrew, you build a separate native app through their editor, which means creating and managing a second platform alongside your website.",
   },
   {
     q: 'How does migration work?',
     a: "It's a simple process. We build your new app from your existing website — no content migration, no data transfer, no rebuilding. The new app is submitted as an update to your existing App Store and Google Play listings, so you keep your reviews and download history. Your current app stays live until the new one is approved. The whole process takes about 30 days.",
   },
   {
-    q: 'How long does it take to launch?',
-    a: "About 30 days from sign-up to launch. Our team handles everything: app development, custom graphics, app store submissions, and approval monitoring. You don't need to do any technical work.",
+    q: 'What about pricing and hidden fees?',
+    a: "MobiLoud charges a flat monthly fee: $799/mo for Growth, $1,499/mo for Corporate. No revenue share, no success fees. Appbrew's Pro plan starts at $499/mo, but their pricing notes mention potential performance-based charges on top of the subscription. With MobiLoud, your price stays the same regardless of how much revenue your app generates.",
   },
   {
     q: 'Will all my integrations work?',
-    a: "Yes. Because your app is powered by your live website, every tool and integration you already use works automatically. There's no compatibility list to check and no integrations to configure separately.",
+    a: "Yes. Because your app is powered by your live website, every tool and integration you already use works automatically. There's no compatibility list to check and no integrations to configure separately. Appbrew offers 100+ native integrations, but with MobiLoud, if it works on your site, it works in your app.",
   },
   {
-    q: 'What kind of support do I get after launch?',
-    a: "On Corporate, you get a dedicated Customer Success Manager, Slack and phone support, weekly meetings during launch, and ongoing strategy guidance. We monitor performance, handle all platform and OS updates, and help you optimize push notifications and engagement flows.",
+    q: 'Does MobiLoud work with platforms other than Shopify?',
+    a: "Yes. MobiLoud works with any web platform — Shopify, WooCommerce, Magento, BigCommerce, custom-built sites, and more. Appbrew is Shopify-only. If you're on a different platform or plan to migrate in the future, MobiLoud doesn't lock you into a single ecommerce provider.",
+  },
+  {
+    q: 'What kind of support do I get?',
+    a: "On MobiLoud's Corporate plan, you get a dedicated Customer Success Manager, Slack and phone support, weekly meetings during launch, and ongoing strategy guidance. We monitor performance, handle all platform and OS updates, and help you optimize push notifications and engagement flows. Appbrew also offers dedicated success managers and 24/7 Slack support on their Pro plan.",
+  },
+  {
+    q: 'How long does it take to launch?',
+    a: "About 30 days from sign-up to launch. Our team handles everything: app development, custom graphics, app store submissions, and approval monitoring. You don't need to do any technical work.",
   },
   {
     q: 'What is your cancellation policy?',
@@ -102,18 +106,18 @@ const faqs = [
 ---
 
 <Layout
-  title="MobiLoud vs Tapcart — A Managed App Without Rebuilding Your Store"
-  description="Compare MobiLoud and Tapcart. MobiLoud turns your existing website into a native app with fully managed service. No rebuilding, no separate platform to manage."
+  title="MobiLoud vs Appbrew — A Managed App Without Rebuilding Your Store"
+  description="Compare MobiLoud and Appbrew. MobiLoud turns your existing website into a native app with fully managed service. No rebuilding, no separate platform to manage."
 >
   <Nav />
 
   <CompetitorHero
-    competitor="Tapcart"
-    headline="Your Store as a Native App. No Rebuilding. No DIY."
-    subhead="Tapcart is a great app builder, but it requires you to design and manage your app separately from your website. MobiLoud takes a different approach: your existing site becomes your app, and our team handles everything."
+    competitor="Appbrew"
+    headline="Your Store as a Native App. No Rebuild. No Second Platform."
+    subhead="Appbrew is a strong, AI-powered app builder for Shopify stores. But it still requires building and managing a separate app. MobiLoud wraps your existing website into a native app — everything you have carries over, and our team manages it all."
     checklist={[
-      'No rebuilding your store in a separate editor',
-      'No managing two platforms. Your site and app stay in sync.',
+      'No rebuilding your store in a separate platform',
+      'Works with any web platform, not just Shopify.',
       'Fully managed service with a dedicated team on your side.',
     ]}
   />
@@ -123,7 +127,7 @@ const faqs = [
   <CaseStudies />
 
   <CompetitorComparison
-    competitor="Tapcart"
+    competitor="Appbrew"
     rows={comparisonRows}
   />
 

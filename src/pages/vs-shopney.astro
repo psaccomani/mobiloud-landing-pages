@@ -16,14 +16,14 @@ import '../styles/global.css';
 const comparisonRows = [
   {
     feature: 'Approach',
-    competitor: 'Drag-and-drop app builder. You design and manage your app in their editor.',
+    competitor: 'Drag-and-drop app builder. You design your app in their editor, separate from your website.',
     mobiloud: 'Your existing website becomes your app. No separate platform to manage.',
     competitorBad: false,
     mobiloudGood: true,
   },
   {
     feature: 'Store rebuild',
-    competitor: 'You recreate your store layout in their block editor, separate from your website.',
+    competitor: 'You recreate your store layout using their drag-and-drop editor and theme templates.',
     mobiloud: 'No rebuild. Your live site powers the app, including all custom code and design.',
     competitorBad: true,
     mobiloudGood: true,
@@ -37,28 +37,28 @@ const comparisonRows = [
   },
   {
     feature: 'Integrations',
-    competitor: '80+ supported integrations via their platform.',
+    competitor: '60+ supported integrations via their platform.',
     mobiloud: 'Unlimited. Every tool on your website works in your app automatically.',
     competitorBad: false,
     mobiloudGood: true,
   },
   {
     feature: 'Custom features',
-    competitor: 'Custom Blocks (React-based) for advanced customization. AI add-on available at $250/mo.',
+    competitor: 'Customization limited to their editor capabilities and theme options.',
     mobiloud: 'All custom features from your website carry over with no extra development.',
     competitorBad: false,
     mobiloudGood: true,
   },
   {
     feature: 'Service model',
-    competitor: 'Primarily self-service. Dedicated account manager on Enterprise plan.',
+    competitor: 'Self-service with 24/7 live chat support. Dedicated success manager on Enterprise ($1,299/mo).',
     mobiloud: 'Fully managed on Corporate. Dedicated success manager, Slack support, regular meetings.',
     competitorBad: false,
     mobiloudGood: true,
   },
   {
     feature: 'Pricing',
-    competitor: 'From $200/mo + 1.75-2.5% success fee on in-app sales. Enterprise from $1,000/mo.',
+    competitor: 'From $149/mo (Silver) to $599/mo (Platinum). Enterprise from $1,299/mo. No revenue share.',
     mobiloud: 'From $799/mo (Growth) to $1,499/mo (Corporate). Flat fee, no revenue share.',
     competitorBad: false,
     mobiloudGood: true,
@@ -68,31 +68,35 @@ const comparisonRows = [
 const faqs = [
   {
     q: 'How is MobiLoud different from app builders?',
-    a: 'App builders like Tapcart require you to design and manage your app in a separate editor, apart from your website. MobiLoud takes a different approach: your existing website becomes your app. Everything you already have — design, integrations, custom code — works automatically. No rebuilding, no managing two platforms.',
-  },
-  {
-    q: 'How does MobiLoud\'s pricing work?',
-    a: "MobiLoud charges a flat monthly fee with no variable costs — Growth at $799/mo and Corporate at $1,499/mo. Tapcart's base prices are lower, but they also charge a 1.75-2.5% success fee on in-app sales, which adds up as your app revenue grows. MobiLoud's Corporate plan includes a dedicated success manager, Slack and phone support, regular strategy meetings, and hands-on launch support. You're getting a team that builds, launches, and maintains your app — not a platform you manage yourself.",
+    a: 'App builders like Shopney require you to design and manage your app in a separate drag-and-drop editor, apart from your website. MobiLoud takes a different approach: your existing website becomes your app. Everything you already have — design, integrations, custom code — works automatically. No rebuilding, no managing two platforms.',
   },
   {
     q: 'Do I need to rebuild my store?',
-    a: "No. With MobiLoud, there's nothing to rebuild. Your existing website becomes your app. All your custom code, third-party integrations, and design elements carry over automatically. Unlike Tapcart, where you recreate your store in their editor, MobiLoud uses your live site as-is.",
+    a: "No. With MobiLoud, there's nothing to rebuild. Your existing website becomes your app. All your custom code, third-party integrations, and design elements carry over automatically. With Shopney, you recreate your store layout in their editor using their themes and design elements.",
   },
   {
     q: 'How does migration work?',
     a: "It's a simple process. We build your new app from your existing website — no content migration, no data transfer, no rebuilding. The new app is submitted as an update to your existing App Store and Google Play listings, so you keep your reviews and download history. Your current app stays live until the new one is approved. The whole process takes about 30 days.",
   },
   {
-    q: 'How long does it take to launch?',
-    a: "About 30 days from sign-up to launch. Our team handles everything: app development, custom graphics, app store submissions, and approval monitoring. You don't need to do any technical work.",
+    q: 'What about pricing and hidden fees?',
+    a: "MobiLoud charges a flat monthly fee: $799/mo for Growth, $1,499/mo for Corporate. No revenue share, no success fees. Shopney also uses flat pricing (from $149/mo to $1,299/mo) with no commissions, so both platforms are transparent on pricing. The difference is what you get: MobiLoud's Corporate plan includes a dedicated success manager, Slack and phone support, and regular strategy meetings — a fully managed service rather than a self-service platform.",
   },
   {
     q: 'Will all my integrations work?',
-    a: "Yes. Because your app is powered by your live website, every tool and integration you already use works automatically. There's no compatibility list to check and no integrations to configure separately.",
+    a: "Yes. Because your app is powered by your live website, every tool and integration you already use works automatically. There's no compatibility list to check and no integrations to configure separately. Shopney supports 60+ integrations through their platform, but with MobiLoud, if it works on your site, it works in your app.",
   },
   {
-    q: 'What kind of support do I get after launch?',
-    a: "On Corporate, you get a dedicated Customer Success Manager, Slack and phone support, weekly meetings during launch, and ongoing strategy guidance. We monitor performance, handle all platform and OS updates, and help you optimize push notifications and engagement flows.",
+    q: 'What kind of support do I get?',
+    a: "On MobiLoud's Corporate plan, you get a dedicated Customer Success Manager, Slack and phone support, weekly meetings during launch, and ongoing strategy guidance. We monitor performance, handle all platform and OS updates, and help you optimize push notifications and engagement flows. Shopney offers 24/7 live chat on all plans and a dedicated success manager on their Enterprise tier.",
+  },
+  {
+    q: 'What makes MobiLoud\'s approach different?',
+    a: "Shopney is a well-regarded app builder — you design your app in their editor using templates and drag-and-drop tools. MobiLoud wraps your existing website into a native app, so your entire site experience, including any custom code, third-party tools, and design work, carries over automatically. You manage one platform (your website) instead of two.",
+  },
+  {
+    q: 'How long does it take to launch?',
+    a: "About 30 days from sign-up to launch. Our team handles everything: app development, custom graphics, app store submissions, and approval monitoring. You don't need to do any technical work. Shopney advertises launch in about 5 days, though that's for their self-service builder where you do the design work yourself.",
   },
   {
     q: 'What is your cancellation policy?',
@@ -102,17 +106,17 @@ const faqs = [
 ---
 
 <Layout
-  title="MobiLoud vs Tapcart — A Managed App Without Rebuilding Your Store"
-  description="Compare MobiLoud and Tapcart. MobiLoud turns your existing website into a native app with fully managed service. No rebuilding, no separate platform to manage."
+  title="MobiLoud vs Shopney — A Managed App Without Rebuilding Your Store"
+  description="Compare MobiLoud and Shopney. MobiLoud turns your existing website into a native app with fully managed service. No rebuilding, no separate platform to manage."
 >
   <Nav />
 
   <CompetitorHero
-    competitor="Tapcart"
-    headline="Your Store as a Native App. No Rebuilding. No DIY."
-    subhead="Tapcart is a great app builder, but it requires you to design and manage your app separately from your website. MobiLoud takes a different approach: your existing site becomes your app, and our team handles everything."
+    competitor="Shopney"
+    headline="Your Store as a Native App. Fully Managed. No DIY."
+    subhead="Shopney is a well-rated app builder with affordable plans, but it requires you to design and manage your app yourself in their editor. MobiLoud takes a different approach: your existing site becomes your app, and our team handles everything."
     checklist={[
-      'No rebuilding your store in a separate editor',
+      'No redesigning your store in a separate editor',
       'No managing two platforms. Your site and app stay in sync.',
       'Fully managed service with a dedicated team on your side.',
     ]}
@@ -123,7 +127,7 @@ const faqs = [
   <CaseStudies />
 
   <CompetitorComparison
-    competitor="Tapcart"
+    competitor="Shopney"
     rows={comparisonRows}
   />
 
