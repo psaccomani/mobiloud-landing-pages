@@ -1,5 +1,6 @@
 ---
 import Container from '../ui/Container.astro';
+import LeadForm from '../ui/LeadForm.astro';
 const base = import.meta.env.BASE_URL;
 
 interface Props {
@@ -22,11 +23,7 @@ const { competitor, headline, subhead, checklist, cta = 'Get Your Free Preview' 
         <h1 class="font-display text-display-1 text-white mb-6 lg:text-[60px] lg:leading-[68px]" aria-label={`MobiLoud vs ${competitor} - ${headline}`}>{headline}</h1>
         <p class="text-neutral-400 text-lg leading-relaxed mb-8 max-w-lg">{subhead}</p>
 
-        <div class="flex flex-wrap gap-3 mb-8">
-          <a href="https://www.mobiloud.com/demo" class="btn-primary cursor-pointer" style="cursor: pointer;">{cta}</a>
-        </div>
-
-        <ul class="space-y-3">
+        <ul class="space-y-3 mb-8">
           {checklist.map((item) => (
             <li class="flex items-start gap-3 text-neutral-300 text-sm">
               <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
@@ -38,14 +35,11 @@ const { competitor, headline, subhead, checklist, cta = 'Get Your Free Preview' 
         </ul>
       </div>
 
-      <!-- Right: Phone mockups -->
-      <div class="hidden sm:flex items-end justify-center gap-4 lg:gap-6">
-        <img src={`${base}/images/jv-home-april-2024_1.avif`} alt="MobiLoud app home screen" width="294" height="600" class="rounded-2xl shadow-2xl max-w-[45%] h-auto" loading="eager">
-        <img src={`${base}/images/jv-product-april-2024_1.avif`} alt="MobiLoud app product page" width="294" height="600" class="rounded-2xl shadow-2xl max-w-[45%] h-auto -mt-8" loading="eager">
-      </div>
-      <!-- Mobile: single phone mockup -->
-      <div class="flex sm:hidden justify-center mt-4">
-        <img src={`${base}/images/jv-home-april-2024_1.avif`} alt="MobiLoud app home screen" width="220" height="450" class="rounded-2xl shadow-2xl max-w-[55%] h-auto" loading="eager">
+      <!-- Right: Lead form -->
+      <div class="flex justify-center" id="lead-form-section">
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm w-full max-w-md">
+          <LeadForm id="hero-form" variant="dark" heading="Get Your Free Preview" />
+        </div>
       </div>
     </div>
 

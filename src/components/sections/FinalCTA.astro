@@ -1,5 +1,6 @@
 ---
 import Container from '../ui/Container.astro';
+import LeadForm from '../ui/LeadForm.astro';
 const base = import.meta.env.BASE_URL;
 ---
 
@@ -25,13 +26,11 @@ const base = import.meta.env.BASE_URL;
       <h3 class="font-display text-display-2 text-white mb-4 lg:text-[48px] lg:leading-[56px]" id="shopify-app-free-preview" aria-label="Get a free Shopify mobile app preview">See your store as a mobile app. Free preview, no commitment.</h3>
       <p class="text-primary-100/80 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">Get a working preview of your Shopify store as a mobile app. No code, no commitment. If you love it, we build and launch it in 30 days.</p>
 
-      <!-- CTA button with glow -->
-      <div class="relative inline-block group">
-        <div class="absolute -inset-1 bg-white/20 rounded-2xl blur-lg group-hover:bg-white/30 transition-all duration-300 pointer-events-none"></div>
-        <a href="https://www.mobiloud.com/demo" class="cursor-pointer relative inline-flex items-center justify-center bg-white text-primary-800 rounded-[12px] px-10 py-4 font-display font-bold text-lg hover:bg-primary-50 transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5" style="cursor: pointer;">
-          Get Your Free Preview
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="ml-2"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+      <!-- Inline lead form -->
+      <div class="max-w-md mx-auto">
+        <div class="bg-white/10 border border-white/15 rounded-2xl p-6 backdrop-blur-sm">
+          <LeadForm id="cta-form" variant="dark" buttonText="Get Your Free Preview" />
+        </div>
       </div>
 
       <!-- Trust indicators -->

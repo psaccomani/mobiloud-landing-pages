@@ -1,0 +1,250 @@
+---
+interface Props {
+  id?: string;
+  variant?: 'light' | 'dark';
+  heading?: string;
+  buttonText?: string;
+}
+
+const {
+  id = 'lead-form',
+  variant = 'light',
+  heading,
+  buttonText = 'Get My Free App Preview',
+} = Astro.props;
+
+const isDark = variant === 'dark';
+const labelClass = isDark ? 'text-neutral-300' : 'text-neutral-700';
+const inputClass = isDark
+  ? 'bg-white/10 border-white/20 text-white placeholder-white/40 focus:border-primary-400 focus:ring-primary-400/20'
+  : 'bg-white border-neutral-300 text-neutral-900 placeholder-neutral-400 focus:border-primary-600 focus:ring-primary-600/20';
+const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
+---
+
+<div class="lead-form-wrapper w-full max-w-md">
+  {heading && (
+    <h3 class={`font-display text-xl font-bold mb-5 ${isDark ? 'text-white' : 'text-neutral-900'}`}>{heading}</h3>
+  )}
+
+  <form id={id} class="lead-form pass-tracked-params space-y-3" novalidate>
+    <!-- Name row -->
+    <div class="grid grid-cols-2 gap-3">
+      <div>
+        <label for={`${id}-first-name`} class={`block text-xs font-medium mb-1 ${labelClass}`}>First Name</label>
+        <input type="text" id={`${id}-first-name`} name="First-Name" placeholder="John" required
+          class={`w-full rounded-lg border px-3 py-2.5 text-sm outline-none transition focus:ring-2 ${inputClass}`} />
+      </div>
+      <div>
+        <label for={`${id}-last-name`} class={`block text-xs font-medium mb-1 ${labelClass}`}>Last Name</label>
+        <input type="text" id={`${id}-last-name`} name="Last-Name" placeholder="Appleseed" required
+          class={`w-full rounded-lg border px-3 py-2.5 text-sm outline-none transition focus:ring-2 ${inputClass}`} />
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label for={`${id}-email`} class={`block text-xs font-medium mb-1 ${labelClass}`}>Work Email</label>
+      <input type="email" id={`${id}-email`} name="Email" placeholder="john@example.com" required
+        class={`w-full rounded-lg border px-3 py-2.5 text-sm outline-none transition focus:ring-2 ${inputClass}`} />
+      <p class={`email-error text-xs mt-1 hidden ${errorTextClass}`}>Please enter a valid work email to continue.</p>
+    </div>
+
+    <!-- Company -->
+    <div>
+      <label for={`${id}-company`} class={`block text-xs font-medium mb-1 ${labelClass}`}>Company Name</label>
+      <input type="text" id={`${id}-company`} name="Company-Name" placeholder="Acme" required
+        class={`w-full rounded-lg border px-3 py-2.5 text-sm outline-none transition focus:ring-2 ${inputClass}`} />
+    </div>
+
+    <!-- Website URL -->
+    <div>
+      <label for={`${id}-website`} class={`block text-xs font-medium mb-1 ${labelClass}`}>Website URL</label>
+      <input type="url" id={`${id}-website`} name="website" placeholder="https://example.com" required
+        class={`w-full rounded-lg border px-3 py-2.5 text-sm outline-none transition focus:ring-2 ${inputClass}`} />
+    </div>
+
+    <!-- Annual Revenue -->
+    <div>
+      <label for={`${id}-revenue`} class={`block text-xs font-medium mb-1 ${labelClass}`}>Annual Online Revenue</label>
+      <select id={`${id}-revenue`} name="Annual-Revenue" required
+        class={`w-full rounded-lg border px-3 py-2.5 text-sm outline-none transition focus:ring-2 appearance-none ${inputClass}`}>
+        <option value="">Select annual revenue</option>
+        <option value="<1M">Under $1M</option>
+        <option value="1M–5M">$1M–$5M</option>
+        <option value="5M–20M">$5M–$20M</option>
+        <option value="20M–50M">$20M–$50M</option>
+        <option value="50M+">$50M+</option>
+      </select>
+    </div>
+
+    <!-- Hidden fields -->
+    <input type="hidden" name="Current-Page-URL" class="page-url-field" />
+
+    <!-- Submit -->
+    <button type="submit" disabled
+      class="lead-form-submit btn-primary w-full justify-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+      {buttonText}
+    </button>
+
+    <p class={`text-[11px] text-center leading-relaxed ${isDark ? 'text-white/40' : 'text-neutral-400'}`}>
+      By submitting this form you agree to receive updates and promotional messages from MobiLoud. Unsubscribe anytime.
+    </p>
+  </form>
+
+  <!-- Calendly embed (hidden until form submit) -->
+  <div class="calendly-container hidden" data-form-id={id}></div>
+</div>
+
+<script is:inline>
+(function() {
+  // Invalid email domains (personal/disposable)
+  var invalidDomains = ["gmail.com","gamil.com","gmial.com","gmaill.com","gmail.co","yahoo.com","yaho.com","yahho.com","yaoo.com","hotmail.com","hotmai.com","hotmial.com","hotmaill.com","hotmal.com","hotmil.com","outlook.com","otlook.com","outlok.com","outloook.com","aol.com","aoll.com","aool.com","protonmail.com","protonmai.com","protonmial.com","mail.com","mial.com","maill.com","zoho.com","zoh.com","zohho.com","yandex.ru","yandx.ru","yanddex.ru","gmx.com","gmx.co","icloud.com","iclou.com","iclod.com","me.com","qq.com","163.com","naver.com","daum.net","hanmail.net","t-online.de","web.de","gmx.de","free.fr","orange.fr","yahoo.fr","libero.it","virgilio.it","yahoo.it","rocketmail.com","mail.ru","yandex.com","hotmail.co.uk","yahoo.co.uk","gmail.co.uk","live.co.uk","hotmail.com.br","yahoo.com.br","hotmail.es","yahoo.es","outlook.es","hotmail.com.mx","yahoo.com.mx","replit.com","glitch.me","codesandbox.io","stackblitz.com","jsfiddle.net","codepen.io","gitpod.io","netlify.app","vercel.app","lovable.dev","rork.dev"];
+
+  function initLeadForms() {
+    document.querySelectorAll('.lead-form').forEach(function(form) {
+      var formId = form.id;
+      var emailInput = form.querySelector('input[type="email"]');
+      var errorText = form.querySelector('.email-error');
+      var submitBtn = form.querySelector('.lead-form-submit');
+      var websiteInput = form.querySelector('input[type="url"]');
+      var pageUrlField = form.querySelector('.page-url-field');
+      var calendlyContainer = form.closest('.lead-form-wrapper').querySelector('.calendly-container');
+
+      // Set page URL
+      if (pageUrlField) pageUrlField.value = window.location.href;
+
+      // Enable submit once all required fields have values (basic check)
+      function checkFormValidity() {
+        var allFilled = true;
+        form.querySelectorAll('[required]').forEach(function(f) {
+          if (!f.value) allFilled = false;
+        });
+        var hasEmailError = emailInput && emailInput.classList.contains('email-error-active');
+        submitBtn.disabled = !allFilled || hasEmailError;
+      }
+
+      form.addEventListener('input', checkFormValidity);
+      form.addEventListener('change', checkFormValidity);
+
+      // Email validation
+      if (emailInput) {
+        emailInput.addEventListener('input', function() {
+          var val = this.value;
+          if (val.indexOf('@') === -1) {
+            this.classList.remove('email-error-active', 'border-red-500');
+            errorText.classList.add('hidden');
+            checkFormValidity();
+            return;
+          }
+          var domain = val.split('@')[1].toLowerCase();
+          if (invalidDomains.indexOf(domain) !== -1) {
+            this.classList.add('email-error-active', 'border-red-500');
+            errorText.classList.remove('hidden');
+          } else {
+            this.classList.remove('email-error-active', 'border-red-500');
+            errorText.classList.add('hidden');
+          }
+          checkFormValidity();
+        });
+      }
+
+      // URL auto-format
+      if (websiteInput) {
+        websiteInput.addEventListener('focus', function() {
+          if (!this.value) this.value = 'https://';
+        });
+        websiteInput.addEventListener('blur', function() {
+          if (this.value === 'https://') this.value = '';
+        });
+        websiteInput.addEventListener('input', function() {
+          var v = this.value;
+          if (v.toLowerCase().startsWith('https://https://')) {
+            this.value = v.replace(/^https:\/\/https:\/\//i, 'https://');
+          }
+        });
+      }
+
+      // Inject UTM params as hidden fields
+      var trackedParams = ["utm_source","utm_campaign","utm_medium","utm_term","utm_content","source","campaign","medium","gclid"];
+      trackedParams.forEach(function(p) {
+        var val = localStorage.getItem(p);
+        if (val) {
+          var input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = p;
+          input.value = val;
+          form.appendChild(input);
+        }
+      });
+
+      // Form submission - load Calendly inline or redirect for <1M
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var revenueSelect = form.querySelector('select[name="Annual-Revenue"]');
+        if (revenueSelect && revenueSelect.value === '<1M') {
+          window.location.href = 'https://www.mobiloud.com/thank-you/book-call';
+          return;
+        }
+
+        // PostHog capture
+        if (typeof posthog !== 'undefined') {
+          var hogData = {};
+          form.querySelectorAll('[name]').forEach(function(f) {
+            if (f.value) hogData[f.name] = f.value;
+          });
+          posthog.capture('Lead Form submitted', hogData, { send_instantly: true });
+        }
+
+        // Load Calendly
+        if (typeof Calendly !== 'undefined' && calendlyContainer) {
+          form.style.display = 'none';
+          calendlyContainer.classList.remove('hidden');
+          calendlyContainer.style.minHeight = '700px';
+
+          Calendly.initInlineWidget({
+            url: 'https://calendly.com/mobiloud/mobiloud-app-consultation?hide_gdpr_banner=1&primary_color=047857',
+            parentElement: calendlyContainer,
+            prefill: {
+              firstName: form.querySelector('input[name="First-Name"]').value,
+              lastName: form.querySelector('input[name="Last-Name"]').value,
+              email: form.querySelector('input[name="Email"]').value,
+              customAnswers: {
+                a1: form.querySelector('input[name="Company-Name"]').value,
+                a2: form.querySelector('input[name="website"]').value
+              }
+            },
+            utm: {
+              utmCampaign: localStorage.getItem('utm_campaign'),
+              utmSource: localStorage.getItem('utm_source'),
+              utmMedium: localStorage.getItem('utm_medium'),
+              utmContent: localStorage.getItem('utm_content'),
+              utmTerm: localStorage.getItem('utm_term')
+            }
+          });
+
+          window.addEventListener('message', function(ev) {
+            if (ev.data.event && ev.data.event.indexOf('calendly.') === 0) {
+              if (ev.data.event === 'calendly.page_height') {
+                calendlyContainer.style.height = (ev.data.payload || ev.data.data).height + 'px';
+              }
+            }
+          });
+        } else {
+          // Fallback: redirect to demo page with prefilled params
+          var params = new URLSearchParams();
+          params.set('name', (form.querySelector('input[name="First-Name"]').value + ' ' + form.querySelector('input[name="Last-Name"]').value).trim());
+          params.set('email', form.querySelector('input[name="Email"]').value);
+          window.location.href = 'https://www.mobiloud.com/demo?' + params.toString();
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLeadForms);
+  } else {
+    initLeadForms();
+  }
+})();
+</script>
