@@ -84,8 +84,15 @@ h1, h2, h3, h4, h5, h6 {
 a, button, [role="button"],
 a:hover, button:hover,
 .btn-primary, .btn-primary:hover,
-[class*="inline-flex"]:hover {
+[class*="inline-flex"], [class*="inline-flex"]:hover,
+a[href], a[href]:hover {
   cursor: pointer !important;
+}
+
+/* Decorative overlays must not block clicks */
+.absolute[class*="blur-"],
+.absolute[class*="opacity-[0.0"] {
+  pointer-events: none;
 }
 
 /* Primary CTA button */
