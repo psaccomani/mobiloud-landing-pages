@@ -7,22 +7,16 @@ const steps = [
     number: '01',
     title: 'Preview your app',
     description: 'See a working preview of your store as a native app. No commitment, no code. Just your site, wrapped in a real app experience.',
-    image: `${base}/images/jv-home-april-2024_1.avif`,
-    imageAlt: 'App preview showing John Varvatos store',
   },
   {
     number: '02',
     title: 'We build and launch it',
     description: 'Our team handles everything: custom design, app store submission, and approval. You review and approve, we do the work.',
-    image: `${base}/images/jv-app-stores_1.avif`,
-    imageAlt: 'App published on App Store and Google Play',
   },
   {
     number: '03',
     title: 'Grow with your app',
     description: 'Push notifications, analytics, and ongoing optimization. Your app stays in sync with your site and our team keeps it running smoothly.',
-    image: `${base}/images/jv-push-notifs.webp`,
-    imageAlt: 'Push notifications driving engagement and sales',
   },
 ];
 ---
@@ -35,34 +29,20 @@ const steps = [
       <p class="text-neutral-600 text-lg max-w-2xl mx-auto leading-relaxed">We handle the entire process. You focus on your business.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
       {steps.map((step) => (
-        <div class="relative bg-neutral-50 rounded-xl overflow-hidden border border-neutral-200 group hover:border-primary-200 transition-colors">
-          <!-- Image -->
-          <div class="h-[200px] overflow-hidden bg-neutral-100">
-            <img src={step.image} alt={step.imageAlt} width="400" height="200" class="w-full h-full object-cover" loading="lazy">
+        <div class="text-center">
+          <div class="w-14 h-14 bg-primary-50 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-primary-200">
+            <span class="font-display font-bold text-primary-700 text-lg">{step.number}</span>
           </div>
-          <!-- Content -->
-          <div class="p-6">
-            <span class="font-display font-bold text-primary-700 text-sm">{step.number}</span>
-            <h3 class="font-display font-bold text-neutral-900 text-lg mt-1 mb-2">{step.title}</h3>
-            <p class="text-neutral-600 text-sm leading-relaxed">{step.description}</p>
-          </div>
+          <h3 class="font-display font-bold text-neutral-900 text-lg mb-2">{step.title}</h3>
+          <p class="text-neutral-600 text-sm leading-relaxed">{step.description}</p>
         </div>
       ))}
     </div>
 
-    <!-- Connector line hint on desktop -->
-    <div class="hidden md:flex items-center justify-center gap-3 mt-10 mb-2">
-      <div class="w-3 h-3 rounded-full bg-primary-700"></div>
-      <div class="flex-1 max-w-[200px] h-[2px] bg-gradient-to-r from-primary-700 to-primary-200"></div>
-      <div class="w-3 h-3 rounded-full bg-primary-700"></div>
-      <div class="flex-1 max-w-[200px] h-[2px] bg-gradient-to-r from-primary-700 to-primary-200"></div>
-      <div class="w-3 h-3 rounded-full bg-primary-700"></div>
-    </div>
-
-    <div class="text-center mt-8">
-      <a href="https://www.mobiloud.com/demo" class="btn-primary" style="cursor: pointer;">Start Your Free Preview</a>
+    <div class="text-center mt-10">
+      <a href="https://www.mobiloud.com/demo" class="btn-primary cursor-pointer" style="cursor: pointer;">Start Your Free Preview</a>
     </div>
   </Container>
 </section>
