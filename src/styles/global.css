@@ -81,8 +81,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Ensure all links and buttons show pointer cursor */
-a, button, [role="button"] {
-  cursor: pointer;
+a, button, [role="button"],
+a:hover, button:hover,
+.btn-primary, .btn-primary:hover,
+[class*="inline-flex"]:hover {
+  cursor: pointer !important;
 }
 
 /* Primary CTA button */
