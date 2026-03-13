@@ -80,47 +80,34 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
 }
 
-/* Ensure all links and buttons show pointer cursor */
-a, button, [role="button"],
-a:hover, button:hover,
-.btn-primary, .btn-primary:hover,
-[class*="inline-flex"], [class*="inline-flex"]:hover,
-a[href], a[href]:hover {
-  cursor: pointer !important;
-}
-
-/* Decorative overlays must not block clicks */
-.absolute[class*="blur-"],
-.absolute[class*="opacity-[0.0"] {
-  pointer-events: none;
-}
-
-/* Primary CTA button */
+/* Primary CTA button — matches live mobiloud.com style */
 .btn-primary {
+  position: relative;
+  z-index: 10;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, #059669 0%, #047857 100%);
+  background-color: #047857;
   color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 14px 28px;
+  border: 1px solid #047857;
+  border-radius: 12px;
+  padding: 12px 24px;
   font-family: 'Eudoxus Sans', Arial, sans-serif;
   font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
+  font-weight: 500;
+  white-space: nowrap;
   text-decoration: none;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 4px 12px rgba(4,120,87,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
-  transition: all 0.2s ease;
+  cursor: pointer !important;
+  transition: background-color 0.2s, border-color 0.2s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.12), 0 0 4px rgba(0,0,0,0.04), 0 4px 8px rgba(0,0,0,0.08);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(180deg, #047857 0%, #065f46 100%);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15), 0 6px 16px rgba(4,120,87,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
-  transform: translateY(-1px);
+  background-color: #065f46;
+  border-color: #065f46;
+  cursor: pointer !important;
 }
 
 .btn-primary:active {
-  transform: translateY(0);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.12), 0 2px 6px rgba(4,120,87,0.2);
+  box-shadow: inset 0 0 5px 1px rgba(0,0,0,0.2);
 }
