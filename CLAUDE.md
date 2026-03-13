@@ -52,3 +52,4 @@ Environment variable: `PUBLIC_CALENDLY_URL`
 - Brand colors in `tailwind.config.js` should be updated from the actual Webflow export
 - All customer references must be verified against `../_shared/case-studies.md`
 - Keep pages lightweight, static HTML, minimal JS
+- **Never use "wrap", "wrapper", or "wrapping"** when describing MobiLoud's approach. Say "turns your website into an app" or similar. (CSS class names like `flex-wrap` are fine.)
