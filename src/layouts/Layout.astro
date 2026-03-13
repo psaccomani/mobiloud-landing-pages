@@ -18,8 +18,55 @@ const base = import.meta.env.BASE_URL;
   <link rel="icon" href={`${base}/images/favicon.png`} type="image/png">
   <link rel="icon" href={`${base}/images/favicon.png`} sizes="32x32">
   <link rel="apple-touch-icon" href={`${base}/images/webclip.png`}>
+
+  <!-- Google Tag Manager -->
+  <script is:inline>{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MJHN9HX');`}</script>
+
+  <!-- PostHog -->
+  <script is:inline>{`!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('phc_CBWKc0UCgO97lBsNr4u47Q9BUqatILguFFnLM1f1Agq',{api_host:'https://d2v0eihtpm87uj.cloudfront.net',disable_session_recording:true,enable_recording_console_log:true});`}</script>
 </head>
 <body class="overflow-x-hidden">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJHN9HX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
   <slot />
+
+  <!-- UTM tracking: save to localStorage, inject into forms and outbound links -->
+  <script is:inline>
+  (function() {
+    var trackedParams = ["utm_source", "utm_campaign", "utm_medium", "utm_term", "utm_content", "source", "campaign", "medium", "gclid"];
+    var queryParams = new URLSearchParams(window.location.search);
+    queryParams.forEach(function(value, key) {
+      if (trackedParams.indexOf(key) !== -1) localStorage.setItem(key, value);
+    });
+    // Inject stored UTMs as hidden fields into forms with class "pass-tracked-params"
+    document.querySelectorAll("form.pass-tracked-params").forEach(function(form) {
+      trackedParams.forEach(function(p) {
+        if (localStorage.getItem(p)) {
+          var input = document.createElement("input");
+          input.type = "hidden"; input.name = p; input.value = localStorage.getItem(p);
+          form.appendChild(input);
+        }
+      });
+    });
+    // Append stored UTMs to outbound CTA links (mobiloud.com/demo and app.mobiloud.com)
+    document.querySelectorAll('a[href*="mobiloud.com/demo"], a[href*="app.mobiloud.com"]').forEach(function(link) {
+      try {
+        var url = new URL(link.href);
+        var paramAdded = false;
+        trackedParams.forEach(function(p) {
+          var val = localStorage.getItem(p);
+          if (val) { url.searchParams.set(p, val); paramAdded = true; }
+        });
+        if (paramAdded) link.href = url.toString();
+      } catch(e) {}
+    });
+  })();
+  </script>
 </body>
 </html>
