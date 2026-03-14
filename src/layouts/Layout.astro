@@ -9,7 +9,7 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8">
   <title>{title}</title>
@@ -69,6 +69,24 @@ const base = import.meta.env.BASE_URL;
         });
         if (paramAdded) link.href = url.toString();
       } catch(e) {}
+    });
+  })();
+  </script>
+
+  <!-- Smooth scroll to form with offset: show the whole form card, not just the first input -->
+  <script is:inline>
+  (function() {
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href*="#lead-form-section"]');
+      if (!link) return;
+      var target = document.getElementById('lead-form-section');
+      if (!target) return;
+      e.preventDefault();
+      var rect = target.getBoundingClientRect();
+      var navHeight = 64;
+      var padding = 32;
+      var scrollTo = window.scrollY + rect.top - navHeight - padding;
+      window.scrollTo({ top: Math.max(0, scrollTo), behavior: 'smooth' });
     });
   })();
   </script>

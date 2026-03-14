@@ -14,9 +14,9 @@ const {
 } = Astro.props;
 
 const isDark = variant === 'dark';
-const labelClass = isDark ? 'text-neutral-300' : 'text-neutral-700';
+const labelClass = isDark ? 'text-white/90' : 'text-neutral-700';
 const inputClass = isDark
-  ? 'bg-white/10 border-white/20 text-white placeholder-white/40 focus:border-primary-400 focus:ring-primary-400/20'
+  ? 'bg-white border-neutral-300 text-neutral-900 placeholder-neutral-400 focus:border-primary-600 focus:ring-primary-600/20'
   : 'bg-white border-neutral-300 text-neutral-900 placeholder-neutral-400 focus:border-primary-600 focus:ring-primary-600/20';
 const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
 ---
@@ -82,7 +82,7 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
 
     <!-- Submit -->
     <button type="submit" disabled
-      class="lead-form-submit btn-primary w-full justify-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+      class="lead-form-submit btn-primary w-full justify-center cursor-pointer disabled:cursor-not-allowed mt-1">
       {buttonText}
     </button>
 
@@ -92,13 +92,27 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
   </form>
 
   <!-- Calendly embed (hidden until form submit) -->
-  <div class="calendly-container hidden" data-form-id={id}></div>
+  <div class="calendly-container hidden w-full" style="min-height:660px;" data-form-id={id}></div>
 </div>
 
 <script is:inline>
 (function() {
+  // Guard: only run once even though this script appears per LeadForm instance
+  if (window.__leadFormsInitialized) return;
+  window.__leadFormsInitialized = true;
+
   // Invalid email domains (personal/disposable)
   var invalidDomains = ["gmail.com","gamil.com","gmial.com","gmaill.com","gmail.co","yahoo.com","yaho.com","yahho.com","yaoo.com","hotmail.com","hotmai.com","hotmial.com","hotmaill.com","hotmal.com","hotmil.com","outlook.com","otlook.com","outlok.com","outloook.com","aol.com","aoll.com","aool.com","protonmail.com","protonmai.com","protonmial.com","mail.com","mial.com","maill.com","zoho.com","zoh.com","zohho.com","yandex.ru","yandx.ru","yanddex.ru","gmx.com","gmx.co","icloud.com","iclou.com","iclod.com","me.com","qq.com","163.com","naver.com","daum.net","hanmail.net","t-online.de","web.de","gmx.de","free.fr","orange.fr","yahoo.fr","libero.it","virgilio.it","yahoo.it","rocketmail.com","mail.ru","yandex.com","hotmail.co.uk","yahoo.co.uk","gmail.co.uk","live.co.uk","hotmail.com.br","yahoo.com.br","hotmail.es","yahoo.es","outlook.es","hotmail.com.mx","yahoo.com.mx","replit.com","glitch.me","codesandbox.io","stackblitz.com","jsfiddle.net","codepen.io","gitpod.io","netlify.app","vercel.app","lovable.dev","rork.dev"];
+
+  // Single Calendly height listener (shared across all forms)
+  window.addEventListener('message', function(ev) {
+    if (ev.data.event && ev.data.event === 'calendly.page_height') {
+      var height = (ev.data.payload || ev.data.data).height;
+      document.querySelectorAll('.calendly-container:not(.hidden)').forEach(function(c) {
+        c.style.height = Math.max(parseInt(height), 660) + 'px';
+      });
+    }
+  });
 
   function initLeadForms() {
     document.querySelectorAll('.lead-form').forEach(function(form) {
@@ -181,29 +195,39 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
       form.addEventListener('submit', function(e) {
         e.preventDefault();
 
+        // Collect form data for tracking
+        var formData = {};
+        form.querySelectorAll('[name]').forEach(function(f) {
+          if (f.value) formData[f.name] = f.value;
+        });
+
         var revenueSelect = form.querySelector('select[name="Annual-Revenue"]');
         if (revenueSelect && revenueSelect.value === '<1M') {
+          // GTM dataLayer push before redirect
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'lead_form_submit', form_id: formId, form_data: formData });
           window.location.href = 'https://www.mobiloud.com/thank-you/book-call';
           return;
         }
 
         // PostHog capture
         if (typeof posthog !== 'undefined') {
-          var hogData = {};
-          form.querySelectorAll('[name]').forEach(function(f) {
-            if (f.value) hogData[f.name] = f.value;
-          });
-          posthog.capture('Lead Form submitted', hogData, { send_instantly: true });
+          posthog.capture('Lead Form submitted', formData, { send_instantly: true });
         }
+
+        // GTM dataLayer push (replaces Webflow form events for conversion tracking)
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'lead_form_submit', form_id: formId, form_data: formData });
 
         // Load Calendly
         if (typeof Calendly !== 'undefined' && calendlyContainer) {
           form.style.display = 'none';
           calendlyContainer.classList.remove('hidden');
           calendlyContainer.style.minHeight = '700px';
+          calendlyContainer.style.width = '100%';
 
           Calendly.initInlineWidget({
-            url: 'https://calendly.com/mobiloud/mobiloud-app-consultation?hide_gdpr_banner=1&primary_color=047857',
+            url: 'https://calendly.com/mobiloud/mobiloud-app-consultation?&hide_gdpr_banner=1&primary_color=047857',
             parentElement: calendlyContainer,
             prefill: {
               firstName: form.querySelector('input[name="First-Name"]').value,
@@ -220,14 +244,6 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
               utmMedium: localStorage.getItem('utm_medium'),
               utmContent: localStorage.getItem('utm_content'),
               utmTerm: localStorage.getItem('utm_term')
-            }
-          });
-
-          window.addEventListener('message', function(ev) {
-            if (ev.data.event && ev.data.event.indexOf('calendly.') === 0) {
-              if (ev.data.event === 'calendly.page_height') {
-                calendlyContainer.style.height = (ev.data.payload || ev.data.data).height + 'px';
-              }
             }
           });
         } else {
