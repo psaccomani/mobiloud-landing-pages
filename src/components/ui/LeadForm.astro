@@ -63,7 +63,10 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
       <p class={`field-error text-xs mt-1 hidden ${errorTextClass}`}>Website URL is required.</p>
     </div>
 
-    <!-- Annual Revenue -->
+    <!-- Annual Revenue - REMOVED: was qualifying leads by revenue, now all go to Calendly
+         Options were: <1M (redirected to /thank-you/book-call), 1M-5M, 5M-20M, 20M-50M, 50M+
+         To restore: uncomment this block and the revenue check in the submit handler below -->
+    <!--
     <div>
       <label for={`${id}-revenue`} class={`block text-xs font-medium mb-1 ${labelClass}`}>Annual Online Revenue</label>
       <div class="relative">
@@ -71,9 +74,9 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
           class={`w-full rounded-lg border px-3 py-2.5 pr-9 text-sm outline-none transition focus:ring-2 appearance-none ${inputClass}`}>
           <option value="">Select annual revenue</option>
           <option value="<1M">Under $1M</option>
-          <option value="1M–5M">$1M–$5M</option>
-          <option value="5M–20M">$5M–$20M</option>
-          <option value="20M–50M">$20M–$50M</option>
+          <option value="1M-5M">$1M-$5M</option>
+          <option value="5M-20M">$5M-$20M</option>
+          <option value="20M-50M">$20M-$50M</option>
           <option value="50M+">$50M+</option>
         </select>
         <svg class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" viewBox="0 0 20 20" fill="none">
@@ -82,6 +85,7 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
       </div>
       <p class={`field-error text-xs mt-1 hidden ${errorTextClass}`}>Please select your annual revenue.</p>
     </div>
+    -->
 
     <!-- Hidden fields -->
     <input type="hidden" name="Current-Page-URL" class="page-url-field" />
@@ -276,14 +280,15 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
           if (f.value) formData[f.name] = f.value;
         });
 
-        var revenueSelect = form.querySelector('select[name="Annual-Revenue"]');
-        if (revenueSelect && revenueSelect.value === '<1M') {
-          // GTM dataLayer push before redirect
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({ event: 'lead_form_submit', form_id: formId, form_data: formData });
-          window.location.href = 'https://www.mobiloud.com/thank-you/book-call';
-          return;
-        }
+        // REMOVED: Revenue qualifying logic - was redirecting <1M to /thank-you/book-call
+        // To restore: uncomment below and the revenue dropdown in the HTML above
+        // var revenueSelect = form.querySelector('select[name="Annual-Revenue"]');
+        // if (revenueSelect && revenueSelect.value === '<1M') {
+        //   window.dataLayer = window.dataLayer || [];
+        //   window.dataLayer.push({ event: 'lead_form_submit', form_id: formId, form_data: formData });
+        //   window.location.href = 'https://www.mobiloud.com/thank-you/book-call';
+        //   return;
+        // }
 
         // PostHog capture
         if (typeof posthog !== 'undefined') {
