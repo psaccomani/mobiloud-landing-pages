@@ -52,13 +52,8 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
       <p class={`field-error text-xs mt-1 hidden ${errorTextClass}`}>Work email is required.</p>
     </div>
 
-    <!-- Company -->
-    <div>
-      <label for={`${id}-company`} class={`block text-xs font-medium mb-1 ${labelClass}`}>Company Name</label>
-      <input type="text" id={`${id}-company`} name="Company-Name" placeholder="Acme" required
-        class={`w-full rounded-lg border px-3 py-2.5 text-sm outline-none transition focus:ring-2 ${inputClass}`} />
-      <p class={`field-error text-xs mt-1 hidden ${errorTextClass}`}>Company name is required.</p>
-    </div>
+    <!-- Company Name (auto-derived from website URL) -->
+    <input type="hidden" name="Company-Name" />
 
     <!-- Website URL -->
     <div>
@@ -227,6 +222,33 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
           var v = this.value;
           if (v.toLowerCase().startsWith('https://https://')) {
             this.value = v.replace(/^https:\/\/https:\/\//i, 'https://');
+          }
+        });
+      }
+
+      // Derive company name from website URL
+      function companyFromUrl(url) {
+        try {
+          var hostname = url.replace(/^https?:\/\//, '').replace(/^www\./, '').split('/')[0].split('?')[0];
+          var name = hostname.replace(/\.[^.]+$/, ''); // strip last TLD segment
+          name = name.replace(/\.[^.]+$/, function(m) { return m; }); // keep subdomains like co.uk handled
+          // Handle common two-part TLDs
+          if (/\.(co|com|org|net|io)\.[a-z]{2,}$/i.test(hostname)) {
+            name = hostname.replace(/\.(co|com|org|net|io)\.[a-z]{2,}$/i, '').replace(/^www\./, '');
+          }
+          // Capitalize first letter of each word, treat hyphens as word separators
+          return name.split(/[-.]/).map(function(w) {
+            return w.charAt(0).toUpperCase() + w.slice(1);
+          }).join(' ');
+        } catch(e) { return ''; }
+      }
+
+      var companyHidden = form.querySelector('input[name="Company-Name"]');
+      if (websiteInput && companyHidden) {
+        websiteInput.addEventListener('blur', function() {
+          var v = this.value.trim();
+          if (v && v !== 'https://') {
+            companyHidden.value = companyFromUrl(v);
           }
         });
       }
