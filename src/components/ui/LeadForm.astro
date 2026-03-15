@@ -33,11 +33,13 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
         <label for={`${id}-first-name`} class={`block text-xs font-medium mb-1 ${labelClass}`}>First Name</label>
         <input type="text" id={`${id}-first-name`} name="First-Name" placeholder="John" required
           class={`w-full rounded-lg border px-3 py-2.5 text-sm outline-none transition focus:ring-2 ${inputClass}`} />
+        <p class={`field-error text-xs mt-1 hidden ${errorTextClass}`}>First name is required.</p>
       </div>
       <div>
         <label for={`${id}-last-name`} class={`block text-xs font-medium mb-1 ${labelClass}`}>Last Name</label>
         <input type="text" id={`${id}-last-name`} name="Last-Name" placeholder="Appleseed" required
           class={`w-full rounded-lg border px-3 py-2.5 text-sm outline-none transition focus:ring-2 ${inputClass}`} />
+        <p class={`field-error text-xs mt-1 hidden ${errorTextClass}`}>Last name is required.</p>
       </div>
     </div>
 
@@ -47,6 +49,7 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
       <input type="email" id={`${id}-email`} name="Email" placeholder="john@example.com" required
         class={`w-full rounded-lg border px-3 py-2.5 text-sm outline-none transition focus:ring-2 ${inputClass}`} />
       <p class={`email-error text-xs mt-1 hidden ${errorTextClass}`}>Please enter a valid work email to continue.</p>
+      <p class={`field-error text-xs mt-1 hidden ${errorTextClass}`}>Work email is required.</p>
     </div>
 
     <!-- Company -->
@@ -54,6 +57,7 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
       <label for={`${id}-company`} class={`block text-xs font-medium mb-1 ${labelClass}`}>Company Name</label>
       <input type="text" id={`${id}-company`} name="Company-Name" placeholder="Acme" required
         class={`w-full rounded-lg border px-3 py-2.5 text-sm outline-none transition focus:ring-2 ${inputClass}`} />
+      <p class={`field-error text-xs mt-1 hidden ${errorTextClass}`}>Company name is required.</p>
     </div>
 
     <!-- Website URL -->
@@ -61,6 +65,7 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
       <label for={`${id}-website`} class={`block text-xs font-medium mb-1 ${labelClass}`}>Website URL</label>
       <input type="url" id={`${id}-website`} name="website" placeholder="https://example.com" required
         class={`w-full rounded-lg border px-3 py-2.5 text-sm outline-none transition focus:ring-2 ${inputClass}`} />
+      <p class={`field-error text-xs mt-1 hidden ${errorTextClass}`}>Website URL is required.</p>
     </div>
 
     <!-- Annual Revenue -->
@@ -80,6 +85,7 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
           <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
+      <p class={`field-error text-xs mt-1 hidden ${errorTextClass}`}>Please select your annual revenue.</p>
     </div>
 
     <!-- Hidden fields -->
@@ -132,6 +138,26 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
       // Set page URL
       if (pageUrlField) pageUrlField.value = window.location.href;
 
+      // Show or hide field-level error for a given required field
+      function setFieldError(field, show) {
+        var wrapper = field.closest('div');
+        // For email, only show the field-error (required), not the domain error
+        var err = wrapper.querySelector('.field-error');
+        if (!err) return;
+        // Don't show "required" error if the domain error is already visible
+        if (field.type === 'email' && show) {
+          var domainErr = wrapper.querySelector('.email-error');
+          if (domainErr && !domainErr.classList.contains('hidden')) return;
+        }
+        if (show) {
+          err.classList.remove('hidden');
+          field.classList.add('border-red-500');
+        } else {
+          err.classList.add('hidden');
+          field.classList.remove('border-red-500');
+        }
+      }
+
       // Enable submit once all required fields have values (basic check)
       function checkFormValidity() {
         var allFilled = true;
@@ -144,6 +170,28 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
 
       form.addEventListener('input', checkFormValidity);
       form.addEventListener('change', checkFormValidity);
+
+      // Show error on blur if field is empty (only after user has interacted)
+      form.querySelectorAll('[required]').forEach(function(f) {
+        f.addEventListener('blur', function() {
+          setFieldError(f, !f.value);
+        });
+        // Clear error as soon as user types
+        f.addEventListener('input', function() {
+          if (f.value) setFieldError(f, false);
+        });
+      });
+
+      // On disabled submit button click, show all empty field errors
+      submitBtn.addEventListener('click', function() {
+        if (!submitBtn.disabled) return;
+        form.querySelectorAll('[required]').forEach(function(f) {
+          setFieldError(f, !f.value);
+        });
+        // Scroll to and focus the first empty field
+        var firstEmpty = form.querySelector('[required]:invalid') || Array.from(form.querySelectorAll('[required]')).find(function(f) { return !f.value; });
+        if (firstEmpty) firstEmpty.focus();
+      });
 
       // Email validation
       if (emailInput) {
