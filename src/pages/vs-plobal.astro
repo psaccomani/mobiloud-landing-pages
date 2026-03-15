@@ -60,7 +60,7 @@ const comparisonRows = [
   {
     feature: 'Pricing',
     competitor: 'From $199/mo (Growth) + 3% revenue share, to $1,199/mo (Enterprise) + 1% revenue share.',
-    mobiloud: 'From $799/mo (Growth) to $1,499/mo (Corporate). Flat fee, no revenue share.',
+    mobiloud: 'From $799/mo (Growth) to $1,499/mo (Corporate). No revenue share, no success fees.',
     competitorBad: true,
     mobiloudGood: true,
   },
@@ -108,7 +108,7 @@ const faqs = [
   },
   {
     q: 'What about pricing and hidden fees?',
-    a: "MobiLoud charges a flat monthly fee: $799/mo for Growth, $1,499/mo for Corporate. No revenue share, no success fees, ever. Plobal Apps charges a 1-3% revenue share on top of their monthly subscription ($199-$1,199/mo). On their Growth plan at $199/mo with $50,000 in monthly app revenue, you'd pay an additional $1,500/mo in fees — making the real cost $1,699/mo. With MobiLoud, your price stays the same regardless of revenue.",
+    a: "MobiLoud has simple monthly pricing starting at $799/mo for Growth and $1,499/mo for Corporate. No revenue share, no success fees, ever. Plobal Apps charges a 1-3% revenue share on top of their monthly subscription ($199-$1,199/mo). On their Growth plan at $199/mo with $50,000 in monthly app revenue, you'd pay an additional $1,500/mo in fees, making the real cost $1,699/mo. MobiLoud never takes a cut of your revenue.",
   },
   {
     q: 'Will all my integrations work?',
@@ -124,7 +124,7 @@ const faqs = [
   },
   {
     q: 'How does the total cost compare as my app grows?',
-    a: "MobiLoud's pricing is flat — $799/mo or $1,499/mo regardless of your app revenue. Plobal Apps charges a 1-3% revenue share on in-app sales. As your app succeeds and revenue grows, Plobal's costs grow with it. At $100,000/mo in app revenue on Plobal's Growth plan, you'd pay $199 + $3,000 = $3,199/mo. MobiLoud Corporate would still be $1,499/mo.",
+    a: "MobiLoud has straightforward monthly pricing with no revenue share. Plobal Apps charges a 1-3% revenue share on in-app sales. As your app succeeds and revenue grows, Plobal's costs grow with it. At $100,000/mo in app revenue on Plobal's Growth plan, you'd pay $199 + $3,000 = $3,199/mo. MobiLoud never charges a percentage of your sales.",
   },
   {
     q: 'What is your cancellation policy?',
@@ -134,17 +134,17 @@ const faqs = [
 ---
 
 <Layout
-  title="MobiLoud vs Plobal Apps — Flat Pricing, No Revenue Share"
-  description="Compare MobiLoud and Plobal Apps. MobiLoud turns your existing website into a native app with flat pricing and no revenue share. No rebuilding, fully managed."
+  title="MobiLoud vs Plobal Apps — Simple Pricing, No Revenue Share"
+  description="Compare MobiLoud and Plobal Apps. MobiLoud turns your existing website into a native app with simple pricing and no revenue share. No rebuilding, fully managed."
 >
   <Nav />
 
   <CompetitorHero
     competitor="Plobal Apps"
-    headline="Your Store as a Native App. Flat Pricing. No Revenue Share."
-    subhead="Plobal Apps is a solid app builder for Shopify stores, but charges 1-3% revenue share on top of their subscription. MobiLoud turns your existing website into a native app with flat monthly pricing — no variable fees, no matter how much your app earns."
+    headline="Your Store as a Native App. Simple Pricing. No Revenue Share."
+    subhead="Plobal Apps is a solid app builder for Shopify stores, but charges 1-3% revenue share on top of their subscription. MobiLoud turns your existing website into a native app with simple monthly pricing and no revenue share, no matter how much your app earns."
     checklist={[
-      'No revenue share. Your price stays the same as you grow.',
+      'No revenue share. We never take a cut of your sales.',
       'No rebuilding your store in a separate editor.',
       'Fully managed service with a dedicated team on your side.',
     ]}
@@ -161,7 +161,7 @@ const faqs = [
 
   <PricingAttack
     competitor="Plobal Apps"
-    feeDescription="Plobal Apps charges a 1-3% revenue share on all in-app sales, on top of their monthly subscription. Here's how that adds up compared to MobiLoud's flat pricing."
+    feeDescription="Plobal Apps charges a 1-3% revenue share on all in-app sales, on top of their monthly subscription. Here's how that adds up compared to MobiLoud's simple pricing."
     examples={pricingExamples}
   />
 
