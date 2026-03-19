@@ -1,0 +1,272 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/sections/Nav.astro';
+import LogoMarquee from '../components/sections/LogoMarquee.astro';
+import ValueProp from '../components/sections/ValueProp.astro';
+import CaseStudies from '../components/sections/CaseStudies.astro';
+import DarkFeatures from '../components/sections/DarkFeatures.astro';
+import IntegrationsSection from '../components/sections/IntegrationsSection.astro';
+import TestimonialsRow from '../components/sections/TestimonialsRow.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+import Footer from '../components/sections/Footer.astro';
+import Container from '../components/ui/Container.astro';
+import LeadForm from '../components/ui/LeadForm.astro';
+import '../styles/global.css';
+
+const base = import.meta.env.BASE_URL;
+
+const problems = [
+  {
+    title: 'Custom VTEX app development is expensive',
+    description: 'Building a native app that replicates your VTEX storefront from scratch requires 6-12 months, a dedicated dev team, and $100k+ in upfront costs.',
+  },
+  {
+    title: 'VTEX IO adds frontend complexity',
+    description: 'Even with VTEX IO\'s headless architecture, you still need React developers to rebuild the entire shopping experience for mobile.',
+  },
+  {
+    title: 'Multi-country stores multiply the problem',
+    description: 'LATAM brands often run separate storefronts for Brazil, Mexico, Colombia, and Chile. A custom app approach means rebuilding and maintaining each one independently.',
+  },
+  {
+    title: 'Your integrations and customizations break',
+    description: 'VTEX\'s ecosystem includes Emarsys, Criteo, VTEX Intelligent Search, local payment gateways. Custom app builds rarely carry all of these over cleanly.',
+  },
+];
+
+const solutions = [
+  {
+    title: 'Your VTEX storefront becomes your app',
+    description: 'MobiLoud turns your live VTEX site into your iOS and Android app. Your design, features, and custom code all work automatically - no rebuild required.',
+  },
+  {
+    title: 'Works with VTEX IO and legacy VTEX',
+    description: 'Whether you\'re on VTEX IO\'s headless storefront or the legacy template-based architecture, your existing frontend powers the app directly.',
+  },
+  {
+    title: 'One build for all your storefronts',
+    description: 'Multi-country VTEX setups get a single app architecture with separate configurations per market. One team manages it all.',
+  },
+  {
+    title: 'Every integration carries over',
+    description: 'Emarsys, Criteo, VTEX Intelligent Search, local payment methods, and anything else running on your site works in the app with no extra configuration.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Does it work with VTEX IO storefronts?',
+    a: 'Yes. MobiLoud works with VTEX IO storefronts. Because your app is powered by your live website rather than rebuilt using APIs, your VTEX IO frontend - including all its components, custom code, and integrations - works in the app automatically. No separate React development required.',
+  },
+  {
+    q: 'Does it work with legacy VTEX (non-IO)?',
+    a: 'Yes. MobiLoud works with legacy VTEX template-based storefronts as well. Whatever version of VTEX you are running, if it renders in a browser, we can turn it into an iOS and Android app.',
+  },
+  {
+    q: 'Can I launch apps for multiple VTEX storefronts (multi-country)?',
+    a: 'Yes. Multi-country VTEX setups are supported. Each storefront (Brazil, Mexico, Colombia, Chile, etc.) gets its own app configuration with localized language, URLs, and push notification targeting. Additional configurations are priced at $100/mo on top of your standard plan.',
+  },
+  {
+    q: 'Do VTEX integrations like Emarsys, Criteo, and VTEX Intelligent Search work in the app?',
+    a: 'Yes. All integrations that run on your VTEX storefront carry over automatically, including Emarsys, Criteo, VTEX Intelligent Search, and any other tools embedded in your frontend. There is no need to reconfigure them separately for the app.',
+  },
+  {
+    q: 'Does it work with VTEX checkout, including local payment methods?',
+    a: 'Yes. VTEX checkout runs inside your app just as it does on your website. Local LATAM payment methods - Pix, Boleto Bancário, Mercado Pago, PayU, ePayco, Khipu, and others - all work without any additional configuration.',
+  },
+  {
+    q: 'Is there a Spanish or Portuguese version of the app onboarding?',
+    a: 'We work with teams across Latin America and can support onboarding in English, Spanish, and Portuguese. Your app itself will display in whatever language your VTEX storefront is configured to serve.',
+  },
+  {
+    q: 'How long does it take to launch?',
+    a: 'Most apps go live within 30 days of kickoff. The process starts with a consultation, followed by an onboarding call, app build, preview and feedback round, then submission to the App Store and Google Play. We handle approvals and keep you updated throughout.',
+  },
+  {
+    q: 'What LATAM brands have you worked with?',
+    a: 'We have served 2,000+ brands globally across fashion, beauty, pharma, grocery, and more. We can share relevant reference customers on a consultation call.',
+  },
+];
+---
+
+<Layout
+  title="VTEX Mobile App Builder — MobiLoud"
+  description="Turn your VTEX storefront into an iOS and Android app in 30 days. Works with VTEX IO and legacy VTEX. No rebuild, no extra maintenance. Used by enterprise LATAM brands."
+>
+  <Nav />
+
+  <!-- Hero -->
+  <section class="bg-neutral-900 pt-16 pb-20 overflow-hidden" style="background: linear-gradient(135deg, #1a1a2e 0%, #171717 40%, #0f2016 100%)">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left: Text -->
+        <div>
+          <p class="text-primary-400 font-semibold text-sm uppercase tracking-wide mb-4" id="vtex-mobile-app">The Fastest Way to Launch a Mobile App for Your VTEX Store</p>
+          <h1 class="font-display text-display-1 text-white mb-6 lg:text-[60px] lg:leading-[68px]" id="turn-vtex-store-into-app" aria-label="Turn your VTEX storefront into an iOS and Android app">Turn Your VTEX Storefront into an iOS and Android App. Live in 30 days.</h1>
+          <p class="text-neutral-400 text-lg leading-relaxed mb-8 max-w-lg">Launch an iOS and Android app powered by your live VTEX store. Works with VTEX IO and legacy VTEX architectures. No rebuild. Used by enterprise LATAM brands.</p>
+
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3 text-neutral-300 text-sm">
+              <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Works with VTEX IO and legacy VTEX storefronts - no replatforming required
+            </li>
+            <li class="flex items-start gap-3 text-neutral-300 text-sm">
+              <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Multi-country support: one app architecture, multiple storefronts for different markets
+            </li>
+            <li class="flex items-start gap-3 text-neutral-300 text-sm">
+              <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Flat monthly pricing. No revenue share, no hidden fees
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Lead form -->
+        <div class="flex justify-center" id="lead-form-section">
+          <div class="bg-neutral-800 border border-neutral-700 rounded-2xl p-6 sm:p-8 w-full max-w-md shadow-2xl">
+            <LeadForm id="hero-form" variant="dark" heading="Get a free preview of your mobile app" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Badge row -->
+      <div class="flex flex-wrap items-center justify-center gap-6 mt-16 pt-10 border-t border-neutral-800">
+        <img src={`${base}/images/G2-Review-Badge.svg`} alt="G2 Review Badge" width="54" height="60" class="h-[54px] w-auto" loading="eager">
+        <img src={`${base}/images/capterra-rating-badge_1.svg`} alt="Capterra Rating Badge" width="162" height="54" class="h-[54px] w-auto" loading="eager">
+        <img src={`${base}/images/producthunt-badge.svg`} alt="Product Hunt Badge" width="250" height="54" class="h-[54px] w-auto" loading="eager">
+      </div>
+    </Container>
+  </section>
+
+  <LogoMarquee />
+
+  <!-- Comparison -->
+  <section class="py-20 bg-neutral-50">
+    <Container>
+      <div class="text-center mb-14">
+        <h2 class="font-display text-display-3 text-heading" id="vtex-app-builder-comparison" aria-label="VTEX mobile app options compared">Custom VTEX app development makes you start from scratch. We don't.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <!-- Problem -->
+        <div class="border border-neutral-200 rounded-card p-8 lg:p-10 bg-white">
+          <p class="text-red-600 font-semibold text-sm uppercase tracking-wide mb-6">The problem with custom VTEX app builds</p>
+          <div class="space-y-6">
+            {problems.map((p) => (
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 mt-1">
+                  <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#DC2626"/><path d="M5.5 5.5L10.5 10.5M10.5 5.5L5.5 10.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </span>
+                <div>
+                  <p class="font-display font-bold text-neutral-900 text-base mb-1">{p.title}</p>
+                  <p class="text-neutral-500 text-sm leading-relaxed">{p.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="border-2 border-primary-600 rounded-card p-8 lg:p-10 bg-primary-50">
+          <p class="text-primary-700 font-semibold text-sm uppercase tracking-wide mb-6">How MobiLoud is different</p>
+          <div class="space-y-6">
+            {solutions.map((s) => (
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 mt-1">
+                  <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#047857"/><path d="M5 8L7 10L11 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <div>
+                  <p class="font-display font-bold text-neutral-900 text-base mb-1">{s.title}</p>
+                  <p class="text-neutral-500 text-sm leading-relaxed">{s.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="#lead-form-section" class="btn-primary cursor-pointer" style="cursor: pointer;">See the Difference for Yourself</a>
+      </div>
+    </Container>
+  </section>
+
+  <ValueProp />
+  <CaseStudies />
+  <DarkFeatures />
+  <IntegrationsSection />
+  <TestimonialsRow />
+
+  <!-- FAQ -->
+  <section class="py-20 bg-background">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-12 lg:gap-16">
+        <!-- Left sidebar -->
+        <div class="lg:sticky lg:top-24 lg:self-start">
+          <h3 class="font-display text-display-4 text-primary-700 mb-4">Your questions, answered.</h3>
+          <p class="text-neutral-600 text-base leading-relaxed mb-6">
+            Still have questions? Get a free preview and we'll walk you through everything.
+          </p>
+          <a href="#lead-form-section" class="btn-primary cursor-pointer text-sm !py-2.5 !px-5">Get Your Free Preview</a>
+        </div>
+
+        <!-- Right: FAQ accordion -->
+        <div class="space-y-0">
+          {faqs.map((faq, i) => (
+            <div class="border-b border-neutral-200">
+              <button
+                class="faq-trigger w-full flex items-center justify-between py-5 text-left cursor-pointer group"
+                aria-expanded="false"
+                data-faq-index={i}
+              >
+                <span class="font-display font-semibold text-neutral-900 text-base pr-4 group-hover:text-primary-700 transition-colors">{faq.q}</span>
+                <svg class="faq-arrow flex-shrink-0 w-5 h-5 text-neutral-400" viewBox="0 0 20 20" fill="none">
+                  <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="faq-answer" data-faq-answer={i}>
+                <p class="text-neutral-600 text-base leading-relaxed pb-5">{faq.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <FinalCTA />
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const triggers = document.querySelectorAll('.faq-trigger');
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const index = (trigger as HTMLElement).dataset.faqIndex;
+        const answer = document.querySelector(`[data-faq-answer="${index}"]`);
+        const arrow = trigger.querySelector('.faq-arrow');
+        const isOpen = answer?.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-arrow').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-trigger').forEach(t => t.setAttribute('aria-expanded', 'false'));
+
+        // Toggle current
+        if (!isOpen) {
+          answer?.classList.add('open');
+          arrow?.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  });
+</script>

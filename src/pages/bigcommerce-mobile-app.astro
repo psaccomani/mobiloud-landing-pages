@@ -1,0 +1,272 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/sections/Nav.astro';
+import LogoMarquee from '../components/sections/LogoMarquee.astro';
+import ValueProp from '../components/sections/ValueProp.astro';
+import CaseStudies from '../components/sections/CaseStudies.astro';
+import DarkFeatures from '../components/sections/DarkFeatures.astro';
+import IntegrationsSection from '../components/sections/IntegrationsSection.astro';
+import TestimonialsRow from '../components/sections/TestimonialsRow.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+import Footer from '../components/sections/Footer.astro';
+import Container from '../components/ui/Container.astro';
+import LeadForm from '../components/ui/LeadForm.astro';
+import '../styles/global.css';
+
+const base = import.meta.env.BASE_URL;
+
+const problems = [
+  {
+    title: 'Custom development is expensive and slow',
+    description: 'Building a BigCommerce mobile app from scratch costs $50,000–$200,000+, takes 6–12 months, and requires an ongoing developer relationship to maintain.',
+  },
+  {
+    title: 'App builders force you to rebuild your store',
+    description: 'Most mobile app builders use templates that require you to recreate your store in a separate editor, separate from your BigCommerce setup.',
+  },
+  {
+    title: 'Your integrations and customizations get lost',
+    description: 'Custom pricing rules, B2B buyer portals, third-party tools, and checkout customizations rarely survive the move to a template-based app builder.',
+  },
+  {
+    title: 'Double the maintenance, forever',
+    description: 'Every product update, theme change, or feature addition has to be replicated in two places. That overhead compounds over time.',
+  },
+];
+
+const solutions = [
+  {
+    title: 'Your existing BigCommerce site becomes your app',
+    description: 'MobiLoud turns your live storefront into an iOS and Android app. Your design, features, and custom code carry over automatically.',
+  },
+  {
+    title: 'No rebuild required',
+    description: 'Nothing to recreate in a separate editor. Your BigCommerce store powers the app as-is, including B2B Edition buyer portals and wholesale flows.',
+  },
+  {
+    title: 'Every integration works out of the box',
+    description: 'Every tool on your site, including custom checkout, third-party apps, and BigCommerce scripts, works in your app with no extra configuration.',
+  },
+  {
+    title: 'One update, everywhere',
+    description: 'Change your site once and your app updates automatically. No separate app platform to manage, ever.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'How is MobiLoud different from building a BigCommerce mobile app myself?',
+    a: 'Building an app from scratch typically costs $50,000–$200,000+ and takes 6–12 months, not counting ongoing maintenance. MobiLoud is a fully managed service: we turn your existing BigCommerce storefront into an iOS and Android app and handle everything from development to App Store and Google Play submission. You are live in about 30 days, at a fraction of the cost.',
+  },
+  {
+    q: 'Does it work with BigCommerce B2B Edition?',
+    a: 'Yes. Because your app is powered by your live BigCommerce site, B2B Edition features carry over automatically. Buyer portals, customer-specific pricing, quote management, and wholesale ordering flows all work in the app without any rebuilding or special configuration.',
+  },
+  {
+    q: 'Do my BigCommerce apps and integrations carry over?',
+    a: 'Yes. Every app, script, and integration running on your BigCommerce storefront works in your app automatically. There is no compatibility list to check and nothing to configure separately. If it works on your site, it works in the app.',
+  },
+  {
+    q: 'Does it work with BigCommerce checkout, including the optimised one-page checkout?',
+    a: "Yes. MobiLoud supports BigCommerce's native checkout, including the optimised one-page checkout. Because your app runs your live site, the checkout experience your customers already know carries over exactly, including any custom checkout scripts or payment integrations.",
+  },
+  {
+    q: 'What happens when I update my BigCommerce theme or products?',
+    a: 'Your app updates automatically. There is no separate app platform to maintain. Change your theme, add products, update prices, run a promotion — it all appears in the app instantly, with no action required on your end.',
+  },
+  {
+    q: 'How long does it take to launch?',
+    a: 'About 30 days from sign-up to live app. Our team handles everything: app development, custom graphics, App Store and Google Play submission, and approval monitoring. You review and approve at each step. We do the technical work.',
+  },
+  {
+    q: 'Does it support headless BigCommerce storefronts?',
+    a: 'Yes. If your BigCommerce store uses a headless frontend, such as a custom React or Next.js storefront, MobiLoud can turn that frontend into your app. Your headless site becomes the app, so all your custom frontend logic, design, and integrations carry over.',
+  },
+  {
+    q: 'What push notification tools does it integrate with?',
+    a: "MobiLoud includes built-in push notification tools and integrates with platforms like Klaviyo, OneSignal, and Braze. You can send targeted campaigns, abandoned cart reminders, and promotional messages directly to your app users' home screens, with no algorithm or ad spend required.",
+  },
+];
+---
+
+<Layout
+  title="BigCommerce Mobile App Builder — MobiLoud"
+  description="Turn your BigCommerce store into an iOS and Android app in 30 days. Fully managed service. Works with BigCommerce standard and B2B Edition. No rebuilding required."
+>
+  <Nav />
+
+  <!-- Hero -->
+  <section class="bg-neutral-900 pt-16 pb-20 overflow-hidden" style="background: linear-gradient(135deg, #1a1a2e 0%, #171717 40%, #0f2016 100%)">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left: Text -->
+        <div>
+          <p class="text-primary-400 font-semibold text-sm uppercase tracking-wide mb-4" id="bigcommerce-mobile-app">The Best Mobile App Builder for BigCommerce</p>
+          <h1 class="font-display text-display-1 text-white mb-6 lg:text-[60px] lg:leading-[68px]" id="turn-bigcommerce-store-into-app" aria-label="Turn your BigCommerce store into a mobile app">Turn Your BigCommerce Store into a Mobile App. Live in 30 days.</h1>
+          <p class="text-neutral-400 text-lg leading-relaxed mb-8 max-w-lg">Give your best customers a reason to keep coming back. Launch an iOS and Android app that syncs with your BigCommerce store. Works with BC standard and B2B Edition.</p>
+
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3 text-neutral-300 text-sm">
+              <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Fully managed service. No DIY, no coding, no BigCommerce rebuild required
+            </li>
+            <li class="flex items-start gap-3 text-neutral-300 text-sm">
+              <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              We submit your app to the App Store and Google Play and manage approvals
+            </li>
+            <li class="flex items-start gap-3 text-neutral-300 text-sm">
+              <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Flat monthly pricing. No revenue share, no hidden fees
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Lead form -->
+        <div class="flex justify-center" id="lead-form-section">
+          <div class="bg-neutral-800 border border-neutral-700 rounded-2xl p-6 sm:p-8 w-full max-w-md shadow-2xl">
+            <LeadForm id="hero-form" variant="dark" heading="Get a free preview of your mobile app" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Badge row -->
+      <div class="flex flex-wrap items-center justify-center gap-6 mt-16 pt-10 border-t border-neutral-800">
+        <img src={`${base}/images/G2-Review-Badge.svg`} alt="G2 Review Badge" width="54" height="60" class="h-[54px] w-auto" loading="eager">
+        <img src={`${base}/images/capterra-rating-badge_1.svg`} alt="Capterra Rating Badge" width="162" height="54" class="h-[54px] w-auto" loading="eager">
+        <img src={`${base}/images/producthunt-badge.svg`} alt="Product Hunt Badge" width="250" height="54" class="h-[54px] w-auto" loading="eager">
+      </div>
+    </Container>
+  </section>
+
+  <LogoMarquee />
+
+  <!-- Comparison -->
+  <section class="py-20 bg-neutral-50">
+    <Container>
+      <div class="text-center mb-14">
+        <h2 class="font-display text-display-3 text-heading" id="bigcommerce-app-builder-comparison" aria-label="Compare BigCommerce mobile app builders">App builders make you start from scratch. We don't.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <!-- Problem -->
+        <div class="border border-neutral-200 rounded-card p-8 lg:p-10 bg-white">
+          <p class="text-red-600 font-semibold text-sm uppercase tracking-wide mb-6">The problem with other approaches</p>
+          <div class="space-y-6">
+            {problems.map((p) => (
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 mt-1">
+                  <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#DC2626"/><path d="M5.5 5.5L10.5 10.5M10.5 5.5L5.5 10.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </span>
+                <div>
+                  <p class="font-display font-bold text-neutral-900 text-base mb-1">{p.title}</p>
+                  <p class="text-neutral-500 text-sm leading-relaxed">{p.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="border-2 border-primary-600 rounded-card p-8 lg:p-10 bg-primary-50">
+          <p class="text-primary-700 font-semibold text-sm uppercase tracking-wide mb-6">How MobiLoud is different</p>
+          <div class="space-y-6">
+            {solutions.map((s) => (
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 mt-1">
+                  <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#047857"/><path d="M5 8L7 10L11 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <div>
+                  <p class="font-display font-bold text-neutral-900 text-base mb-1">{s.title}</p>
+                  <p class="text-neutral-500 text-sm leading-relaxed">{s.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="#lead-form-section" class="btn-primary cursor-pointer" style="cursor: pointer;">See the Difference for Yourself</a>
+      </div>
+    </Container>
+  </section>
+
+  <ValueProp />
+  <CaseStudies />
+  <DarkFeatures />
+  <IntegrationsSection />
+  <TestimonialsRow />
+
+  <!-- FAQ -->
+  <section class="py-20 bg-background">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-12 lg:gap-16">
+        <!-- Left sidebar -->
+        <div class="lg:sticky lg:top-24 lg:self-start">
+          <h3 class="font-display text-display-4 text-primary-700 mb-4">Your questions, answered.</h3>
+          <p class="text-neutral-600 text-base leading-relaxed mb-6">
+            Still have questions? Get a free preview and we'll walk you through everything.
+          </p>
+          <a href="#lead-form-section" class="btn-primary cursor-pointer text-sm !py-2.5 !px-5">Get Your Free Preview</a>
+        </div>
+
+        <!-- Right: FAQ accordion -->
+        <div class="space-y-0">
+          {faqs.map((faq, i) => (
+            <div class="border-b border-neutral-200">
+              <button
+                class="faq-trigger w-full flex items-center justify-between py-5 text-left cursor-pointer group"
+                aria-expanded="false"
+                data-faq-index={i}
+              >
+                <span class="font-display font-semibold text-neutral-900 text-base pr-4 group-hover:text-primary-700 transition-colors">{faq.q}</span>
+                <svg class="faq-arrow flex-shrink-0 w-5 h-5 text-neutral-400" viewBox="0 0 20 20" fill="none">
+                  <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="faq-answer" data-faq-answer={i}>
+                <p class="text-neutral-600 text-base leading-relaxed pb-5">{faq.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <FinalCTA />
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const triggers = document.querySelectorAll('.faq-trigger');
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const index = (trigger as HTMLElement).dataset.faqIndex;
+        const answer = document.querySelector(`[data-faq-answer="${index}"]`);
+        const arrow = trigger.querySelector('.faq-arrow');
+        const isOpen = answer?.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-arrow').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-trigger').forEach(t => t.setAttribute('aria-expanded', 'false'));
+
+        // Toggle current
+        if (!isOpen) {
+          answer?.classList.add('open');
+          arrow?.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  });
+</script>

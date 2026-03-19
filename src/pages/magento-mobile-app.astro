@@ -1,0 +1,272 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/sections/Nav.astro';
+import LogoMarquee from '../components/sections/LogoMarquee.astro';
+import ValueProp from '../components/sections/ValueProp.astro';
+import CaseStudies from '../components/sections/CaseStudies.astro';
+import DarkFeatures from '../components/sections/DarkFeatures.astro';
+import IntegrationsSection from '../components/sections/IntegrationsSection.astro';
+import TestimonialsRow from '../components/sections/TestimonialsRow.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+import Footer from '../components/sections/Footer.astro';
+import Container from '../components/ui/Container.astro';
+import LeadForm from '../components/ui/LeadForm.astro';
+import '../styles/global.css';
+
+const base = import.meta.env.BASE_URL;
+
+const magentoProblems = [
+  {
+    title: 'Custom development is expensive and slow',
+    description: 'Building a Magento mobile app from scratch costs $100,000–$300,000+, takes 6–12 months, and requires a dedicated mobile development team to maintain.',
+  },
+  {
+    title: 'App builders force you to rebuild your store',
+    description: 'Template-based app builders require you to recreate your Magento catalog, checkout, and custom logic in a separate editor, disconnected from your existing setup.',
+  },
+  {
+    title: 'Your extensions and customizations get lost',
+    description: 'Custom pricing rules, B2B buyer groups, loyalty programs, and third-party extensions rarely survive the move to a template-based app builder.',
+  },
+  {
+    title: 'Double the maintenance, forever',
+    description: 'Every theme change, product update, or extension upgrade has to be replicated in two places. That overhead compounds as your catalog and tech stack grows.',
+  },
+];
+
+const magentoSolutions = [
+  {
+    title: 'Your existing Magento site becomes your app',
+    description: 'MobiLoud turns your live Magento storefront into an iOS and Android app. Your design, extensions, and custom code carry over automatically.',
+  },
+  {
+    title: 'No rebuild required',
+    description: 'Nothing to recreate in a separate editor. Your Magento store powers the app as-is, including Hyvä themes, B2B setups, and custom checkout flows.',
+  },
+  {
+    title: 'Every extension works out of the box',
+    description: 'Every Magento extension, custom module, and third-party integration that runs on your site works in your app with no extra configuration.',
+  },
+  {
+    title: 'One update, everywhere',
+    description: 'Change your site once and your app updates automatically. No separate app platform to manage, and no risk of your site and app falling out of sync.',
+  },
+];
+
+const magentoFaqs = [
+  {
+    q: 'Does it work with Magento 2 and Adobe Commerce?',
+    a: 'Yes. MobiLoud works with Magento 2, Adobe Commerce (Cloud and On-Premise), and Magento Open Source. Because your app is powered by your live website, there is nothing platform-specific to configure. If it runs in a browser, it works as an app.',
+  },
+  {
+    q: 'Does it work with Hyvä theme storefronts?',
+    a: 'Yes. Hyvä themes run in the browser like any other storefront, so MobiLoud turns them into an iOS and Android app without any modifications. The speed and performance advantages of Hyvä carry over into the app experience.',
+  },
+  {
+    q: 'Do my Magento extensions work in the app?',
+    a: 'Yes. Every extension you use on your Magento site works in the app automatically. Because MobiLoud turns your live website into an app rather than rebuilding it, there is no API integration required and nothing needs to be re-configured.',
+  },
+  {
+    q: 'What happens when I deploy a Magento update?',
+    a: 'Nothing changes on the app side. Your app always reflects your live website. When you push a Magento update, a new product, or a design change, the app updates instantly with no extra step required from your team.',
+  },
+  {
+    q: 'Do you support PWA storefronts like Vue Storefront or PWA Studio?',
+    a: 'Yes. If your Magento store runs on a PWA frontend like Vue Storefront, Hyvä PWA, or Adobe PWA Studio, MobiLoud can still turn it into an app. The app loads your live storefront URL and adds the native iOS and Android shell, push notifications, and app store distribution on top.',
+  },
+  {
+    q: 'How long does it take to launch?',
+    a: 'Most Magento stores go live in 30 days or less. That includes onboarding, app customization, testing, and submission to the App Store and Google Play. We manage the entire process and keep you updated at each step.',
+  },
+  {
+    q: 'Do I need a developer or Magento agency?',
+    a: 'No. MobiLoud is a fully managed service. You do not need to involve your development team or your Magento agency. We handle all the technical work on our side. Your team just reviews and approves.',
+  },
+  {
+    q: 'Is this compatible with enterprise and B2B Magento setups?',
+    a: 'Yes. MobiLoud works with B2B storefronts, multi-store configurations, and enterprise Adobe Commerce setups. Custom pricing, customer group rules, and gated catalog sections all carry over automatically because the app runs your live site.',
+  },
+];
+---
+
+<Layout
+  title="Magento Mobile App Builder — MobiLoud"
+  description="Turn your Magento or Adobe Commerce store into an iOS and Android app in 30 days. All extensions, themes, and checkout carry over automatically. No rebuild required."
+>
+  <Nav />
+
+  <!-- Magento Hero -->
+  <section class="bg-neutral-900 pt-16 pb-20 overflow-hidden" style="background: linear-gradient(135deg, #1a1a2e 0%, #171717 40%, #0f2016 100%)">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left: Text -->
+        <div>
+          <p class="text-primary-400 font-semibold text-sm uppercase tracking-wide mb-4" id="magento-mobile-app">The Best Mobile App Builder for Magento &amp; Adobe Commerce</p>
+          <h1 class="font-display text-display-1 text-white mb-6 lg:text-[60px] lg:leading-[68px]" id="turn-magento-store-into-app" aria-label="Turn your Magento store into a mobile app">Turn Your Magento Store into a Mobile App. Live in 30 days.</h1>
+          <p class="text-neutral-400 text-lg leading-relaxed mb-8 max-w-lg">Launch an iOS and Android app powered by your live Magento site. All extensions, themes, and checkout carry over automatically. No rebuild, no extra maintenance.</p>
+
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3 text-neutral-300 text-sm">
+              <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Works with Magento 2, Adobe Commerce, and Hyvä-based storefronts
+            </li>
+            <li class="flex items-start gap-3 text-neutral-300 text-sm">
+              <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              We submit your app to the App Store and Google Play and manage all approvals
+            </li>
+            <li class="flex items-start gap-3 text-neutral-300 text-sm">
+              <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Flat monthly pricing. No revenue share, no hidden fees
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Lead form -->
+        <div class="flex justify-center" id="lead-form-section">
+          <div class="bg-neutral-800 border border-neutral-700 rounded-2xl p-6 sm:p-8 w-full max-w-md shadow-2xl">
+            <LeadForm id="hero-form" variant="dark" heading="Get a free preview of your mobile app" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Badge row -->
+      <div class="flex flex-wrap items-center justify-center gap-6 mt-16 pt-10 border-t border-neutral-800">
+        <img src={`${base}/images/G2-Review-Badge.svg`} alt="G2 Review Badge" width="54" height="60" class="h-[54px] w-auto" loading="eager">
+        <img src={`${base}/images/capterra-rating-badge_1.svg`} alt="Capterra Rating Badge" width="162" height="54" class="h-[54px] w-auto" loading="eager">
+        <img src={`${base}/images/producthunt-badge.svg`} alt="Product Hunt Badge" width="250" height="54" class="h-[54px] w-auto" loading="eager">
+      </div>
+    </Container>
+  </section>
+
+  <LogoMarquee />
+
+  <!-- Comparison -->
+  <section class="py-20 bg-neutral-50">
+    <Container>
+      <div class="text-center mb-14">
+        <h2 class="font-display text-display-3 text-heading" id="magento-app-builder-comparison" aria-label="Compare Magento mobile app builders">App builders make you start from scratch. We don't.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <!-- Problem -->
+        <div class="border border-neutral-200 rounded-card p-8 lg:p-10 bg-white">
+          <p class="text-red-600 font-semibold text-sm uppercase tracking-wide mb-6">The problem with other approaches</p>
+          <div class="space-y-6">
+            {magentoProblems.map((p) => (
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 mt-1">
+                  <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#DC2626"/><path d="M5.5 5.5L10.5 10.5M10.5 5.5L5.5 10.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </span>
+                <div>
+                  <p class="font-display font-bold text-neutral-900 text-base mb-1">{p.title}</p>
+                  <p class="text-neutral-500 text-sm leading-relaxed">{p.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="border-2 border-primary-600 rounded-card p-8 lg:p-10 bg-primary-50">
+          <p class="text-primary-700 font-semibold text-sm uppercase tracking-wide mb-6">How MobiLoud is different</p>
+          <div class="space-y-6">
+            {magentoSolutions.map((s) => (
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 mt-1">
+                  <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#047857"/><path d="M5 8L7 10L11 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <div>
+                  <p class="font-display font-bold text-neutral-900 text-base mb-1">{s.title}</p>
+                  <p class="text-neutral-500 text-sm leading-relaxed">{s.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="#lead-form-section" class="btn-primary cursor-pointer" style="cursor: pointer;">See the Difference for Yourself</a>
+      </div>
+    </Container>
+  </section>
+
+  <ValueProp />
+  <CaseStudies />
+  <DarkFeatures />
+  <IntegrationsSection />
+  <TestimonialsRow />
+
+  <!-- Magento FAQ -->
+  <section class="py-20 bg-background">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-12 lg:gap-16">
+        <!-- Left sidebar -->
+        <div class="lg:sticky lg:top-24 lg:self-start">
+          <h3 class="font-display text-display-4 text-primary-700 mb-4">Your questions, answered.</h3>
+          <p class="text-neutral-600 text-base leading-relaxed mb-6">
+            Still have questions? Get a free preview and we'll walk you through everything.
+          </p>
+          <a href="#lead-form-section" class="btn-primary cursor-pointer text-sm !py-2.5 !px-5">Get Your Free Preview</a>
+        </div>
+
+        <!-- Right: FAQ accordion -->
+        <div class="space-y-0">
+          {magentoFaqs.map((faq, i) => (
+            <div class="border-b border-neutral-200">
+              <button
+                class="faq-trigger w-full flex items-center justify-between py-5 text-left cursor-pointer group"
+                aria-expanded="false"
+                data-faq-index={i}
+              >
+                <span class="font-display font-semibold text-neutral-900 text-base pr-4 group-hover:text-primary-700 transition-colors">{faq.q}</span>
+                <svg class="faq-arrow flex-shrink-0 w-5 h-5 text-neutral-400" viewBox="0 0 20 20" fill="none">
+                  <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="faq-answer" data-faq-answer={i}>
+                <p class="text-neutral-600 text-base leading-relaxed pb-5">{faq.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const triggers = document.querySelectorAll('.faq-trigger');
+
+      triggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const index = (trigger as HTMLElement).dataset.faqIndex;
+          const answer = document.querySelector(`[data-faq-answer="${index}"]`);
+          const arrow = trigger.querySelector('.faq-arrow');
+          const isOpen = answer?.classList.contains('open');
+
+          // Close all
+          document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+          document.querySelectorAll('.faq-arrow').forEach(a => a.classList.remove('open'));
+          document.querySelectorAll('.faq-trigger').forEach(t => t.setAttribute('aria-expanded', 'false'));
+
+          // Toggle current
+          if (!isOpen) {
+            answer?.classList.add('open');
+            arrow?.classList.add('open');
+            trigger.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    });
+  </script>
+
+  <FinalCTA />
+  <Footer />
+</Layout>

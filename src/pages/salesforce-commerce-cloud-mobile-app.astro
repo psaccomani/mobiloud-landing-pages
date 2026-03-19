@@ -1,0 +1,272 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/sections/Nav.astro';
+import LogoMarquee from '../components/sections/LogoMarquee.astro';
+import ValueProp from '../components/sections/ValueProp.astro';
+import CaseStudies from '../components/sections/CaseStudies.astro';
+import DarkFeatures from '../components/sections/DarkFeatures.astro';
+import IntegrationsSection from '../components/sections/IntegrationsSection.astro';
+import TestimonialsRow from '../components/sections/TestimonialsRow.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+import Footer from '../components/sections/Footer.astro';
+import Container from '../components/ui/Container.astro';
+import LeadForm from '../components/ui/LeadForm.astro';
+import '../styles/global.css';
+
+const base = import.meta.env.BASE_URL;
+
+const problems = [
+  {
+    title: 'Building headless means starting from scratch',
+    description: 'A React Native or Flutter app on top of SFCC APIs requires months of development, a separate mobile codebase, and a dedicated mobile engineering team.',
+  },
+  {
+    title: 'Custom features and cartridges get left behind',
+    description: 'Loyalty programs, custom bundles, payment flows, and third-party integrations built for your SFCC storefront rarely survive a headless rebuild intact.',
+  },
+  {
+    title: 'Two codebases, double the maintenance',
+    description: 'Every storefront change — new product pages, promotions, checkout updates — needs to be replicated in your mobile app. Indefinitely.',
+  },
+  {
+    title: 'Cost and timeline are hard to control',
+    description: 'Custom SFCC mobile apps routinely cost $250k-$500k to build and 6-9 months to launch, with six-figure annual maintenance on top.',
+  },
+];
+
+const solutions = [
+  {
+    title: 'Your SFCC storefront becomes your app',
+    description: 'MobiLoud turns your live Salesforce Commerce Cloud site into an iOS and Android app. No headless rebuild, no separate mobile codebase. Aura and LWR both supported.',
+  },
+  {
+    title: 'All your features carry over automatically',
+    description: 'Every cartridge integration, custom feature, loyalty program, and third-party tool you already run on your storefront works in the app with no reconfiguration.',
+  },
+  {
+    title: 'One site to maintain, always in sync',
+    description: 'Update your SFCC storefront and the app updates with it in real time. Your merchandising team keeps working the same way they always have.',
+  },
+  {
+    title: 'Live in 30 days. Flat monthly pricing.',
+    description: 'From kickoff to live in the App Store and Google Play in about 30 days. No revenue share, no hidden fees, and enterprise contracts with SLA options available.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Does it work with Salesforce Commerce Cloud Aura storefronts?',
+    a: 'Yes. MobiLoud works with SFCC Aura storefronts. Because your app is powered by your live site, all your Aura-based customizations, cartridges, and integrations carry over automatically. No replatforming or storefront migration required.',
+  },
+  {
+    q: 'Does it work with SFCC LWR (Lightning Web Runtime)?',
+    a: 'Yes. MobiLoud is fully compatible with SFCC LWR storefronts. Whether you are on the legacy Aura framework or have migrated to LWR, the approach is the same: your live storefront powers the app directly.',
+  },
+  {
+    q: 'Do SFCC cartridges and integrations work in the app?',
+    a: 'Yes. Because the app runs your live storefront, every cartridge integration — payment processors, loyalty platforms, search tools, personalization engines — works in the app without any separate configuration. If it works on your site, it works in the app.',
+  },
+  {
+    q: 'Is this different from building a headless PWA on SFCC?',
+    a: "Completely different. A headless PWA (like SFCC's Composable Storefront or PWA Kit) requires rebuilding your frontend in React and maintaining a separate codebase. MobiLoud turns your existing storefront into an iOS and Android app as-is. No rebuild, no new codebase, no migration risk. You get a real app in the App Store and Google Play, not a PWA pinned to the home screen.",
+  },
+  {
+    q: 'Do you offer enterprise contracts and SLAs?',
+    a: 'Yes. MobiLoud offers enterprise contracts with defined SLAs, dedicated Customer Success Managers, and Slack and phone support. Uptime guarantees and custom contractual terms are available on enterprise plans. Contact us to discuss your requirements.',
+  },
+  {
+    q: 'What enterprise brands have you worked with?',
+    a: "MobiLoud has launched apps for brands across fashion, beauty, health, and specialty retail — including John Varvatos, Jack & Jones / Bestseller, Rainbow Shops, and Tadashi Shoji, among others. We've served over 2,000 brands globally.",
+  },
+  {
+    q: 'How long does it take to launch from an SFCC storefront?',
+    a: "About 30 days from kickoff to live in the App Store and Google Play. Our team handles all development, custom graphics, app store submissions, and approval monitoring. You don't need to involve your engineering team beyond the initial review.",
+  },
+  {
+    q: 'Does it integrate with Salesforce Marketing Cloud for push notifications?',
+    a: "Yes. Push notifications are a core feature of every MobiLoud app. We can integrate with Salesforce Marketing Cloud, as well as third-party platforms like Klaviyo and Braze, to power your mobile push strategy. Our team includes push notification setup and strategy as part of the onboarding process.",
+  },
+];
+---
+
+<Layout
+  title="Salesforce Commerce Cloud Mobile App Builder — MobiLoud"
+  description="Turn your Salesforce Commerce Cloud storefront into an iOS and Android app in 30 days. No headless rebuild. No separate mobile codebase. Aura and LWR both supported."
+>
+  <Nav />
+
+  <!-- Hero -->
+  <section class="bg-neutral-900 pt-16 pb-20 overflow-hidden" style="background: linear-gradient(135deg, #1a1a2e 0%, #171717 40%, #0f2016 100%)">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left: Text -->
+        <div>
+          <p class="text-primary-400 font-semibold text-sm uppercase tracking-wide mb-4">The Fastest Way to Launch a Salesforce Commerce Cloud Mobile App</p>
+          <h1 class="font-display text-display-1 text-white mb-6 lg:text-[60px] lg:leading-[68px]">Turn Your SFCC Storefront into an iOS and Android App. Live in 30 days.</h1>
+          <p class="text-neutral-400 text-lg leading-relaxed mb-8 max-w-lg">Launch an iOS and Android app powered by your live Salesforce Commerce Cloud site. No headless rebuild. No separate mobile codebase. Aura and LWR both supported.</p>
+
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3 text-neutral-300 text-sm">
+              <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Works with both SFCC Aura and LWR storefronts - no replatforming required
+            </li>
+            <li class="flex items-start gap-3 text-neutral-300 text-sm">
+              <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Fully managed service with dedicated success manager, SLA options, and enterprise contracts
+            </li>
+            <li class="flex items-start gap-3 text-neutral-300 text-sm">
+              <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Flat monthly pricing. No revenue share, no hidden fees
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Lead form -->
+        <div class="flex justify-center" id="lead-form-section">
+          <div class="bg-neutral-800 border border-neutral-700 rounded-2xl p-6 sm:p-8 w-full max-w-md shadow-2xl">
+            <LeadForm id="hero-form" variant="dark" heading="Get a free preview of your mobile app" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Badge row -->
+      <div class="flex flex-wrap items-center justify-center gap-6 mt-16 pt-10 border-t border-neutral-800">
+        <img src={`${base}/images/G2-Review-Badge.svg`} alt="G2 Review Badge" width="54" height="60" class="h-[54px] w-auto" loading="eager">
+        <img src={`${base}/images/capterra-rating-badge_1.svg`} alt="Capterra Rating Badge" width="162" height="54" class="h-[54px] w-auto" loading="eager">
+        <img src={`${base}/images/producthunt-badge.svg`} alt="Product Hunt Badge" width="250" height="54" class="h-[54px] w-auto" loading="eager">
+      </div>
+    </Container>
+  </section>
+
+  <LogoMarquee />
+
+  <!-- Problem vs Solution comparison -->
+  <section class="py-20 bg-neutral-50">
+    <Container>
+      <div class="text-center mb-14">
+        <h2 class="font-display text-display-3 text-heading">The headless rebuild is the hard way. There's a better path.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <!-- Problem -->
+        <div class="border border-neutral-200 rounded-card p-8 lg:p-10 bg-white">
+          <p class="text-red-600 font-semibold text-sm uppercase tracking-wide mb-6">The problem with traditional SFCC mobile apps</p>
+          <div class="space-y-6">
+            {problems.map((p) => (
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 mt-1">
+                  <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#DC2626"/><path d="M5.5 5.5L10.5 10.5M10.5 5.5L5.5 10.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </span>
+                <div>
+                  <p class="font-display font-bold text-neutral-900 text-base mb-1">{p.title}</p>
+                  <p class="text-neutral-500 text-sm leading-relaxed">{p.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="border-2 border-primary-600 rounded-card p-8 lg:p-10 bg-primary-50">
+          <p class="text-primary-700 font-semibold text-sm uppercase tracking-wide mb-6">How MobiLoud is different</p>
+          <div class="space-y-6">
+            {solutions.map((s) => (
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 mt-1">
+                  <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#047857"/><path d="M5 8L7 10L11 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <div>
+                  <p class="font-display font-bold text-neutral-900 text-base mb-1">{s.title}</p>
+                  <p class="text-neutral-500 text-sm leading-relaxed">{s.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="#lead-form-section" class="btn-primary cursor-pointer" style="cursor: pointer;">See the Difference for Yourself</a>
+      </div>
+    </Container>
+  </section>
+
+  <ValueProp />
+  <CaseStudies />
+  <DarkFeatures />
+  <IntegrationsSection />
+  <TestimonialsRow />
+
+  <!-- FAQ -->
+  <section class="py-20 bg-background">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-12 lg:gap-16">
+        <!-- Left sidebar -->
+        <div class="lg:sticky lg:top-24 lg:self-start">
+          <h3 class="font-display text-display-4 text-primary-700 mb-4">Your questions, answered.</h3>
+          <p class="text-neutral-600 text-base leading-relaxed mb-6">
+            Still have questions? Get a free preview and we'll walk you through everything.
+          </p>
+          <a href="#lead-form-section" class="btn-primary cursor-pointer text-sm !py-2.5 !px-5">Get Your Free Preview</a>
+        </div>
+
+        <!-- Right: FAQ accordion -->
+        <div class="space-y-0">
+          {faqs.map((faq, i) => (
+            <div class="border-b border-neutral-200">
+              <button
+                class="faq-trigger w-full flex items-center justify-between py-5 text-left cursor-pointer group"
+                aria-expanded="false"
+                data-faq-index={i}
+              >
+                <span class="font-display font-semibold text-neutral-900 text-base pr-4 group-hover:text-primary-700 transition-colors">{faq.q}</span>
+                <svg class="faq-arrow flex-shrink-0 w-5 h-5 text-neutral-400" viewBox="0 0 20 20" fill="none">
+                  <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="faq-answer" data-faq-answer={i}>
+                <p class="text-neutral-600 text-base leading-relaxed pb-5">{faq.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <FinalCTA />
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const triggers = document.querySelectorAll('.faq-trigger');
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const index = (trigger as HTMLElement).dataset.faqIndex;
+        const answer = document.querySelector(`[data-faq-answer="${index}"]`);
+        const arrow = trigger.querySelector('.faq-arrow');
+        const isOpen = answer?.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-arrow').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-trigger').forEach(t => t.setAttribute('aria-expanded', 'false'));
+
+        // Toggle current
+        if (!isOpen) {
+          answer?.classList.add('open');
+          arrow?.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  });
+</script>

@@ -1,0 +1,274 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/sections/Nav.astro';
+import LogoMarquee from '../components/sections/LogoMarquee.astro';
+import ValueProp from '../components/sections/ValueProp.astro';
+import CaseStudies from '../components/sections/CaseStudies.astro';
+import DarkFeatures from '../components/sections/DarkFeatures.astro';
+import IntegrationsSection from '../components/sections/IntegrationsSection.astro';
+import TestimonialsRow from '../components/sections/TestimonialsRow.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+import Footer from '../components/sections/Footer.astro';
+import Container from '../components/ui/Container.astro';
+import LeadForm from '../components/ui/LeadForm.astro';
+import '../styles/global.css';
+
+const base = import.meta.env.BASE_URL;
+
+// WooCommerce-specific comparison data
+const wooProblems = [
+  {
+    title: 'You have to rebuild your store',
+    description: 'Most app builders use templates and drag-and-drop editors. You recreate your WooCommerce store from scratch in their platform, losing every customization.',
+  },
+  {
+    title: 'Double the maintenance',
+    description: 'Every change you make on your WordPress site needs to be replicated in your app. Two platforms to manage, forever.',
+  },
+  {
+    title: 'Your plugins and extensions get dropped',
+    description: 'Template-based builders can\'t replicate WooCommerce plugins, custom checkout flows, or third-party extensions. You lose functionality you depend on.',
+  },
+  {
+    title: 'Custom development costs a fortune',
+    description: 'Building a native app from scratch means $50k-$250k upfront, plus an ongoing dev team. Most WooCommerce stores can\'t justify that.',
+  },
+];
+
+const wooSolutions = [
+  {
+    title: 'Your WooCommerce site becomes your app',
+    description: 'MobiLoud turns your live WordPress site into your app. Your theme, plugins, and custom code all work automatically.',
+  },
+  {
+    title: 'Zero extra maintenance',
+    description: 'Update your WordPress site once and your app updates instantly. One platform to manage, always in sync.',
+  },
+  {
+    title: 'Every plugin works out of the box',
+    description: 'WooCommerce extensions, custom checkout flows, payment gateways, and third-party integrations all carry over with no rebuilding.',
+  },
+  {
+    title: 'Simple, predictable pricing',
+    description: 'No revenue share, no success fees, no surprise costs. Straightforward monthly pricing that keeps things simple.',
+  },
+];
+
+// WooCommerce-specific FAQs
+const wooFaqs = [
+  {
+    q: 'How is this different from a WooCommerce mobile app plugin?',
+    a: 'WooCommerce plugins that claim to add "mobile app" functionality typically serve a progressive web app (PWA) or a stripped-down template-based experience. They require significant setup, often lose your custom features, and don\'t result in a real App Store or Google Play listing. MobiLoud builds and submits a fully functional iOS and Android app from your live site, manages the entire process for you, and handles all ongoing updates. It\'s a done-for-you service, not a plugin you configure yourself.',
+  },
+  {
+    q: 'Does it work with all WooCommerce themes?',
+    a: 'Yes. Because your app is powered by your live WordPress site, your theme and all its customizations carry over automatically. There\'s no need to rebuild or replicate your design - the app renders your existing site in a native app shell with native navigation, a tab bar, and push notification support layered on top.',
+  },
+  {
+    q: 'Do my WooCommerce plugins and extensions work in the app?',
+    a: 'Yes. All your existing WooCommerce plugins, extensions, and custom code work in the app just as they do on your site. Subscription plugins, loyalty programs, custom product configurators, membership tools - anything that runs on your website will work in the app. No API integrations or rebuilding required.',
+  },
+  {
+    q: 'Does it work with WooCommerce checkout and WooPayments?',
+    a: 'Yes. Your existing WooCommerce checkout flow, including WooPayments, Stripe, PayPal, and any other payment gateway you use, works in the app without any changes. We don\'t touch your checkout - it runs exactly as it does on your website, which means no re-testing, no reconfigurations, and no risk of breaking existing payment flows.',
+  },
+  {
+    q: 'What happens when I update my WordPress site?',
+    a: 'Updates to your WordPress site sync to your app automatically. If you change a product, update your theme, add a new page, or install a new plugin, the change appears in the app immediately - no app update required, no submission to the App Store or Google Play. Your app and site are always in sync.',
+  },
+  {
+    q: 'How long does it take to launch?',
+    a: 'Most stores go live within 30 days. The process starts with a consultation and free app preview, followed by an onboarding call where we discuss customization options. Our team builds the app, you review a preview and give feedback, and then we handle App Store and Google Play submission. We monitor approvals and keep you updated until you\'re live.',
+  },
+  {
+    q: 'Do I need a developer?',
+    a: 'No. MobiLoud is a fully managed service. You don\'t need a developer, a mobile development team, or any technical knowledge. Our team handles everything from initial build to App Store submission to ongoing maintenance and updates. Your team\'s focus stays on running your WooCommerce store.',
+  },
+  {
+    q: 'What about push notifications?',
+    a: 'Push notifications are included in every plan. You can send unlimited push notifications directly to your app users\' home screens - for promotions, order updates, cart abandonment recovery, new arrivals, and anything else. Push notifications have significantly higher open rates than email and are one of the main reasons brands launch an app. We also provide strategy sessions to help you set up effective notification flows after launch.',
+  },
+];
+---
+
+<Layout
+  title="WooCommerce Mobile App Builder — MobiLoud"
+  description="Turn your WooCommerce store into a native iOS and Android app. No rebuilding, no extra maintenance. Every plugin and extension works out of the box. Live in 30 days."
+>
+  <Nav />
+
+  <!-- WooCommerce Hero -->
+  <section class="bg-neutral-900 pt-16 pb-20 overflow-hidden" style="background: linear-gradient(135deg, #1a1a2e 0%, #171717 40%, #0f2016 100%)">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left: Text -->
+        <div>
+          <p class="text-primary-400 font-semibold text-sm uppercase tracking-wide mb-4" id="woocommerce-mobile-app">The Best Mobile App Builder for WooCommerce</p>
+          <h1 class="font-display text-display-1 text-white mb-6 lg:text-[60px] lg:leading-[68px]" id="turn-woocommerce-store-into-app" aria-label="Turn your WooCommerce store into a mobile app">Turn Your WooCommerce Store into a Mobile App. Live in 30 days.</h1>
+          <p class="text-neutral-400 text-lg leading-relaxed mb-8 max-w-lg">Give your best customers a reason to keep coming back. Launch a native iOS and Android app that syncs with your WooCommerce store. No rebuilding, no extra maintenance.</p>
+
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3 text-neutral-300 text-sm">
+              <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Fully managed service. No DIY, no coding, no WooCommerce rebuild required
+            </li>
+            <li class="flex items-start gap-3 text-neutral-300 text-sm">
+              <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              We submit your app to the App Store and Google Play and manage approvals
+            </li>
+            <li class="flex items-start gap-3 text-neutral-300 text-sm">
+              <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Flat monthly pricing. No revenue share, no hidden fees
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Lead form -->
+        <div class="flex justify-center" id="lead-form-section">
+          <div class="bg-neutral-800 border border-neutral-700 rounded-2xl p-6 sm:p-8 w-full max-w-md shadow-2xl">
+            <LeadForm id="hero-form" variant="dark" heading="Get a free preview of your mobile app" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Badge row -->
+      <div class="flex flex-wrap items-center justify-center gap-6 mt-16 pt-10 border-t border-neutral-800">
+        <img src={`${base}/images/G2-Review-Badge.svg`} alt="G2 Review Badge" width="54" height="60" class="h-[54px] w-auto" loading="eager">
+        <img src={`${base}/images/capterra-rating-badge_1.svg`} alt="Capterra Rating Badge" width="162" height="54" class="h-[54px] w-auto" loading="eager">
+        <img src={`${base}/images/producthunt-badge.svg`} alt="Product Hunt Badge" width="250" height="54" class="h-[54px] w-auto" loading="eager">
+      </div>
+    </Container>
+  </section>
+
+  <LogoMarquee />
+
+  <!-- WooCommerce Comparison Section -->
+  <section class="py-20 bg-neutral-50">
+    <Container>
+      <div class="text-center mb-14">
+        <h2 class="font-display text-display-3 text-heading" id="woocommerce-app-builder-comparison" aria-label="Compare WooCommerce mobile app builders">App builders make you start from scratch. We don't.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <!-- Problem -->
+        <div class="border border-neutral-200 rounded-card p-8 lg:p-10 bg-white">
+          <p class="text-red-600 font-semibold text-sm uppercase tracking-wide mb-6">The problem with app builders</p>
+          <div class="space-y-6">
+            {wooProblems.map((p) => (
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 mt-1">
+                  <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#DC2626"/><path d="M5.5 5.5L10.5 10.5M10.5 5.5L5.5 10.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </span>
+                <div>
+                  <p class="font-display font-bold text-neutral-900 text-base mb-1">{p.title}</p>
+                  <p class="text-neutral-500 text-sm leading-relaxed">{p.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="border-2 border-primary-600 rounded-card p-8 lg:p-10 bg-primary-50">
+          <p class="text-primary-700 font-semibold text-sm uppercase tracking-wide mb-6">How MobiLoud is different</p>
+          <div class="space-y-6">
+            {wooSolutions.map((s) => (
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 mt-1">
+                  <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#047857"/><path d="M5 8L7 10L11 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <div>
+                  <p class="font-display font-bold text-neutral-900 text-base mb-1">{s.title}</p>
+                  <p class="text-neutral-500 text-sm leading-relaxed">{s.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="#lead-form-section" class="btn-primary cursor-pointer" style="cursor: pointer;">See the Difference for Yourself</a>
+      </div>
+    </Container>
+  </section>
+
+  <ValueProp />
+  <CaseStudies />
+  <DarkFeatures />
+  <IntegrationsSection />
+  <TestimonialsRow />
+
+  <!-- WooCommerce FAQ Section -->
+  <section class="py-20 bg-background">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-12 lg:gap-16">
+        <!-- Left sidebar -->
+        <div class="lg:sticky lg:top-24 lg:self-start">
+          <h3 class="font-display text-display-4 text-primary-700 mb-4">Your questions, answered.</h3>
+          <p class="text-neutral-600 text-base leading-relaxed mb-6">
+            Still have questions? Get a free preview and we'll walk you through everything.
+          </p>
+          <a href="#lead-form-section" class="btn-primary cursor-pointer text-sm !py-2.5 !px-5">Get Your Free Preview</a>
+        </div>
+
+        <!-- Right: FAQ accordion -->
+        <div class="space-y-0">
+          {wooFaqs.map((faq, i) => (
+            <div class="border-b border-neutral-200">
+              <button
+                class="faq-trigger w-full flex items-center justify-between py-5 text-left cursor-pointer group"
+                aria-expanded="false"
+                data-faq-index={i}
+              >
+                <span class="font-display font-semibold text-neutral-900 text-base pr-4 group-hover:text-primary-700 transition-colors">{faq.q}</span>
+                <svg class="faq-arrow flex-shrink-0 w-5 h-5 text-neutral-400" viewBox="0 0 20 20" fill="none">
+                  <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="faq-answer" data-faq-answer={i}>
+                <p class="text-neutral-600 text-base leading-relaxed pb-5">{faq.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <FinalCTA />
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const triggers = document.querySelectorAll('.faq-trigger');
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const index = (trigger as HTMLElement).dataset.faqIndex;
+        const answer = document.querySelector(`[data-faq-answer="${index}"]`);
+        const arrow = trigger.querySelector('.faq-arrow');
+        const isOpen = answer?.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-arrow').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-trigger').forEach(t => t.setAttribute('aria-expanded', 'false'));
+
+        // Toggle current
+        if (!isOpen) {
+          answer?.classList.add('open');
+          arrow?.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  });
+</script>
