@@ -10,7 +10,7 @@ const {
   id = 'lead-form',
   variant = 'light',
   heading,
-  buttonText = 'Get My Free App Preview',
+  buttonText = 'Book My Free Preview',
 } = Astro.props;
 
 const isDark = variant === 'dark';
@@ -91,10 +91,14 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
     <input type="hidden" name="Current-Page-URL" class="page-url-field" />
 
     <!-- Submit -->
-    <button type="submit" disabled
-      class="lead-form-submit btn-primary w-full justify-center cursor-pointer disabled:cursor-not-allowed mt-1">
+    <button type="submit"
+      class="lead-form-submit btn-primary w-full justify-center cursor-pointer mt-1">
       {buttonText}
     </button>
+
+    <p class={`text-xs text-center leading-relaxed ${isDark ? 'text-white/70' : 'text-neutral-500'}`}>
+      We'll build a real preview of your app and walk you through it on a 30-min call.
+    </p>
 
     <p class={`text-[11px] text-center leading-relaxed ${isDark ? 'text-white/40' : 'text-neutral-400'}`}>
       By submitting this form you agree to receive updates and promotional messages from MobiLoud. Unsubscribe anytime.
@@ -157,18 +161,15 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
         }
       }
 
-      // Enable submit once all required fields have values (basic check)
-      function checkFormValidity() {
+      // Check if form is valid (all required fields filled, no email error)
+      function isFormValid() {
         var allFilled = true;
         form.querySelectorAll('[required]').forEach(function(f) {
           if (!f.value) allFilled = false;
         });
         var hasEmailError = emailInput && emailInput.classList.contains('email-error-active');
-        submitBtn.disabled = !allFilled || hasEmailError;
+        return allFilled && !hasEmailError;
       }
-
-      form.addEventListener('input', checkFormValidity);
-      form.addEventListener('change', checkFormValidity);
 
       // Show error on blur if field is empty (only after user has interacted)
       form.querySelectorAll('[required]').forEach(function(f) {
@@ -179,17 +180,6 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
         f.addEventListener('input', function() {
           if (f.value) setFieldError(f, false);
         });
-      });
-
-      // On disabled submit button click, show all empty field errors
-      submitBtn.addEventListener('click', function() {
-        if (!submitBtn.disabled) return;
-        form.querySelectorAll('[required]').forEach(function(f) {
-          setFieldError(f, !f.value);
-        });
-        // Scroll to and focus the first empty field
-        var firstEmpty = form.querySelector('[required]:invalid') || Array.from(form.querySelectorAll('[required]')).find(function(f) { return !f.value; });
-        if (firstEmpty) firstEmpty.focus();
       });
 
       // Email validation
@@ -270,9 +260,19 @@ const errorTextClass = isDark ? 'text-red-400' : 'text-red-600';
         }
       });
 
-      // Form submission - load Calendly inline or redirect for <1M
+      // Form submission - validate then load Calendly inline
       form.addEventListener('submit', function(e) {
         e.preventDefault();
+
+        // Validate: show errors on all empty required fields
+        if (!isFormValid()) {
+          form.querySelectorAll('[required]').forEach(function(f) {
+            setFieldError(f, !f.value);
+          });
+          var firstEmpty = Array.from(form.querySelectorAll('[required]')).find(function(f) { return !f.value; });
+          if (firstEmpty) firstEmpty.focus();
+          return;
+        }
 
         // Collect form data for tracking
         var formData = {};
