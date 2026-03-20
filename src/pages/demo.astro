@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DemoSaaSLayout from '../components/sections/DemoSaaSLayout.astro';
+import '../styles/global.css';
+---
+
+<!-- No sticky bottom bar on this page, remove the body padding -->
+<style is:global>
+  body { padding-bottom: 0 !important; }
+</style>
+
+<Layout
+  title="Get Your Free Mobile App Preview - MobiLoud"
+  description="See your website as a native mobile app before you commit. We build a real working preview at no cost, then walk you through the ROI on a 30-minute call."
+>
+  <DemoSaaSLayout />
+</Layout>

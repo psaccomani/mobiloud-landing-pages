@@ -1,100 +1,83 @@
 ---
 interface Props {
   id?: string;
-  variant?: 'light' | 'dark';
   heading?: string;
-  subheading?: string;
   buttonText?: string;
 }
 
 const {
-  id = 'lead-form',
-  variant = 'light',
+  id = 'demo-lead-form',
   heading,
-  subheading,
-  buttonText = 'Book My Free Preview',
+  buttonText = 'Book My Free Consultation',
 } = Astro.props;
-
-const isDark = variant === 'dark';
-const labelClass = 'text-neutral-700';
-const inputClass = 'bg-white border-neutral-300 text-neutral-900 placeholder-neutral-400 focus:border-primary-600 focus:ring-primary-600/20';
-const errorTextClass = 'text-red-600';
 ---
 
-<div class="lead-form-wrapper w-full bg-white rounded-2xl p-6 sm:p-8 shadow-2xl">
+<div class="demo-lead-form-wrapper w-full">
   {heading && (
-    <h3 class={`font-display text-xl font-bold text-neutral-900 ${subheading ? 'mb-1' : 'mb-5'}`}>{heading}</h3>
-  )}
-  {subheading && (
-    <p class="text-neutral-500 text-sm mb-5">{subheading}</p>
+    <h3 class="font-display text-xl font-bold mb-1 text-neutral-900">{heading}</h3>
   )}
 
-  <form id={id} class="lead-form pass-tracked-params space-y-3" novalidate>
+  <form id={id} class="demo-lead-form pass-tracked-params space-y-3" novalidate>
     <!-- Name row -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
       <div>
-        <label for={`${id}-first-name`} class={`block text-xs font-medium mb-1 ${labelClass}`}>First Name</label>
+        <label for={`${id}-first-name`} class="block text-xs font-medium mb-1 text-neutral-700">First Name</label>
         <input type="text" id={`${id}-first-name`} name="First-Name" placeholder="John" required
-          class={`w-full rounded-lg border px-3 py-2.5 text-sm outline-none transition focus:ring-2 ${inputClass}`} />
-        <p class={`field-error text-xs mt-1 hidden ${errorTextClass}`}>First name is required.</p>
+          class="w-full rounded-lg border border-neutral-300 px-3 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 outline-none transition focus:border-primary-600 focus:ring-2 focus:ring-primary-600/20" />
+        <p class="field-error text-xs mt-1 hidden text-red-600">First name is required.</p>
       </div>
       <div>
-        <label for={`${id}-last-name`} class={`block text-xs font-medium mb-1 ${labelClass}`}>Last Name</label>
+        <label for={`${id}-last-name`} class="block text-xs font-medium mb-1 text-neutral-700">Last Name</label>
         <input type="text" id={`${id}-last-name`} name="Last-Name" placeholder="Appleseed" required
-          class={`w-full rounded-lg border px-3 py-2.5 text-sm outline-none transition focus:ring-2 ${inputClass}`} />
-        <p class={`field-error text-xs mt-1 hidden ${errorTextClass}`}>Last name is required.</p>
+          class="w-full rounded-lg border border-neutral-300 px-3 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 outline-none transition focus:border-primary-600 focus:ring-2 focus:ring-primary-600/20" />
+        <p class="field-error text-xs mt-1 hidden text-red-600">Last name is required.</p>
       </div>
     </div>
 
     <!-- Email -->
     <div>
-      <label for={`${id}-email`} class={`block text-xs font-medium mb-1 ${labelClass}`}>Work Email</label>
+      <label for={`${id}-email`} class="block text-xs font-medium mb-1 text-neutral-700">Work Email</label>
       <input type="email" id={`${id}-email`} name="Email" placeholder="john@example.com" required
-        class={`w-full rounded-lg border px-3 py-2.5 text-sm outline-none transition focus:ring-2 ${inputClass}`} />
-      <p class={`field-error text-xs mt-1 hidden ${errorTextClass}`}>Work email is required.</p>
+        class="w-full rounded-lg border border-neutral-300 px-3 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 outline-none transition focus:border-primary-600 focus:ring-2 focus:ring-primary-600/20" />
+      <p class="field-error text-xs mt-1 hidden text-red-600">Work email is required.</p>
     </div>
 
-    <!-- Company Name (auto-derived from website URL) -->
+    <!-- Company Name (auto-derived) -->
     <input type="hidden" name="Company-Name" />
 
     <!-- Website URL -->
     <div>
-      <label for={`${id}-website`} class={`block text-xs font-medium mb-1 ${labelClass}`}>Website URL</label>
+      <label for={`${id}-website`} class="block text-xs font-medium mb-1 text-neutral-700">Website URL</label>
       <input type="url" id={`${id}-website`} name="website" placeholder="https://example.com" required
-        class={`w-full rounded-lg border px-3 py-2.5 text-sm outline-none transition focus:ring-2 ${inputClass}`} />
-      <p class={`field-error text-xs mt-1 hidden ${errorTextClass}`}>Website URL is required.</p>
+        class="w-full rounded-lg border border-neutral-300 px-3 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 outline-none transition focus:border-primary-600 focus:ring-2 focus:ring-primary-600/20" />
+      <p class="field-error text-xs mt-1 hidden text-red-600">Website URL is required.</p>
     </div>
 
-    <!-- Annual Revenue - REMOVED: was qualifying leads by revenue, now all go to Calendly
-         Options were: <1M (redirected to /thank-you/book-call), 1M-5M, 5M-20M, 20M-50M, 50M+
-         To restore: uncomment this block and the revenue check in the submit handler below -->
-    <!--
+    <!-- Monthly Website Visitors -->
     <div>
-      <label for={`${id}-revenue`} class={`block text-xs font-medium mb-1 ${labelClass}`}>Annual Online Revenue</label>
+      <label for={`${id}-traffic`} class="block text-xs font-medium mb-1 text-neutral-700">Monthly Website Visitors</label>
       <div class="relative">
-        <select id={`${id}-revenue`} name="Annual-Revenue" required
-          class={`w-full rounded-lg border px-3 py-2.5 pr-9 text-sm outline-none transition focus:ring-2 appearance-none ${inputClass}`}>
-          <option value="">Select annual revenue</option>
-          <option value="<1M">Under $1M</option>
-          <option value="1M-5M">$1M-$5M</option>
-          <option value="5M-20M">$5M-$20M</option>
-          <option value="20M-50M">$20M-$50M</option>
-          <option value="50M+">$50M+</option>
+        <select id={`${id}-traffic`} name="Monthly-Visitors" required
+          class="w-full rounded-lg border border-neutral-300 px-3 py-2.5 pr-9 text-sm text-neutral-900 outline-none transition focus:border-primary-600 focus:ring-2 focus:ring-primary-600/20 appearance-none bg-white">
+          <option value="">Select monthly visitors</option>
+          <option value="<10k">Under 10,000</option>
+          <option value="10k-50k">10,000 - 50,000</option>
+          <option value="50k-250k">50,000 - 250,000</option>
+          <option value="250k-1M">250,000 - 1,000,000</option>
+          <option value="1M+">1,000,000+</option>
         </select>
         <svg class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" viewBox="0 0 20 20" fill="none">
           <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-      <p class={`field-error text-xs mt-1 hidden ${errorTextClass}`}>Please select your annual revenue.</p>
+      <p class="field-error text-xs mt-1 hidden text-red-600">Please select your monthly visitors.</p>
     </div>
-    -->
 
     <!-- Hidden fields -->
     <input type="hidden" name="Current-Page-URL" class="page-url-field" />
 
     <!-- Submit -->
-    <button type="submit"
-      class="lead-form-submit btn-primary w-full justify-center cursor-pointer mt-4">
+    <button type="submit" class="demo-lead-form-submit btn-primary w-full justify-center cursor-pointer mt-4">
       {buttonText}
     </button>
 
@@ -105,47 +88,48 @@ const errorTextClass = 'text-red-600';
   </form>
 
   <!-- Calendly context header (hidden until form submit) -->
-  <div class="calendly-context hidden text-center px-2 pt-2 pb-5">
+  <div class="demo-calendly-context hidden text-center px-2 pt-2 pb-5">
     <p class="font-display font-bold text-neutral-900 text-lg mb-1">Pick a time for your free preview call</p>
     <p class="text-neutral-500 text-sm">We'll have your app preview ready before the call. 30 minutes, no commitment.</p>
   </div>
 
   <!-- Calendly embed (hidden until form submit) -->
-  <div class="calendly-container hidden w-full" style="min-height:660px;" data-form-id={id}></div>
+  <div class="demo-calendly-container hidden w-full" style="min-height:660px;" data-form-id={id}></div>
 </div>
 
 <script is:inline>
 (function() {
-  // Guard: only run once even though this script appears per LeadForm instance
-  if (window.__leadFormsInitialized) return;
-  window.__leadFormsInitialized = true;
+  if (window.__demoLeadFormInitialized) return;
+  window.__demoLeadFormInitialized = true;
 
-  // Single Calendly height listener (shared across all forms)
+
+  // Calendly height listener
   window.addEventListener('message', function(ev) {
     if (ev.data.event && ev.data.event === 'calendly.page_height') {
       var height = (ev.data.payload || ev.data.data).height;
-      document.querySelectorAll('.calendly-container:not(.hidden)').forEach(function(c) {
+      document.querySelectorAll('.demo-calendly-container:not(.hidden)').forEach(function(c) {
         c.style.height = Math.max(parseInt(height), 660) + 'px';
       });
     }
   });
 
-  function initLeadForms() {
-    document.querySelectorAll('.lead-form').forEach(function(form) {
+  function initDemoForm() {
+    document.querySelectorAll('.demo-lead-form').forEach(function(form) {
       var formId = form.id;
-      var submitBtn = form.querySelector('.lead-form-submit');
       var websiteInput = form.querySelector('input[type="url"]');
       var pageUrlField = form.querySelector('.page-url-field');
-      var calendlyContainer = form.closest('.lead-form-wrapper').querySelector('.calendly-container');
+      var calendlyContainer = form.closest('.demo-lead-form-wrapper').querySelector('.demo-calendly-container');
 
-      // Set page URL
       if (pageUrlField) pageUrlField.value = window.location.href;
 
-      // Show or hide field-level error for a given required field
       function setFieldError(field, show) {
         var wrapper = field.closest('div');
         var err = wrapper.querySelector('.field-error');
         if (!err) return;
+        if (field.type === 'email' && show) {
+          var domainErr = wrapper.querySelector('.email-error');
+          if (domainErr && !domainErr.classList.contains('hidden')) return;
+        }
         if (show) {
           err.classList.remove('hidden');
           field.classList.add('border-red-500');
@@ -155,7 +139,6 @@ const errorTextClass = 'text-red-600';
         }
       }
 
-      // Check if form is valid (all required fields filled)
       function isFormValid() {
         var allFilled = true;
         form.querySelectorAll('[required]').forEach(function(f) {
@@ -164,15 +147,10 @@ const errorTextClass = 'text-red-600';
         return allFilled;
       }
 
-      // Show error on blur if field is empty (only after user has interacted)
+      // Blur/input validation for required fields
       form.querySelectorAll('[required]').forEach(function(f) {
-        f.addEventListener('blur', function() {
-          setFieldError(f, !f.value);
-        });
-        // Clear error as soon as user types
-        f.addEventListener('input', function() {
-          if (f.value) setFieldError(f, false);
-        });
+        f.addEventListener('blur', function() { setFieldError(f, !f.value); });
+        f.addEventListener('input', function() { if (f.value) setFieldError(f, false); });
       });
 
       // URL auto-format
@@ -184,9 +162,8 @@ const errorTextClass = 'text-red-600';
           if (this.value === 'https://') this.value = '';
         });
         websiteInput.addEventListener('input', function() {
-          var v = this.value;
-          if (v.toLowerCase().startsWith('https://https://')) {
-            this.value = v.replace(/^https:\/\/https:\/\//i, 'https://');
+          if (this.value.toLowerCase().startsWith('https://https://')) {
+            this.value = this.value.replace(/^https:\/\/https:\/\//i, 'https://');
           }
         });
       }
@@ -195,13 +172,10 @@ const errorTextClass = 'text-red-600';
       function companyFromUrl(url) {
         try {
           var hostname = url.replace(/^https?:\/\//, '').replace(/^www\./, '').split('/')[0].split('?')[0];
-          var name = hostname.replace(/\.[^.]+$/, ''); // strip last TLD segment
-          name = name.replace(/\.[^.]+$/, function(m) { return m; }); // keep subdomains like co.uk handled
-          // Handle common two-part TLDs
+          var name = hostname.replace(/\.[^.]+$/, '');
           if (/\.(co|com|org|net|io)\.[a-z]{2,}$/i.test(hostname)) {
             name = hostname.replace(/\.(co|com|org|net|io)\.[a-z]{2,}$/i, '').replace(/^www\./, '');
           }
-          // Capitalize first letter of each word, treat hyphens as word separators
           return name.split(/[-.]/).map(function(w) {
             return w.charAt(0).toUpperCase() + w.slice(1);
           }).join(' ');
@@ -212,13 +186,11 @@ const errorTextClass = 'text-red-600';
       if (websiteInput && companyHidden) {
         websiteInput.addEventListener('blur', function() {
           var v = this.value.trim();
-          if (v && v !== 'https://') {
-            companyHidden.value = companyFromUrl(v);
-          }
+          if (v && v !== 'https://') companyHidden.value = companyFromUrl(v);
         });
       }
 
-      // Inject UTM params as hidden fields
+      // Inject UTM params
       var trackedParams = ["utm_source","utm_campaign","utm_medium","utm_term","utm_content","source","campaign","medium","gclid"];
       trackedParams.forEach(function(p) {
         var val = localStorage.getItem(p);
@@ -231,11 +203,10 @@ const errorTextClass = 'text-red-600';
         }
       });
 
-      // Form submission - validate then load Calendly inline
+      // Submit handler
       form.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // Validate: show errors on all empty required fields
         if (!isFormValid()) {
           form.querySelectorAll('[required]').forEach(function(f) {
             setFieldError(f, !f.value);
@@ -245,40 +216,36 @@ const errorTextClass = 'text-red-600';
           return;
         }
 
-        // Collect form data for tracking
         var formData = {};
         form.querySelectorAll('[name]').forEach(function(f) {
           if (f.value) formData[f.name] = f.value;
         });
-
-        // REMOVED: Revenue qualifying logic - was redirecting <1M to /thank-you/book-call
-        // To restore: uncomment below and the revenue dropdown in the HTML above
-        // var revenueSelect = form.querySelector('select[name="Annual-Revenue"]');
-        // if (revenueSelect && revenueSelect.value === '<1M') {
-        //   window.dataLayer = window.dataLayer || [];
-        //   window.dataLayer.push({ event: 'lead_form_submit', form_id: formId, form_data: formData });
-        //   window.location.href = 'https://www.mobiloud.com/thank-you/book-call';
-        //   return;
-        // }
 
         // PostHog capture
         if (typeof posthog !== 'undefined') {
           posthog.capture('Lead Form submitted', formData, { send_instantly: true });
         }
 
-        // GTM dataLayer push (replaces Webflow form events for conversion tracking)
+        // GTM
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ event: 'lead_form_submit', form_id: formId, form_data: formData });
 
 
-        // Load Calendly
+        // Traffic qualifying: <10k visitors -> redirect to thank you
+        var trafficSelect = form.querySelector('select[name="Monthly-Visitors"]');
+        if (trafficSelect && trafficSelect.value === '<10k') {
+          window.location.href = 'https://www.mobiloud.com/thank-you/book-call';
+          return;
+        }
+
+        // Load Calendly inline
         if (typeof Calendly !== 'undefined' && calendlyContainer) {
           form.style.display = 'none';
           // Hide the form heading if present
-          var formHeading = form.closest('.lead-form-wrapper').querySelector('h3');
+          var formHeading = form.closest('.demo-lead-form-wrapper').querySelector('h3');
           if (formHeading) formHeading.style.display = 'none';
           // Show context header
-          var calendlyContext = form.closest('.lead-form-wrapper').querySelector('.calendly-context');
+          var calendlyContext = form.closest('.demo-lead-form-wrapper').querySelector('.demo-calendly-context');
           if (calendlyContext) calendlyContext.classList.remove('hidden');
           calendlyContainer.classList.remove('hidden');
           calendlyContainer.style.minHeight = '700px';
@@ -305,7 +272,6 @@ const errorTextClass = 'text-red-600';
             }
           });
         } else {
-          // Fallback: redirect to demo page with prefilled params
           var params = new URLSearchParams();
           params.set('name', (form.querySelector('input[name="First-Name"]').value + ' ' + form.querySelector('input[name="Last-Name"]').value).trim());
           params.set('email', form.querySelector('input[name="Email"]').value);
@@ -316,9 +282,9 @@ const errorTextClass = 'text-red-600';
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLeadForms);
+    document.addEventListener('DOMContentLoaded', initDemoForm);
   } else {
-    initLeadForms();
+    initDemoForm();
   }
 })();
 </script>

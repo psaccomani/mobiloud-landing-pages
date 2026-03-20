@@ -1,0 +1,185 @@
+---
+import DemoLeadForm from '../ui/DemoLeadForm.astro';
+const base = import.meta.env.BASE_URL;
+
+const logos = [
+  { src: `${base}/images/jack--joneslight.svg`, alt: 'Jack & Jones', w: 96 },
+  { src: `${base}/images/john-varvatoslight.svg`, alt: 'John Varvatos', w: 96 },
+  { src: `${base}/images/rainbow-shopslight.svg`, alt: 'Rainbow Shops', w: 82 },
+  { src: `${base}/images/Boozebud-Logo.svg`, alt: 'BoozeBud', w: 76 },
+];
+---
+
+<style>
+  .saas-layout {
+    display: flex;
+    min-height: 100vh;
+  }
+  .saas-left {
+    display: none;
+    width: 44%;
+    flex-shrink: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 56px;
+    background: #0b0f19;
+    background-image:
+      radial-gradient(ellipse at 10% 90%, rgba(5,150,105,0.18) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 10%, rgba(5,150,105,0.07) 0%, transparent 50%);
+  }
+  .saas-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+  }
+  @media (min-width: 1024px) {
+    .saas-left { display: flex; }
+  }
+</style>
+
+<!-- Mobile header -->
+<header class="lg:hidden flex items-center gap-2.5 px-5 py-4 border-b border-neutral-100 bg-white">
+  <a href="https://www.mobiloud.com">
+    <img src={`${base}/images/logomark-2025.svg`} alt="MobiLoud" width="120" height="28" loading="eager">
+  </a>
+</header>
+
+<div class="saas-layout">
+
+  <!-- Left panel -->
+  <div class="saas-left">
+    <div>
+      <!-- Logo -->
+      <a href="https://www.mobiloud.com" class="block mb-14">
+        <img src={`${base}/images/logomark-white-2025.svg`} alt="MobiLoud" width="148" height="34" loading="eager">
+      </a>
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 mb-6 border" style="background: rgba(5,150,105,0.12); border-color: rgba(5,150,105,0.25);">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary-400" style="animation: pulse 2s infinite;"></span>
+        <span class="text-primary-400 text-xs font-medium tracking-wide">Free, no commitment</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="font-display font-bold text-white mb-4" style="font-size: 42px; line-height: 1.12;">
+        See your website as a mobile app, before you commit
+      </h1>
+      <p class="text-neutral-400 text-base leading-relaxed mb-10 max-w-sm">
+        We build a real working preview of your app at no cost. Then walk you through it with ROI projections for your brand.
+      </p>
+
+      <!-- Stats -->
+      <div class="flex items-center gap-6 mb-10 pb-10" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <div>
+          <p class="text-white font-bold font-display" style="font-size: 24px;">2,000+</p>
+          <p class="text-neutral-500 text-xs mt-0.5">brands launched</p>
+        </div>
+        <div style="width: 1px; height: 32px; background: rgba(255,255,255,0.1);"></div>
+        <div>
+          <p class="text-white font-bold font-display" style="font-size: 24px;">30 days</p>
+          <p class="text-neutral-500 text-xs mt-0.5">avg time to launch</p>
+        </div>
+        <div style="width: 1px; height: 32px; background: rgba(255,255,255,0.1);"></div>
+        <div>
+          <p class="text-white font-bold font-display" style="font-size: 24px;">4.8/5</p>
+          <p class="text-neutral-500 text-xs mt-0.5">G2 rating</p>
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div>
+        <div class="flex gap-0.5 mb-3">
+          {Array.from({length: 5}).map(() => (
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="#F59E0B"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>
+          ))}
+        </div>
+        <blockquote class="text-neutral-300 text-sm leading-relaxed mb-4 italic">
+          "We couldn't find another company that could offer the same features at the same price point, same time to market, and make it as easy as MobiLoud could."
+        </blockquote>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <img src={`${base}/images/svend-hansen.avif`} alt="Svend Hansen" width="36" height="36" class="rounded-full" loading="lazy">
+            <div>
+              <p class="text-white text-sm font-medium">Svend Hansen</p>
+              <p class="text-neutral-500 text-xs">Product Owner</p>
+            </div>
+          </div>
+          <img src={`${base}/images/bestseller-white.svg`} alt="Bestseller" width="80" height="20" class="object-contain" style="max-height: 18px; width: auto; opacity: 0.55;" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- Brand logos -->
+    <div class="mt-10">
+      <p class="text-neutral-600 text-xs uppercase tracking-widest mb-4 font-medium">Trusted by leading brands</p>
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+        {logos.map((l) => (
+          <img src={l.src} alt={l.alt} width={l.w} height="20" class="object-contain" style="max-height: 18px; width: auto; opacity: 0.38;" loading="lazy">
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Right panel -->
+  <div class="saas-right" id="lead-form-section">
+    <div class="flex-1 flex items-center justify-center px-6 sm:px-10 xl:px-14 py-10">
+      <div class="w-full max-w-lg">
+
+        <div class="mb-6">
+          <h2 class="font-display text-2xl font-bold text-neutral-900 mb-1">Get your free app preview</h2>
+          <p class="text-neutral-500 text-sm">We build it, then walk you through it on a 30-minute call. No cost, no commitment.</p>
+        </div>
+
+        <DemoLeadForm id="demo-v2-form" buttonText="Get My Free App Preview" />
+
+
+        <div class="flex items-center justify-center gap-5 mt-7 pt-6 border-t border-neutral-100">
+          <img src={`${base}/images/G2-Review-Badge.svg`} alt="G2 Review Badge" width="44" height="48" class="h-[46px] w-auto" loading="lazy">
+          <img src={`${base}/images/capterra-rating-badge_1.svg`} alt="Capterra Rating" width="140" height="46" class="h-[46px] w-auto" loading="lazy">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="px-6 py-4 border-t border-neutral-100">
+      <p class="text-neutral-400 text-xs text-center">
+        &copy;2026 Fifty Pixels Ltd. &middot;
+        <a href="https://www.mobiloud.com/privacy-policy" class="hover:text-neutral-600 transition-colors">Privacy Policy</a> &middot;
+        <a href="https://www.mobiloud.com/terms" class="hover:text-neutral-600 transition-colors">Terms</a>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Handle DemoLeadForm heading hide on Calendly load in v2 context -->
+<script is:inline>
+(function() {
+  // When Calendly loads in the right panel, also hide the h2 above the form
+  var origObserver = window.__demoCalendlyObserver;
+  if (origObserver) return;
+  window.__demoCalendlyObserver = true;
+
+  window.addEventListener('message', function(ev) {
+    if (ev.data && ev.data.event === 'calendly.event_scheduled') {
+      // noop - handled elsewhere
+    }
+  });
+
+  // Patch: hide h2 in right panel when Calendly container becomes visible
+  var rightPanel = document.getElementById('lead-form-section');
+  if (!rightPanel) return;
+  var h2 = rightPanel.querySelector('h2');
+  var subtext = rightPanel.querySelector('p.text-neutral-500');
+
+  var observer = new MutationObserver(function() {
+    var calendlyEl = rightPanel.querySelector('.demo-calendly-container:not(.hidden)');
+    if (calendlyEl) {
+      if (h2) h2.style.display = 'none';
+      if (subtext) subtext.style.display = 'none';
+    }
+  });
+  observer.observe(rightPanel, { attributes: true, childList: true, subtree: true });
+})();
+</script>

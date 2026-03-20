@@ -1,15 +1,21 @@
 ---
+interface Props {
+  ctaText?: string;
+  showBadges?: boolean;
+}
+const { ctaText = 'Get Your Free Preview', showBadges = true } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
 
 <footer class="bg-neutral-900 text-white pt-12 pb-8">
   <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-[50px]">
-    <!-- Review badges -->
-    <div class="flex flex-wrap items-center justify-center gap-8 mb-10">
-      <img src={`${base}/images/G2-Review-Badge.svg`} alt="G2 Review Badge" width="54" height="60" class="h-[44px] w-auto" loading="lazy">
-      <img src={`${base}/images/capterra-rating-badge_1.svg`} alt="Capterra Rating Badge" width="162" height="54" class="h-[44px] w-auto" loading="lazy">
-      <img src={`${base}/images/producthunt-badge.svg`} alt="Product Hunt Badge" width="250" height="54" class="h-[44px] w-auto" loading="lazy">
-    </div>
+    {showBadges && (
+      <div class="flex flex-wrap items-center justify-center gap-8 mb-10">
+        <img src={`${base}/images/G2-Review-Badge.svg`} alt="G2 Review Badge" width="54" height="60" class="h-[44px] w-auto" loading="lazy">
+        <img src={`${base}/images/capterra-rating-badge_1.svg`} alt="Capterra Rating Badge" width="162" height="54" class="h-[44px] w-auto" loading="lazy">
+        <img src={`${base}/images/producthunt-badge.svg`} alt="Product Hunt Badge" width="250" height="54" class="h-[44px] w-auto" loading="lazy">
+      </div>
+    )}
 
     <hr class="border-neutral-700 mb-8">
 
@@ -19,7 +25,7 @@ const base = import.meta.env.BASE_URL;
 
       <span class="text-sm text-neutral-400">&copy;2026 Fifty Pixels Ltd.</span>
 
-      <a href="#lead-form-section" class="cursor-pointer inline-flex items-center justify-center bg-white text-primary-800 rounded-[10px] px-6 py-3 font-display font-semibold text-sm hover:bg-primary-50 transition-colors">Get Your Free Preview</a>
+      <a href="#lead-form-section" class="cursor-pointer inline-flex items-center justify-center bg-white text-primary-800 rounded-[10px] px-6 py-3 font-display font-semibold text-sm hover:bg-primary-50 transition-colors">{ctaText}</a>
     </div>
 
     <p class="text-neutral-500 text-xs text-center mt-6">

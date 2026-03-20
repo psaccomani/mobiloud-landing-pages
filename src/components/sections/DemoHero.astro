@@ -1,0 +1,112 @@
+---
+import Container from '../ui/Container.astro';
+import DemoLeadForm from '../ui/DemoLeadForm.astro';
+const base = import.meta.env.BASE_URL;
+
+const valueProps = [
+  {
+    title: 'A real preview of your app, built for you',
+    body: "Not a mockup - we build an actual working preview of your native mobile app so you can see exactly what your customers will experience.",
+  },
+  {
+    title: 'Your launch roadmap',
+    body: 'Walk away with a clear timeline, cost estimate, and step-by-step plan to go live on the App Store and Google Play.',
+  },
+  {
+    title: 'Your revenue upside, quantified',
+    body: 'See how brands like yours use push notifications and owned-channel engagement to drive measurable retention and revenue.',
+  },
+];
+
+const testimonials = [
+  {
+    quote: "We couldn't find another company that could offer the same features at the same price point, same time to market, and make it as easy as MobiLoud could.",
+    name: 'Svend Hansen',
+    role: 'Product Owner',
+    photo: `${base}/images/svend-hansen.avif`,
+    logo: `${base}/images/bestseller-logo.webp`,
+    logoAlt: 'Bestseller',
+  },
+  {
+    quote: 'Your level of service is unmatched. You are always there when we need you, and go above and beyond to make sure everything runs smoothly for us.',
+    name: 'Kenneth Chan',
+    role: 'Founder & CEO, Tobi Clothing',
+    photo: `${base}/images/kenneth-portrait.avif`,
+    logo: `${base}/images/Tobi-Womens-Clothing.avif`,
+    logoAlt: 'Tobi',
+  },
+];
+---
+
+<section class="bg-neutral-900 pt-14 pb-20 overflow-hidden" style="background: linear-gradient(135deg, #1a1a2e 0%, #171717 40%, #0f2016 100%)">
+  <Container>
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-start">
+
+      <!-- Left: Content -->
+      <div class="pt-4">
+        <p class="text-primary-400 font-semibold text-sm uppercase tracking-wide mb-4">Free app preview, no commitment</p>
+        <h1 class="font-display text-display-1 text-white mb-5 lg:text-[52px] lg:leading-[60px]">See Your Website as a Mobile App, Before You Commit</h1>
+        <p class="text-neutral-400 text-lg leading-relaxed mb-10 max-w-lg">We build a real, working preview of your app at no cost. Then walk you through it on a 30-minute call with ROI projections specific to your brand.</p>
+
+        <!-- Value props -->
+        <ul class="space-y-6 mb-2">
+          {valueProps.map((vp) => (
+            <li class="flex items-start gap-4">
+              <span class="flex-shrink-0 w-6 h-6 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+                <svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div>
+                <p class="text-white font-semibold text-sm mb-0.5">{vp.title}</p>
+                <p class="text-neutral-400 text-sm leading-relaxed">{vp.body}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+      </div>
+
+      <!-- Right: Form -->
+      <div id="lead-form-section">
+        <div class="bg-white rounded-2xl p-7 sm:p-9 w-full shadow-2xl">
+          <DemoLeadForm
+            id="demo-form"
+            heading="Get your free app preview"
+            buttonText="Get My Free App Preview"
+          />
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Testimonials - full width -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
+      {testimonials.map((t) => (
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+          <div class="flex gap-0.5 mb-3">
+            {Array.from({length: 5}).map(() => (
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="#F59E0B"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>
+            ))}
+          </div>
+          <blockquote class="text-neutral-300 text-sm leading-relaxed mb-5 flex-1">"{t.quote}"</blockquote>
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <img src={t.photo} alt={t.name} width="36" height="36" class="rounded-full shrink-0" loading="lazy">
+              <div>
+                <p class="text-white font-medium text-sm">{t.name}</p>
+                <p class="text-primary-400 text-xs">{t.role}</p>
+              </div>
+            </div>
+            <img src={t.logo} alt={t.logoAlt} width="80" height="24" class="max-h-[22px] w-auto object-contain opacity-50 brightness-0 invert" loading="lazy">
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Social proof bar -->
+    <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mt-14 pt-10 border-t border-neutral-800">
+      <span class="text-neutral-500 text-sm font-medium">Trusted by 2,000+ brands</span>
+      <img src={`${base}/images/G2-Review-Badge.svg`} alt="G2 Review Badge" width="54" height="60" class="h-[55px] w-auto" loading="eager">
+      <img src={`${base}/images/capterra-rating-badge_1.svg`} alt="Capterra Rating Badge" width="162" height="54" class="h-[55px] w-auto" loading="eager">
+    </div>
+  </Container>
+</section>

@@ -2,52 +2,66 @@
 import Container from '../ui/Container.astro';
 import LeadForm from '../ui/LeadForm.astro';
 const base = import.meta.env.BASE_URL;
+
+const valueProps = [
+  {
+    title: 'A real preview of your app, built for you',
+    body: 'Not a mockup - we build an actual working preview of your native Shopify app so you can see exactly what your customers will experience.',
+  },
+  {
+    title: 'Live on the App Store and Google Play in 30 days',
+    body: 'We handle submissions, approvals, and ongoing maintenance. No coding, no rebuilding, no extra team required.',
+  },
+  {
+    title: 'Flat monthly pricing, no revenue share',
+    body: 'One predictable cost. No percentage of sales, no hidden fees, no surprises as you grow.',
+  },
+];
+
+
 ---
 
 <section class="bg-neutral-900 pt-16 pb-20 overflow-hidden" style="background: linear-gradient(135deg, #1a1a2e 0%, #171717 40%, #0f2016 100%)">
   <Container>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
       <!-- Left: Text -->
-      <div>
+      <div class="pt-2">
         <p class="text-primary-400 font-semibold text-sm uppercase tracking-wide mb-4" id="shopify-mobile-app">A Better Mobile App Builder For Shopify</p>
         <h1 class="font-display text-display-1 text-white mb-6 lg:text-[60px] lg:leading-[68px]" id="turn-shopify-store-into-app" aria-label="Turn your Shopify store into a mobile app">Turn Your Shopify Store into a Mobile App. Live in 30 days.</h1>
-        <p class="text-neutral-400 text-lg leading-relaxed mb-8 max-w-lg">Give your best customers a reason to keep coming back. Launch a native iOS and Android app that syncs with your Shopify store. No rebuilding, no extra maintenance.</p>
+        <p class="text-neutral-400 text-lg leading-relaxed mb-10 max-w-lg">Give your best customers a reason to keep coming back. Launch a native iOS and Android app that syncs with your Shopify store.</p>
 
-        <ul class="space-y-3 mb-8">
-          <li class="flex items-start gap-3 text-neutral-300 text-sm">
-            <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-            Fully managed service. No DIY, no coding, no rebuild required
-          </li>
-          <li class="flex items-start gap-3 text-neutral-300 text-sm">
-            <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-            We submit your app to the App Store and Google Play and manage approvals
-          </li>
-          <li class="flex items-start gap-3 text-neutral-300 text-sm">
-            <span class="flex-shrink-0 w-5 h-5 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-            Flat monthly pricing. No revenue share, no hidden fees
-          </li>
+        <ul class="space-y-6">
+          {valueProps.map((vp) => (
+            <li class="flex items-start gap-4">
+              <span class="flex-shrink-0 w-6 h-6 bg-primary-700 rounded-full flex items-center justify-center mt-0.5">
+                <svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div>
+                <p class="text-white font-semibold text-sm mb-0.5">{vp.title}</p>
+                <p class="text-neutral-400 text-sm leading-relaxed">{vp.body}</p>
+              </div>
+            </li>
+          ))}
         </ul>
       </div>
 
       <!-- Right: Lead form -->
-      <div class="flex justify-center" id="lead-form-section">
-        <div class="bg-neutral-800 border border-neutral-700 rounded-2xl p-6 sm:p-8 w-full max-w-md shadow-2xl">
-          <LeadForm id="hero-form" variant="dark" heading="Get a free preview of your mobile app" />
+      <div id="lead-form-section">
+        <div class="w-full max-w-md mx-auto lg:mx-0 lg:ml-auto">
+          <LeadForm id="hero-form" variant="dark" heading="Get a free preview of your mobile app" subheading="We build your app, then walk you through it on a 30-minute call. No cost, no commitment." />
+          <p class="text-neutral-400 text-xs text-center mt-3">
+            Prefer email? <a href="mailto:sales@mobiloud.com" class="text-neutral-300 hover:text-white transition-colors underline underline-offset-2">sales@mobiloud.com</a>
+          </p>
         </div>
       </div>
     </div>
 
     <!-- Badge row -->
-    <div class="flex flex-wrap items-center justify-center gap-6 mt-16 pt-10 border-t border-neutral-800">
-      <img src={`${base}/images/G2-Review-Badge.svg`} alt="G2 Review Badge" width="54" height="60" class="h-[54px] w-auto" loading="eager">
-      <img src={`${base}/images/capterra-rating-badge_1.svg`} alt="Capterra Rating Badge" width="162" height="54" class="h-[54px] w-auto" loading="eager">
-      <img src={`${base}/images/producthunt-badge.svg`} alt="Product Hunt Badge" width="250" height="54" class="h-[54px] w-auto" loading="eager">
+    <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mt-14 pt-10 border-t border-neutral-800">
+      <span class="text-neutral-500 text-sm font-medium">Trusted by 2,000+ brands</span>
+      <img src={`${base}/images/G2-Review-Badge.svg`} alt="G2 Review Badge" width="54" height="60" class="h-[46px] w-auto" loading="eager">
+      <img src={`${base}/images/capterra-rating-badge_1.svg`} alt="Capterra Rating Badge" width="162" height="54" class="h-[46px] w-auto" loading="eager">
+      <img src={`${base}/images/producthunt-badge.svg`} alt="Product Hunt Badge" width="250" height="54" class="h-[46px] w-auto" loading="eager">
     </div>
   </Container>
 </section>
