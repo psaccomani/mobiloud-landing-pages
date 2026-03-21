@@ -1,5 +1,5 @@
 ---
-import DemoLeadForm from '../ui/DemoLeadForm.astro';
+import FreePreviewForm from '../ui/FreePreviewForm.astro';
 const base = import.meta.env.BASE_URL;
 
 const logos = [
@@ -7,6 +7,21 @@ const logos = [
   { src: `${base}/images/john-varvatoslight.svg`, alt: 'John Varvatos', w: 96 },
   { src: `${base}/images/rainbow-shopslight.svg`, alt: 'Rainbow Shops', w: 82 },
   { src: `${base}/images/Boozebud-Logo.svg`, alt: 'BoozeBud', w: 76 },
+];
+
+const bullets = [
+  {
+    title: 'Built from your live site',
+    body: 'We load your real website inside a native app shell - not a static mockup, not a screenshot. Your actual content, navigation, and products.',
+  },
+  {
+    title: 'iOS and Android',
+    body: 'We build the preview for both platforms and walk you through how it looks and feels on each.',
+  },
+  {
+    title: 'Tailored to your store',
+    body: 'Navigation, product browsing, cart, checkout - we set it up to reflect how your customers would actually use it.',
+  },
 ];
 ---
 
@@ -63,29 +78,27 @@ const logos = [
 
       <!-- Headline -->
       <h1 class="font-display font-bold text-white mb-4" style="font-size: 42px; line-height: 1.12;">
-        See your website as a mobile app, before you commit
+        See your website as a native mobile app, free
       </h1>
       <p class="text-neutral-400 text-base leading-relaxed mb-10 max-w-sm">
-        We build a real working preview of your app at no cost. Then walk you through it with ROI projections for your brand.
+        We build a live preview using your actual site and present it to you. No cost, no commitment.
       </p>
 
-      <!-- Stats -->
-      <div class="flex items-center gap-6 mb-10 pb-10" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
-        <div>
-          <p class="text-white font-bold font-display" style="font-size: 24px;">2,000+</p>
-          <p class="text-neutral-500 text-xs mt-0.5">brands launched</p>
-        </div>
-        <div style="width: 1px; height: 32px; background: rgba(255,255,255,0.1);"></div>
-        <div>
-          <p class="text-white font-bold font-display" style="font-size: 24px;">30 days</p>
-          <p class="text-neutral-500 text-xs mt-0.5">avg time to launch</p>
-        </div>
-        <div style="width: 1px; height: 32px; background: rgba(255,255,255,0.1);"></div>
-        <div>
-          <p class="text-white font-bold font-display" style="font-size: 24px;">4.8/5</p>
-          <p class="text-neutral-500 text-xs mt-0.5">G2 rating</p>
-        </div>
-      </div>
+      <!-- Bullets -->
+      <ul class="space-y-5 mb-10 pb-10" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+        {bullets.map((b) => (
+          <li class="flex gap-3">
+            <svg class="flex-shrink-0 mt-0.5" width="16" height="16" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="9" stroke="rgba(52,211,153,0.4)" stroke-width="1.5"/>
+              <path d="M6.5 10l2.5 2.5 4-5" stroke="#34d399" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <p class="text-white text-sm font-semibold mb-0.5">{b.title}</p>
+              <p class="text-neutral-400 text-sm leading-relaxed">{b.body}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
 
       <!-- Testimonial -->
       <div>
@@ -126,15 +139,9 @@ const logos = [
     <div class="flex-1 flex items-center justify-center px-6 sm:px-10 xl:px-14 py-10">
       <div class="w-full max-w-lg">
 
-        <div class="mb-6">
-          <h2 class="font-display text-2xl font-bold text-neutral-900 mb-1">Get your free app preview</h2>
-          <p class="text-neutral-500 text-sm">We build it, then walk you through it on a 30-minute call. No cost, no commitment.</p>
-        </div>
+        <FreePreviewForm id="free-preview-form" />
 
-        <DemoLeadForm id="demo-v2-form" buttonText="Get My Free App Preview" />
-
-
-        <div class="flex items-center justify-center gap-5 mt-7 pt-6 border-t border-neutral-100">
+        <div class="fp-trust-row flex items-center justify-center gap-5 mt-7 pt-6 border-t border-neutral-100">
           <img src={`${base}/images/G2-Review-Badge.svg`} alt="G2 Review Badge" width="44" height="48" class="h-[46px] w-auto" loading="lazy">
           <img src={`${base}/images/capterra-rating-badge_1.svg`} alt="Capterra Rating" width="140" height="46" class="h-[46px] w-auto" loading="lazy">
         </div>
@@ -153,31 +160,17 @@ const logos = [
 
 </div>
 
-<!-- Handle DemoLeadForm heading hide on Calendly load in v2 context -->
+<!-- Hide trust badges when Calendly loads -->
 <script is:inline>
 (function() {
-  // When Calendly loads in the right panel, also hide the h2 above the form
-  var origObserver = window.__demoCalendlyObserver;
-  if (origObserver) return;
-  window.__demoCalendlyObserver = true;
-
-  window.addEventListener('message', function(ev) {
-    if (ev.data && ev.data.event === 'calendly.event_scheduled') {
-      // noop - handled elsewhere
-    }
-  });
-
-  // Patch: hide h2 in right panel when Calendly container becomes visible
+  if (window.__fpTrustObserver) return;
+  window.__fpTrustObserver = true;
   var rightPanel = document.getElementById('lead-form-section');
   if (!rightPanel) return;
-  var h2 = rightPanel.querySelector('h2');
-  var subtext = rightPanel.querySelector('p.text-neutral-500');
-
+  var trustRow = rightPanel.querySelector('.fp-trust-row');
   var observer = new MutationObserver(function() {
-    var calendlyEl = rightPanel.querySelector('.demo-calendly-container:not(.hidden)');
-    if (calendlyEl) {
-      if (h2) h2.style.display = 'none';
-      if (subtext) subtext.style.display = 'none';
+    if (rightPanel.querySelector('.fp-calendly-container:not(.hidden)')) {
+      if (trustRow) trustRow.style.display = 'none';
     }
   });
   observer.observe(rightPanel, { attributes: true, childList: true, subtree: true });

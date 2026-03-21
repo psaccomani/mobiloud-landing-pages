@@ -101,7 +101,7 @@ const faqs = [
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <!-- Left: Text -->
         <div>
-          <p class="text-primary-400 font-semibold text-sm uppercase tracking-wide mb-4">The Fastest Way to Launch a Salesforce Commerce Cloud Mobile App</p>
+          <p class="text-primary-400 font-semibold text-sm uppercase tracking-wide mb-4">Salesforce Commerce Cloud Mobile App</p>
           <h1 class="font-display text-display-1 text-white mb-6 lg:text-[60px] lg:leading-[68px]">Turn Your SFCC Storefront into an iOS and Android App. Live in 30 days.</h1>
           <p class="text-neutral-400 text-lg leading-relaxed mb-8 max-w-lg">Launch an iOS and Android app powered by your live Salesforce Commerce Cloud site. No headless rebuild. No separate mobile codebase. Aura and LWR both supported.</p>
 
@@ -130,7 +130,7 @@ const faqs = [
         <!-- Right: Lead form -->
         <div class="flex justify-center" id="lead-form-section">
           <div class="w-full max-w-md">
-            <LeadForm id="hero-form" variant="dark" heading="Get a free preview of your mobile app" />
+            <LeadForm id="hero-form" variant="dark" heading="Get a free preview of your mobile app" subheading="We build a working preview of your SFCC storefront as a native iOS and Android app, then walk you through it on a 30-minute call. No cost, no commitment." />
           </div>
         </div>
       </div>
@@ -211,9 +211,12 @@ const faqs = [
         <div class="lg:sticky lg:top-24 lg:self-start">
           <h3 class="font-display text-display-4 text-primary-700 mb-4">Your questions, answered.</h3>
           <p class="text-neutral-600 text-base leading-relaxed mb-6">
-            Still have questions? Get a free preview and we'll walk you through everything.
+            Still have questions? Get a free preview or book a consultation and we'll walk you through everything.
           </p>
-          <a href="#lead-form-section" class="btn-primary cursor-pointer text-sm !py-2.5 !px-5">Get Your Free Preview</a>
+          <div class="flex flex-col gap-3">
+            <a href="#lead-form-section" class="btn-primary cursor-pointer text-sm !py-2.5 !px-5 text-center">Get Your Free Preview</a>
+            <a href="#get-started" class="cursor-pointer text-center rounded-[10px] px-5 py-2.5 font-display font-semibold text-sm border-2 border-primary-700 text-primary-700 hover:bg-primary-50 transition-colors">Book a Demo</a>
+          </div>
         </div>
 
         <!-- Right: FAQ accordion -->

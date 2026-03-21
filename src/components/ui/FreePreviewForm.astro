@@ -1,0 +1,432 @@
+---
+interface Props {
+  id?: string;
+}
+const { id = 'free-preview-form' } = Astro.props;
+
+const platforms = [
+  'Shopify',
+  'WooCommerce',
+  'Magento / Adobe Commerce',
+  'BigCommerce',
+  'Salesforce Commerce Cloud',
+  'VTEX',
+  'Hyva',
+  'WordPress',
+  'Custom',
+  'Other',
+];
+---
+
+<div class="fp-form-wrapper w-full" id={`${id}-wrapper`}>
+
+  <!-- Step indicator -->
+  <div class="fp-step-indicator flex items-center gap-2 mb-5">
+    <span class="fp-step-dot fp-step-dot-1 w-2 h-2 rounded-full bg-primary-600 transition-all"></span>
+    <span class="fp-step-dot fp-step-dot-2 w-2 h-2 rounded-full bg-neutral-200 transition-all"></span>
+    <span class="fp-step-label text-xs text-neutral-400 ml-1">Step <span class="fp-step-num">1</span> of 2</span>
+  </div>
+
+  <!-- Step 1 -->
+  <div class="fp-step fp-step-1">
+    <div class="mb-5">
+      <h2 class="font-display text-2xl font-bold text-neutral-900 mb-1">Claim your free app preview</h2>
+      <p class="text-neutral-500 text-sm">We build it from your live site and present it to you. No cost, no commitment.</p>
+    </div>
+
+    <form id={`${id}-step1`} class="space-y-3" novalidate>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+          <label for={`${id}-first-name`} class="block text-xs font-medium mb-1 text-neutral-700">First Name</label>
+          <input type="text" id={`${id}-first-name`} name="First-Name" placeholder="Jane" autocomplete="given-name" required
+            class="fp-input w-full rounded-lg border border-neutral-200 px-3.5 py-3 text-sm text-neutral-900 placeholder-neutral-400 outline-none transition focus:border-primary-600 focus:ring-2 focus:ring-primary-600/20" />
+          <p class="field-error text-xs mt-1 hidden text-red-600">Required.</p>
+        </div>
+        <div>
+          <label for={`${id}-last-name`} class="block text-xs font-medium mb-1 text-neutral-700">Last Name</label>
+          <input type="text" id={`${id}-last-name`} name="Last-Name" placeholder="Smith" autocomplete="family-name" required
+            class="fp-input w-full rounded-lg border border-neutral-200 px-3.5 py-3 text-sm text-neutral-900 placeholder-neutral-400 outline-none transition focus:border-primary-600 focus:ring-2 focus:ring-primary-600/20" />
+          <p class="field-error text-xs mt-1 hidden text-red-600">Required.</p>
+        </div>
+      </div>
+
+      <div>
+        <label for={`${id}-email`} class="block text-xs font-medium mb-1 text-neutral-700">Work Email</label>
+        <input type="email" id={`${id}-email`} name="Email" placeholder="jane@brand.com" autocomplete="email" required
+          class="fp-input w-full rounded-lg border border-neutral-200 px-3.5 py-3 text-sm text-neutral-900 placeholder-neutral-400 outline-none transition focus:border-primary-600 focus:ring-2 focus:ring-primary-600/20" />
+        <p class="field-error text-xs mt-1 hidden text-red-600">Work email is required.</p>
+      </div>
+
+      <div>
+        <label for={`${id}-website`} class="block text-xs font-medium mb-1 text-neutral-700">Website URL</label>
+        <input type="url" id={`${id}-website`} name="website" placeholder="https://yourbrand.com" autocomplete="url" required
+          class="fp-input w-full rounded-lg border border-neutral-200 px-3.5 py-3 text-sm text-neutral-900 placeholder-neutral-400 outline-none transition focus:border-primary-600 focus:ring-2 focus:ring-primary-600/20" />
+        <p class="field-error text-xs mt-1 hidden text-red-600">Website URL is required.</p>
+      </div>
+
+      <button type="submit" class="btn-primary w-full justify-center cursor-pointer mt-2">
+        Continue
+        <svg class="ml-1.5 w-4 h-4" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </form>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="fp-step fp-step-2 hidden">
+    <div class="mb-5">
+      <button class="fp-back flex items-center gap-1.5 text-xs text-neutral-400 hover:text-neutral-600 transition-colors mb-3 cursor-pointer">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M16 10H4M8 14l-4-4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back
+      </button>
+      <h2 class="font-display text-xl font-bold text-neutral-900 mb-1">A couple more details</h2>
+      <p class="text-neutral-500 text-sm">Helps us tailor the preview to your setup.</p>
+    </div>
+
+    <form id={`${id}-step2`} class="space-y-4" novalidate>
+      <!-- Hidden fields carried from step 1 -->
+      <input type="hidden" name="First-Name" class="fp-carry-firstname" />
+      <input type="hidden" name="Last-Name" class="fp-carry-lastname" />
+      <input type="hidden" name="Email" class="fp-carry-email" />
+      <input type="hidden" name="website" class="fp-carry-website" />
+      <input type="hidden" name="Company-Name" class="fp-carry-company" />
+      <input type="hidden" name="Current-Page-URL" class="page-url-field" />
+      <input type="hidden" name="Platform" class="fp-platform-value" />
+
+      <!-- Platform -->
+      <div>
+        <label class="block text-xs font-medium mb-2 text-neutral-700">What platform is your store on?</label>
+        <div class="fp-platform-grid">
+          {platforms.map((p) => (
+            <button type="button" class="fp-platform-btn" data-value={p}>{p}</button>
+          ))}
+        </div>
+        <p class="fp-platform-error text-xs mt-2 hidden text-red-600">Please select your platform.</p>
+      </div>
+
+      <!-- Monthly visitors -->
+      <div>
+        <label for={`${id}-traffic`} class="block text-xs font-medium mb-1 text-neutral-700">Monthly Website Visitors</label>
+        <div class="relative">
+          <select id={`${id}-traffic`} name="Monthly-Visitors" required
+            class="w-full rounded-lg border border-neutral-200 px-3.5 py-3 pr-9 text-sm text-neutral-900 outline-none transition focus:border-primary-600 focus:ring-2 focus:ring-primary-600/20 appearance-none bg-white">
+            <option value="">Select monthly visitors</option>
+            <option value="<10k">Under 10,000</option>
+            <option value="10k-50k">10,000 - 50,000</option>
+            <option value="50k-250k">50,000 - 250,000</option>
+            <option value="250k-1M">250,000 - 1,000,000</option>
+            <option value="1M+">1,000,000+</option>
+          </select>
+          <svg class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="field-error text-xs mt-1 hidden text-red-600">Please select your monthly visitors.</p>
+      </div>
+
+      <button type="submit" class="btn-primary w-full justify-center cursor-pointer mt-2">
+        Get My Free Preview
+      </button>
+
+      <p class="text-xs text-center mt-3 text-neutral-400">
+        Questions? <a href="mailto:sales@mobiloud.com" class="text-neutral-500 hover:text-neutral-700 transition-colors underline underline-offset-2">sales@mobiloud.com</a>
+      </p>
+    </form>
+  </div>
+
+  <!-- Calendly context header -->
+  <div class="fp-calendly-context hidden text-center px-2 pt-2 pb-5">
+    <p class="font-display font-bold text-neutral-900 text-lg mb-1">Pick a time for your free preview</p>
+    <p class="text-neutral-500 text-sm">We'll have your app preview ready. 30 minutes, no commitment.</p>
+  </div>
+
+  <!-- Calendly embed -->
+  <div class="fp-calendly-container hidden w-full" style="min-height:660px;"></div>
+
+  <!-- Low-traffic thank you (hidden until triggered) -->
+  <div class="fp-thankyou hidden text-center py-8 px-4">
+    <div class="w-12 h-12 rounded-full bg-primary-50 border border-primary-100 flex items-center justify-center mx-auto mb-4">
+      <svg width="22" height="22" viewBox="0 0 20 20" fill="none"><path d="M4 10l4.5 4.5 7.5-9" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h3 class="font-display text-lg font-bold text-neutral-900 mb-2">Thanks, we'll be in touch</h3>
+    <p class="text-neutral-500 text-sm leading-relaxed">We've got your details. Someone from the team will reach out to talk through next steps.</p>
+  </div>
+
+</div>
+
+<style>
+  .fp-platform-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .fp-platform-btn {
+    padding: 8px 6px;
+    border-radius: 8px;
+    border: 1.5px solid #e5e7eb;
+    background: #fff;
+    color: #374151;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
+    line-height: 1.3;
+  }
+  .fp-platform-btn:hover {
+    border-color: #047857;
+    background: #f0fdf4;
+    color: #047857;
+  }
+  .fp-platform-btn.selected {
+    border-color: #047857;
+    background: #ecfdf5;
+    color: #047857;
+    font-weight: 600;
+  }
+</style>
+
+<script is:inline>
+(function() {
+  if (window.__fpFormInitialized) return;
+  window.__fpFormInitialized = true;
+
+  // Calendly height listener
+  window.addEventListener('message', function(ev) {
+    if (ev.data && ev.data.event === 'calendly.page_height') {
+      var height = (ev.data.payload || ev.data.data || {}).height;
+      document.querySelectorAll('.fp-calendly-container:not(.hidden)').forEach(function(c) {
+        c.style.height = Math.max(parseInt(height), 660) + 'px';
+      });
+    }
+  });
+
+  function initFPForm() {
+    var wrapper = document.querySelector('.fp-form-wrapper');
+    if (!wrapper) return;
+
+    var step1El = wrapper.querySelector('.fp-step-1');
+    var step2El = wrapper.querySelector('.fp-step-2');
+    var stepNum = wrapper.querySelector('.fp-step-num');
+    var dot1 = wrapper.querySelector('.fp-step-dot-1');
+    var dot2 = wrapper.querySelector('.fp-step-dot-2');
+    var step1Form = wrapper.querySelector('[id$="-step1"]');
+    var step2Form = wrapper.querySelector('[id$="-step2"]');
+    var backBtn = wrapper.querySelector('.fp-back');
+    var calendlyContainer = wrapper.querySelector('.fp-calendly-container');
+    var calendlyContext = wrapper.querySelector('.fp-calendly-context');
+    var platformBtns = wrapper.querySelectorAll('.fp-platform-btn');
+    var platformInput = wrapper.querySelector('.fp-platform-value');
+    var platformError = wrapper.querySelector('.fp-platform-error');
+    var pageUrlField = wrapper.querySelector('.page-url-field');
+
+    if (pageUrlField) pageUrlField.value = window.location.href;
+
+    // URL auto-format
+    var websiteInput = step1Form ? step1Form.querySelector('input[type="url"]') : null;
+    if (websiteInput) {
+      websiteInput.addEventListener('focus', function() { if (!this.value) this.value = 'https://'; });
+      websiteInput.addEventListener('blur', function() { if (this.value === 'https://') this.value = ''; });
+      websiteInput.addEventListener('input', function() {
+        if (this.value.toLowerCase().startsWith('https://https://')) {
+          this.value = this.value.replace(/^https:\/\/https:\/\//i, 'https://');
+        }
+      });
+    }
+
+    // Company name derivation
+    function companyFromUrl(url) {
+      try {
+        var hostname = url.replace(/^https?:\/\//, '').replace(/^www\./, '').split('/')[0].split('?')[0];
+        var name = hostname.replace(/\.[^.]+$/, '');
+        if (/\.(co|com|org|net|io)\.[a-z]{2,}$/i.test(hostname)) {
+          name = hostname.replace(/\.(co|com|org|net|io)\.[a-z]{2,}$/i, '').replace(/^www\./, '');
+        }
+        return name.split(/[-.]/).map(function(w) { return w.charAt(0).toUpperCase() + w.slice(1); }).join(' ');
+      } catch(e) { return ''; }
+    }
+
+    // Field error helper
+    function setFieldError(field, show) {
+      var wrapper = field.closest('div');
+      var err = wrapper ? wrapper.querySelector('.field-error') : null;
+      if (!err) return;
+      if (show) { err.classList.remove('hidden'); field.classList.add('border-red-500'); }
+      else { err.classList.add('hidden'); field.classList.remove('border-red-500'); }
+    }
+
+    // Inline validation on blur
+    if (step1Form) {
+      step1Form.querySelectorAll('[required]').forEach(function(f) {
+        f.addEventListener('blur', function() { setFieldError(f, !f.value); });
+        f.addEventListener('input', function() { if (f.value) setFieldError(f, false); });
+      });
+    }
+
+    // Platform selection
+    platformBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        platformBtns.forEach(function(b) { b.classList.remove('selected'); });
+        btn.classList.add('selected');
+        if (platformInput) platformInput.value = btn.dataset.value;
+        if (platformError) platformError.classList.add('hidden');
+      });
+    });
+
+    // Go to step 2
+    function showStep2() {
+      step1El.classList.add('hidden');
+      step2El.classList.remove('hidden');
+      if (stepNum) stepNum.textContent = '2';
+      if (dot1) { dot1.classList.remove('bg-primary-600'); dot1.classList.add('bg-primary-300'); }
+      if (dot2) { dot2.classList.remove('bg-neutral-200'); dot2.classList.add('bg-primary-600'); }
+      window.scrollTo(0, 0);
+    }
+
+    // Back to step 1
+    if (backBtn) {
+      backBtn.addEventListener('click', function() {
+        step2El.classList.add('hidden');
+        step1El.classList.remove('hidden');
+        if (stepNum) stepNum.textContent = '1';
+        if (dot1) { dot1.classList.add('bg-primary-600'); dot1.classList.remove('bg-primary-300'); }
+        if (dot2) { dot2.classList.add('bg-neutral-200'); dot2.classList.remove('bg-primary-600'); }
+      });
+    }
+
+    // Step 1 submit - validate and advance
+    if (step1Form) {
+      step1Form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var valid = true;
+        step1Form.querySelectorAll('[required]').forEach(function(f) {
+          if (!f.value) { setFieldError(f, true); valid = false; }
+        });
+        if (!valid) {
+          var first = Array.from(step1Form.querySelectorAll('[required]')).find(function(f) { return !f.value; });
+          if (first) first.focus();
+          return;
+        }
+        // Carry values to step 2 hidden fields
+        var firstNameVal = step1Form.querySelector('input[name="First-Name"]').value;
+        var lastNameVal = step1Form.querySelector('input[name="Last-Name"]').value;
+        var emailVal = step1Form.querySelector('input[name="Email"]').value;
+        var websiteVal = step1Form.querySelector('input[name="website"]').value;
+        wrapper.querySelector('.fp-carry-firstname').value = firstNameVal;
+        wrapper.querySelector('.fp-carry-lastname').value = lastNameVal;
+        wrapper.querySelector('.fp-carry-email').value = emailVal;
+        wrapper.querySelector('.fp-carry-website').value = websiteVal;
+        wrapper.querySelector('.fp-carry-company').value = companyFromUrl(websiteVal);
+        showStep2();
+      });
+    }
+
+    // Step 2 submit - qualify and load Calendly
+    if (step2Form) {
+      // Inline validation for traffic select
+      var trafficSelect = step2Form.querySelector('select[name="Monthly-Visitors"]');
+      if (trafficSelect) {
+        trafficSelect.addEventListener('blur', function() { setFieldError(trafficSelect, !trafficSelect.value); });
+        trafficSelect.addEventListener('change', function() { if (trafficSelect.value) setFieldError(trafficSelect, false); });
+      }
+
+      // Inject UTM params
+      var trackedParams = ["utm_source","utm_campaign","utm_medium","utm_term","utm_content","source","campaign","medium","gclid"];
+      trackedParams.forEach(function(p) {
+        var val = localStorage.getItem(p);
+        if (val) {
+          var inp = document.createElement('input');
+          inp.type = 'hidden'; inp.name = p; inp.value = val;
+          step2Form.appendChild(inp);
+        }
+      });
+
+      step2Form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var valid = true;
+
+        // Validate platform
+        if (!platformInput || !platformInput.value) {
+          if (platformError) platformError.classList.remove('hidden');
+          valid = false;
+        }
+
+        // Validate traffic
+        if (trafficSelect && !trafficSelect.value) {
+          setFieldError(trafficSelect, true);
+          valid = false;
+        }
+
+        if (!valid) return;
+
+        // Collect all form data
+        var formData = {};
+        step2Form.querySelectorAll('[name]').forEach(function(f) {
+          if (f.value) formData[f.name] = f.value;
+        });
+
+        // Analytics
+        if (typeof posthog !== 'undefined') {
+          posthog.capture('Lead Form submitted', formData, { send_instantly: true });
+        }
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'lead_form_submit', form_id: 'free-preview-form', form_data: formData });
+
+        // Traffic qualify: <10k -> show inline thank you
+        if (trafficSelect.value === '<10k') {
+          step1El.classList.add('hidden');
+          step2El.classList.add('hidden');
+          wrapper.querySelector('.fp-step-indicator').style.display = 'none';
+          var fpThankyou = wrapper.querySelector('.fp-thankyou');
+          if (fpThankyou) fpThankyou.classList.remove('hidden');
+          return;
+        }
+
+        // Load Calendly
+        step1El.classList.add('hidden');
+        step2El.classList.add('hidden');
+        wrapper.querySelector('.fp-step-indicator').style.display = 'none';
+        if (calendlyContext) calendlyContext.classList.remove('hidden');
+        if (calendlyContainer) {
+          calendlyContainer.classList.remove('hidden');
+          calendlyContainer.style.minHeight = '700px';
+          calendlyContainer.style.width = '100%';
+        }
+
+        if (typeof Calendly !== 'undefined' && calendlyContainer) {
+          Calendly.initInlineWidget({
+            url: 'https://calendly.com/mobiloud/mobiloud-app-consultation?hide_gdpr_banner=1&hide_event_type_details=1&background_color=ffffff&primary_color=047857',
+            parentElement: calendlyContainer,
+            prefill: {
+              firstName: formData['First-Name'] || '',
+              lastName: formData['Last-Name'] || '',
+              email: formData['Email'] || '',
+              customAnswers: {
+                a1: formData['Company-Name'] || '',
+                a2: formData['website'] || ''
+              }
+            },
+            utm: {
+              utmCampaign: localStorage.getItem('utm_campaign'),
+              utmSource: localStorage.getItem('utm_source'),
+              utmMedium: localStorage.getItem('utm_medium'),
+              utmContent: localStorage.getItem('utm_content'),
+              utmTerm: localStorage.getItem('utm_term')
+            }
+          });
+        } else {
+          var params = new URLSearchParams();
+          params.set('name', ((formData['First-Name'] || '') + ' ' + (formData['Last-Name'] || '')).trim());
+          params.set('email', formData['Email'] || '');
+          window.location.href = 'https://www.mobiloud.com/demo?' + params.toString();
+        }
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFPForm);
+  } else {
+    initFPForm();
+  }
+})();
+</script>

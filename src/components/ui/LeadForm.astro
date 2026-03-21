@@ -12,7 +12,7 @@ const {
   variant = 'light',
   heading,
   subheading,
-  buttonText = 'Book My Free Preview',
+  buttonText = 'Get My Free Preview',
 } = Astro.props;
 
 const isDark = variant === 'dark';
@@ -26,7 +26,7 @@ const errorTextClass = 'text-red-600';
     <h3 class={`font-display text-xl font-bold text-neutral-900 ${subheading ? 'mb-1' : 'mb-5'}`}>{heading}</h3>
   )}
   {subheading && (
-    <p class="text-neutral-500 text-sm mb-5">{subheading}</p>
+    <p class="lead-form-subheading text-neutral-500 text-sm mb-5">{subheading}</p>
   )}
 
   <form id={id} class="lead-form pass-tracked-params space-y-3" novalidate>
@@ -277,6 +277,8 @@ const errorTextClass = 'text-red-600';
           // Hide the form heading if present
           var formHeading = form.closest('.lead-form-wrapper').querySelector('h3');
           if (formHeading) formHeading.style.display = 'none';
+          var formSubheading = form.closest('.lead-form-wrapper').querySelector('.lead-form-subheading');
+          if (formSubheading) formSubheading.style.display = 'none';
           // Show context header
           var calendlyContext = form.closest('.lead-form-wrapper').querySelector('.calendly-context');
           if (calendlyContext) calendlyContext.classList.remove('hidden');

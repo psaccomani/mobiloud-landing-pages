@@ -2,19 +2,24 @@
 interface Props {
   id?: string;
   heading?: string;
+  subheading?: string;
   buttonText?: string;
 }
 
 const {
   id = 'demo-lead-form',
   heading,
-  buttonText = 'Book My Free Consultation',
+  subheading,
+  buttonText = 'Book My Free Demo',
 } = Astro.props;
 ---
 
 <div class="demo-lead-form-wrapper w-full">
   {heading && (
-    <h3 class="font-display text-xl font-bold mb-1 text-neutral-900">{heading}</h3>
+    <h3 class:list={['font-display text-xl font-bold text-neutral-900', subheading ? 'mb-1' : 'mb-5']}>{heading}</h3>
+  )}
+  {subheading && (
+    <p class="text-neutral-500 text-sm mb-5">{subheading}</p>
   )}
 
   <form id={id} class="demo-lead-form pass-tracked-params space-y-3" novalidate>
@@ -95,6 +100,15 @@ const {
 
   <!-- Calendly embed (hidden until form submit) -->
   <div class="demo-calendly-container hidden w-full" style="min-height:660px;" data-form-id={id}></div>
+
+  <!-- Low-traffic thank you (hidden until triggered) -->
+  <div class="demo-thankyou hidden text-center py-8 px-4">
+    <div class="w-12 h-12 rounded-full bg-primary-50 border border-primary-100 flex items-center justify-center mx-auto mb-4">
+      <svg width="22" height="22" viewBox="0 0 20 20" fill="none"><path d="M4 10l4.5 4.5 7.5-9" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h3 class="font-display text-lg font-bold text-neutral-900 mb-2">Thanks, we'll be in touch</h3>
+    <p class="text-neutral-500 text-sm leading-relaxed">We've got your details. Someone from the team will reach out to talk through next steps.</p>
+  </div>
 </div>
 
 <script is:inline>
@@ -231,10 +245,14 @@ const {
         window.dataLayer.push({ event: 'lead_form_submit', form_id: formId, form_data: formData });
 
 
-        // Traffic qualifying: <10k visitors -> redirect to thank you
+        // Traffic qualifying: <10k visitors -> show inline thank you
         var trafficSelect = form.querySelector('select[name="Monthly-Visitors"]');
         if (trafficSelect && trafficSelect.value === '<10k') {
-          window.location.href = 'https://www.mobiloud.com/thank-you/book-call';
+          form.style.display = 'none';
+          var formHeadingLow = form.closest('.demo-lead-form-wrapper').querySelector('h3');
+          if (formHeadingLow) formHeadingLow.style.display = 'none';
+          var thankyouEl = form.closest('.demo-lead-form-wrapper').querySelector('.demo-thankyou');
+          if (thankyouEl) thankyouEl.classList.remove('hidden');
           return;
         }
 
