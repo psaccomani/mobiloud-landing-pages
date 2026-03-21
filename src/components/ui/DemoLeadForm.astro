@@ -205,7 +205,7 @@ const {
       }
 
       // Inject UTM params
-      var trackedParams = ["utm_source","utm_campaign","utm_medium","utm_term","utm_content","source","campaign","medium","gclid"];
+      var trackedParams = ["utm_source","utm_campaign","utm_medium","utm_term","utm_content","source","campaign","medium","gclid","msclkid"];
       trackedParams.forEach(function(p) {
         var val = localStorage.getItem(p);
         if (val) {

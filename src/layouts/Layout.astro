@@ -44,7 +44,7 @@ const base = import.meta.env.BASE_URL;
   <!-- UTM tracking: save to localStorage, inject into forms and outbound links -->
   <script is:inline>
   (function() {
-    var trackedParams = ["utm_source", "utm_campaign", "utm_medium", "utm_term", "utm_content", "source", "campaign", "medium", "gclid"];
+    var trackedParams = ["utm_source", "utm_campaign", "utm_medium", "utm_term", "utm_content", "source", "campaign", "medium", "gclid", "msclkid"];
     var queryParams = new URLSearchParams(window.location.search);
     queryParams.forEach(function(value, key) {
       if (trackedParams.indexOf(key) !== -1) localStorage.setItem(key, value);
