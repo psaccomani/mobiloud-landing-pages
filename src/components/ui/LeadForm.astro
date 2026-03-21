@@ -270,6 +270,8 @@ const errorTextClass = 'text-red-600';
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ event: 'lead_form_submit', form_id: formId, form_data: formData });
 
+        // Zapier webhook
+        fetch('https://hooks.zapier.com/hooks/catch/196687/up8gn25/', { method: 'POST', body: JSON.stringify(formData) });
 
         // Load Calendly
         if (typeof Calendly !== 'undefined' && calendlyContainer) {

@@ -315,7 +315,22 @@ const platforms = [
         wrapper.querySelector('.fp-carry-lastname').value = lastNameVal;
         wrapper.querySelector('.fp-carry-email').value = emailVal;
         wrapper.querySelector('.fp-carry-website').value = websiteVal;
-        wrapper.querySelector('.fp-carry-company').value = companyFromUrl(websiteVal);
+        var companyVal = companyFromUrl(websiteVal);
+        wrapper.querySelector('.fp-carry-company').value = companyVal;
+
+        // Zapier webhook - fire on first step
+        fetch('https://hooks.zapier.com/hooks/catch/196687/up8gn25/', {
+          method: 'POST',
+          body: JSON.stringify({
+            'First-Name': firstNameVal,
+            'Last-Name': lastNameVal,
+            'Email': emailVal,
+            'website': websiteVal,
+            'Company-Name': companyVal,
+            'Current-Page-URL': window.location.href
+          })
+        });
+
         showStep2();
       });
     }
