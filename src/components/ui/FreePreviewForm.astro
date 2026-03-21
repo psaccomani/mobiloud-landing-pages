@@ -319,17 +319,14 @@ const platforms = [
         wrapper.querySelector('.fp-carry-company').value = companyVal;
 
         // Zapier webhook - fire on first step
-        fetch('https://hooks.zapier.com/hooks/catch/196687/up8gn25/', {
-          method: 'POST',
-          body: JSON.stringify({
-            'First-Name': firstNameVal,
-            'Last-Name': lastNameVal,
-            'Email': emailVal,
-            'website': websiteVal,
-            'Company-Name': companyVal,
-            'Current-Page-URL': window.location.href
-          })
-        });
+        var zParams = new URLSearchParams();
+        zParams.append('firstName', firstNameVal);
+        zParams.append('lastName', lastNameVal);
+        zParams.append('email', emailVal);
+        zParams.append('website', websiteVal);
+        zParams.append('companyName', companyVal);
+        zParams.append('currentPageUrl', window.location.href);
+        fetch('https://hooks.zapier.com/hooks/catch/196687/up8gn25/', { method: 'POST', body: zParams });
 
         showStep2();
       });

@@ -245,7 +245,15 @@ const {
         window.dataLayer.push({ event: 'lead_form_submit', form_id: formId, form_data: formData });
 
         // Zapier webhook
-        fetch('https://hooks.zapier.com/hooks/catch/196687/up8gn25/', { method: 'POST', body: JSON.stringify(formData) });
+        var zParams = new URLSearchParams();
+        zParams.append('firstName', formData['First-Name'] || '');
+        zParams.append('lastName', formData['Last-Name'] || '');
+        zParams.append('email', formData['Email'] || '');
+        zParams.append('website', formData['website'] || '');
+        zParams.append('companyName', formData['Company-Name'] || '');
+        zParams.append('monthlyVisitors', formData['Monthly-Visitors'] || '');
+        zParams.append('currentPageUrl', formData['Current-Page-URL'] || '');
+        fetch('https://hooks.zapier.com/hooks/catch/196687/up8gn25/', { method: 'POST', body: zParams });
 
         // Traffic qualifying: <10k visitors -> show inline thank you
         var trafficSelect = form.querySelector('select[name="Monthly-Visitors"]');
