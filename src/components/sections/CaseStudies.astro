@@ -97,12 +97,13 @@ const caseStudies = [
     </div>
 
     <!-- Tab panels -->
+    <div class="cs-panels-container max-w-3xl mx-auto">
     {caseStudies.map((cs, i) => (
       <div
         id={`cs-panel-${cs.id}`}
         role="tabpanel"
         data-cs-panel={cs.id}
-        class:list={['cs-panel max-w-3xl mx-auto', i !== 0 && 'hidden']}
+        class:list={['cs-panel', i === 0 && 'active']}
       >
         <div class="bg-neutral-50 border border-neutral-200 rounded-testimonial p-6 lg:p-8 flex flex-col lg:flex-row gap-6 lg:gap-10 items-center">
           <!-- Metric highlight -->
@@ -128,6 +129,7 @@ const caseStudies = [
         </div>
       </div>
     ))}
+    </div>
 
     <div class="text-center mt-10">
       <a href="#lead-form-section" class="btn-primary cursor-pointer" style="cursor: pointer;">Get Results Like These</a>
@@ -143,11 +145,18 @@ const caseStudies = [
   .cs-tab-hint {
     animation: cs-pulse 1.8s ease-in-out infinite;
   }
+  .cs-panels-container {
+    display: grid;
+  }
   .cs-panel {
+    grid-area: 1 / 1;
+    opacity: 0;
+    pointer-events: none;
     transition: opacity 0.3s ease;
   }
-  .cs-panel.fading {
-    opacity: 0;
+  .cs-panel.active {
+    opacity: 1;
+    pointer-events: auto;
   }
 </style>
 
@@ -175,21 +184,10 @@ const caseStudies = [
       tabs[index].classList.remove('border-neutral-200');
       tabs[index].setAttribute('aria-selected', 'true');
 
-      // Fade out current, then swap
-      const visiblePanel = document.querySelector('.cs-panel:not(.hidden)');
-      if (visiblePanel) {
-        visiblePanel.classList.add('fading');
-        setTimeout(() => {
-          panels.forEach(p => {
-            if ((p as HTMLElement).dataset.csPanel === id) {
-              p.classList.remove('hidden', 'fading');
-            } else {
-              p.classList.add('hidden');
-              p.classList.remove('fading');
-            }
-          });
-        }, 200);
-      }
+      // Swap active panel
+      panels.forEach(p => {
+        p.classList.toggle('active', (p as HTMLElement).dataset.csPanel === id);
+      });
 
       currentIndex = index;
     }
