@@ -253,15 +253,20 @@ const bullets = [
   @media (max-width: 1023px) {
     .demo-header { padding: 0 24px; }
     .demo-main { flex-direction: column; }
-    .demo-right { width: 100%; padding: 24px 24px 0; order: 1; }
     .demo-left {
       justify-content: flex-start;
-      padding: 32px 24px 40px;
-      order: 2;
+      padding: 40px 24px 0;
     }
     .demo-headline { font-size: 32px; }
+    .demo-right { width: 100%; padding: 24px 24px 0; }
+    .demo-testimonial-mobile { display: block; padding: 32px 24px 40px; }
     .demo-footer { padding: 0 24px; }
+    /* Hide testimonial inside left panel on mobile */
+    .demo-left .testimonial { display: none; }
   }
+
+  /* Hide mobile-only testimonial on desktop */
+  .demo-testimonial-mobile { display: none; }
 </style>
 
 <style is:global>
@@ -335,6 +340,28 @@ const bullets = [
       </div>
     </div>
 
+  </div>
+
+  <!-- Testimonial shown below form on mobile only -->
+  <div class="demo-testimonial-mobile">
+    <div class="testimonial" style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; max-width: 440px; margin: 0 auto;">
+      <div class="testimonial-stars" style="display:flex;gap:2px;margin-bottom:10px;">
+        {Array.from({length: 5}).map(() => (
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="#F59E0B"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>
+        ))}
+      </div>
+      <blockquote style="margin:0 0 14px;color:#d1d5db;font-size:14px;line-height:1.7;font-style:italic;">"We couldn't find another company that could offer the same features at the same price point, same time to market, and make it as easy as MobiLoud could."</blockquote>
+      <div class="testimonial-author" style="display:flex;align-items:center;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <img src={`${base}/images/svend-hansen.avif`} alt="Svend Hansen" style="width:36px;height:36px;border-radius:50%;" width="36" height="36" loading="lazy">
+          <div>
+            <span style="font-family:'Eudoxus Sans',Arial,sans-serif;color:#f9fafb;font-size:13px;font-weight:600;display:block;">Svend Hansen</span>
+            <span style="color:#6b7280;font-size:12px;">Product Owner</span>
+          </div>
+        </div>
+        <img src={`${base}/images/bestseller-white.svg`} alt="Bestseller" style="height:16px;width:auto;opacity:0.5;" loading="lazy">
+      </div>
+    </div>
   </div>
 
   <!-- Footer -->
