@@ -74,18 +74,21 @@ const base = import.meta.env.BASE_URL;
   })();
   </script>
 
-  <!-- Smooth scroll to form with offset: show the whole form card, not just the first input -->
+  <!-- Smooth scroll with nav offset for all hash links -->
   <script is:inline>
   (function() {
     document.addEventListener('click', function(e) {
-      var link = e.target.closest('a[href*="#lead-form-section"]');
+      var link = e.target.closest('a[href^="#"], a[href*="#lead-form-section"], a[href*="#get-started"]');
       if (!link) return;
-      var target = document.getElementById('lead-form-section');
+      var hash = link.getAttribute('href');
+      if (!hash || !hash.startsWith('#')) return;
+      var targetId = hash.slice(1);
+      var target = document.getElementById(targetId);
       if (!target) return;
       e.preventDefault();
       var rect = target.getBoundingClientRect();
       var navHeight = 64;
-      var padding = 32;
+      var padding = 24;
       var scrollTo = window.scrollY + rect.top - navHeight - padding;
       window.scrollTo({ top: Math.max(0, scrollTo), behavior: 'smooth' });
     });
