@@ -70,7 +70,7 @@ const features = [
           'grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center',
           !f.imageFirst && 'lg:[&>*:first-child]:order-2',
         ]}>
-          <div class="max-w-md mx-auto lg:mx-0">
+          <div class="max-w-md mx-auto lg:mx-0" style="aspect-ratio:448/300">
             <img src={f.image} alt={f.imageAlt} width="448" height="300" class="w-full h-auto rounded-xl" loading="lazy">
           </div>
           <div class={!f.imageFirst ? 'lg:order-1' : ''}>
