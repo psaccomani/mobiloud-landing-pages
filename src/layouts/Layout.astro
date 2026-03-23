@@ -41,6 +41,46 @@ const base = import.meta.env.BASE_URL;
 
   <slot />
 
+  <!-- Hash link scroll: two-phase approach to handle lazy-image layout shift -->
+  <script is:inline>
+  (function() {
+    var NAV_OFFSET = 88;
+    function getScrollTop(el) {
+      return Math.max(0, el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET);
+    }
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+      var hash = link.getAttribute('href');
+      if (!hash || hash === '#' || !hash.startsWith('#')) return;
+      var target = document.getElementById(hash.slice(1));
+      if (!target) return;
+      e.preventDefault();
+      function scrollNow() {
+        // Phase 1: smooth scroll with best current estimate
+        window.scrollTo({ top: getScrollTop(target), behavior: 'smooth' });
+        // Phase 2: instant correction after scroll animation + newly triggered lazy images settle
+        setTimeout(function() {
+          var exact = getScrollTop(target);
+          if (Math.abs(exact - window.scrollY) > 20) {
+            window.scrollTo({ top: exact, behavior: 'instant' });
+          }
+        }, 1000);
+      }
+      // Wait up to 400ms for images already in flight before phase 1
+      var pending = Array.from(document.images).filter(function(img) { return !img.complete; });
+      if (!pending.length) { scrollNow(); return; }
+      var done = 0;
+      var timeout = setTimeout(scrollNow, 400);
+      pending.forEach(function(img) {
+        function onSettle() { if (++done === pending.length) { clearTimeout(timeout); scrollNow(); } }
+        img.addEventListener('load', onSettle, { once: true });
+        img.addEventListener('error', onSettle, { once: true });
+      });
+    });
+  })();
+  </script>
+
   <!-- UTM tracking: save to localStorage, inject into forms and outbound links -->
   <script is:inline>
   (function() {
