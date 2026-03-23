@@ -26,6 +26,14 @@
   scroll-margin-top: 88px;
 }
 
+/* Responsive display type scale — mobile overrides (below sm / 640px) */
+@media (max-width: 639px) {
+  .text-display-1 { font-size: 32px !important; line-height: 40px !important; }
+  .text-display-2 { font-size: 28px !important; line-height: 36px !important; }
+  .text-display-3 { font-size: 24px !important; line-height: 32px !important; }
+  .text-display-4 { font-size: 22px !important; line-height: 30px !important; }
+}
+
 body {
   font-family: 'Inter', Arial, sans-serif;
   color: #171717;
