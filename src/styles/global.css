@@ -21,6 +21,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Offset scroll targets below the sticky nav */
+[id] {
+  scroll-margin-top: 88px;
+}
+
 body {
   font-family: 'Inter', Arial, sans-serif;
   color: #171717;
