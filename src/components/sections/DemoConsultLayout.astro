@@ -30,6 +30,13 @@ const bullets = [
     color: #fff;
   }
 
+  /* ── Inner max-width ── */
+  .demo-inner {
+    max-width: 1350px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
   /* ── Header ── */
   .demo-header {
     display: flex;
@@ -251,7 +258,7 @@ const bullets = [
 
   /* ── Mobile ── */
   @media (max-width: 1023px) {
-    .demo-header { padding: 0 24px; }
+    .demo-header { padding: 0 24px; flex-wrap: wrap; gap: 8px 20px; height: auto; min-height: 64px; padding-top: 12px; padding-bottom: 12px; }
     .demo-main { flex-direction: column; }
     .demo-left {
       justify-content: flex-start;
@@ -278,7 +285,7 @@ const bullets = [
 <div class="demo-page">
 
   <!-- Header -->
-  <header class="demo-header">
+  <header class="demo-header demo-inner">
     <a href="https://www.mobiloud.com">
       <img src={`${base}/images/logomark-white-2025.svg`} alt="MobiLoud" width="136" height="30" loading="eager">
     </a>
@@ -286,7 +293,7 @@ const bullets = [
   </header>
 
   <!-- Main -->
-  <div class="demo-main">
+  <div class="demo-main demo-inner">
 
     <!-- Left -->
     <div class="demo-left">
@@ -343,7 +350,7 @@ const bullets = [
   </div>
 
   <!-- Testimonial shown below form on mobile only -->
-  <div class="demo-testimonial-mobile">
+  <div class="demo-testimonial-mobile demo-inner">
     <div class="testimonial" style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; max-width: 440px; margin: 0 auto;">
       <div class="testimonial-stars" style="display:flex;gap:2px;margin-bottom:10px;">
         {Array.from({length: 5}).map(() => (
@@ -365,7 +372,7 @@ const bullets = [
   </div>
 
   <!-- Footer -->
-  <footer class="demo-footer">
+  <footer class="demo-footer demo-inner">
     <span>&copy; 2026 Fifty Pixels Ltd.</span>
     <div style="display:flex;gap:20px;">
       <a href="https://www.mobiloud.com/privacy-policy">Privacy Policy</a>
