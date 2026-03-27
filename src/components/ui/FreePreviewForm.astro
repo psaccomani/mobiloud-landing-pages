@@ -318,16 +318,6 @@ const platforms = [
         var companyVal = companyFromUrl(websiteVal);
         wrapper.querySelector('.fp-carry-company').value = companyVal;
 
-        // Zapier webhook - fire on first step
-        var zParams = new URLSearchParams();
-        zParams.append('firstName', firstNameVal);
-        zParams.append('lastName', lastNameVal);
-        zParams.append('email', emailVal);
-        zParams.append('website', websiteVal);
-        zParams.append('companyName', companyVal);
-        zParams.append('currentPageUrl', window.location.href);
-        fetch('https://hooks.zapier.com/hooks/catch/196687/up8gn25/', { method: 'POST', body: zParams });
-
         showStep2();
       });
     }
@@ -375,6 +365,18 @@ const platforms = [
         step2Form.querySelectorAll('[name]').forEach(function(f) {
           if (f.value) formData[f.name] = f.value;
         });
+
+        // Zapier webhook - fire after step 2 with all fields
+        var zParams = new URLSearchParams();
+        zParams.append('firstName', formData['First-Name'] || '');
+        zParams.append('lastName', formData['Last-Name'] || '');
+        zParams.append('email', formData['Email'] || '');
+        zParams.append('website', formData['website'] || '');
+        zParams.append('companyName', formData['Company-Name'] || '');
+        zParams.append('platform', formData['Platform'] || '');
+        zParams.append('monthlyVisitors', formData['Monthly-Visitors'] || '');
+        zParams.append('currentPageUrl', formData['Current-Page-URL'] || window.location.href);
+        fetch('https://hooks.zapier.com/hooks/catch/196687/up8gn25/', { method: 'POST', body: zParams });
 
         // Analytics
         if (typeof posthog !== 'undefined') {
