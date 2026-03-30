@@ -278,6 +278,13 @@ const errorTextClass = 'text-red-600';
         zParams.append('website', formData['website'] || '');
         zParams.append('companyName', formData['Company-Name'] || '');
         zParams.append('currentPageUrl', formData['Current-Page-URL'] || '');
+        zParams.append('utmSource', formData['utm_source'] || '');
+        zParams.append('utmCampaign', formData['utm_campaign'] || '');
+        zParams.append('utmMedium', formData['utm_medium'] || '');
+        zParams.append('utmTerm', formData['utm_term'] || '');
+        zParams.append('utmContent', formData['utm_content'] || '');
+        zParams.append('gclid', formData['gclid'] || '');
+        zParams.append('msclkid', formData['msclkid'] || '');
         fetch('https://hooks.zapier.com/hooks/catch/196687/up8gn25/', { method: 'POST', body: zParams });
 
         // Load Calendly
