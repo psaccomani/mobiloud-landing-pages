@@ -260,6 +260,8 @@ const {
         zParams.append('utmContent', formData['utm_content'] || '');
         zParams.append('gclid', formData['gclid'] || '');
         zParams.append('msclkid', formData['msclkid'] || '');
+        zParams.append('landingPage', formData['landing_page'] || '');
+        zParams.append('referrer', formData['referrer'] || '');
         fetch('https://hooks.zapier.com/hooks/catch/196687/up8gn25/', { method: 'POST', body: zParams });
 
         // Traffic qualifying: <10k visitors -> show inline thank you

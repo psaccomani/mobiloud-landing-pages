@@ -89,9 +89,18 @@ const base = import.meta.env.BASE_URL;
     queryParams.forEach(function(value, key) {
       if (trackedParams.indexOf(key) !== -1) localStorage.setItem(key, value);
     });
-    // Inject stored UTMs as hidden fields into forms with class "pass-tracked-params"
+    // Capture landing page URL on first visit (don't overwrite if already set)
+    if (!localStorage.getItem('landing_page')) {
+      localStorage.setItem('landing_page', window.location.href);
+    }
+    // Capture referrer on first visit
+    if (!localStorage.getItem('referrer') && document.referrer) {
+      localStorage.setItem('referrer', document.referrer);
+    }
+    // Inject stored UTMs + landing page + referrer as hidden fields into forms
+    var allTrackedFields = trackedParams.concat(["landing_page", "referrer"]);
     document.querySelectorAll("form.pass-tracked-params").forEach(function(form) {
-      trackedParams.forEach(function(p) {
+      allTrackedFields.forEach(function(p) {
         if (localStorage.getItem(p)) {
           var input = document.createElement("input");
           input.type = "hidden"; input.name = p; input.value = localStorage.getItem(p);
