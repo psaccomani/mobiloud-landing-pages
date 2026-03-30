@@ -220,7 +220,7 @@ const platforms = [
     var platformError = wrapper.querySelector('.fp-platform-error');
     var pageUrlField = wrapper.querySelector('.page-url-field');
 
-    if (pageUrlField) pageUrlField.value = window.location.href;
+    if (pageUrlField) pageUrlField.value = window.location.origin + window.location.pathname;
 
     // URL auto-format
     var websiteInput = step1Form ? step1Form.querySelector('input[type="url"]') : null;
@@ -443,7 +443,7 @@ const platforms = [
         zParams.append('companyName', formData['Company-Name'] || '');
         zParams.append('platform', formData['Platform'] || '');
         zParams.append('monthlyVisitors', formData['Monthly-Visitors'] || '');
-        zParams.append('currentPageUrl', formData['Current-Page-URL'] || window.location.href);
+        zParams.append('currentPageUrl', formData['Current-Page-URL'] || (window.location.origin + window.location.pathname));
         zParams.append('utmSource', formData['utm_source'] || '');
         zParams.append('utmCampaign', formData['utm_campaign'] || '');
         zParams.append('utmMedium', formData['utm_medium'] || '');

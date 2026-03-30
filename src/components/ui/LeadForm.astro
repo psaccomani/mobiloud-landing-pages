@@ -139,7 +139,7 @@ const errorTextClass = 'text-red-600';
       var calendlyContainer = form.closest('.lead-form-wrapper').querySelector('.calendly-container');
 
       // Set page URL
-      if (pageUrlField) pageUrlField.value = window.location.href;
+      if (pageUrlField) pageUrlField.value = window.location.origin + window.location.pathname;
 
       // Show or hide field-level error for a given required field
       function setFieldError(field, show) {

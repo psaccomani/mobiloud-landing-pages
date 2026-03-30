@@ -89,9 +89,9 @@ const base = import.meta.env.BASE_URL;
     queryParams.forEach(function(value, key) {
       if (trackedParams.indexOf(key) !== -1) localStorage.setItem(key, value);
     });
-    // Capture landing page URL on first visit (don't overwrite if already set)
+    // Capture landing page URL on first visit (clean, without query params)
     if (!localStorage.getItem('landing_page')) {
-      localStorage.setItem('landing_page', window.location.href);
+      localStorage.setItem('landing_page', window.location.origin + window.location.pathname);
     }
     // Capture referrer on first visit
     if (!localStorage.getItem('referrer') && document.referrer) {

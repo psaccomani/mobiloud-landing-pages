@@ -134,7 +134,7 @@ const {
       var pageUrlField = form.querySelector('.page-url-field');
       var calendlyContainer = form.closest('.demo-lead-form-wrapper').querySelector('.demo-calendly-container');
 
-      if (pageUrlField) pageUrlField.value = window.location.href;
+      if (pageUrlField) pageUrlField.value = window.location.origin + window.location.pathname;
 
       function setFieldError(field, show) {
         var wrapper = field.closest('div');
