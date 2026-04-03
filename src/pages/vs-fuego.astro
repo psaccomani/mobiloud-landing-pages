@@ -1,0 +1,210 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/sections/Nav.astro';
+import CompetitorHero from '../components/sections/CompetitorHero.astro';
+import LogoMarquee from '../components/sections/LogoMarquee.astro';
+import CompetitorComparison from '../components/sections/CompetitorComparison.astro';
+import CaseStudies from '../components/sections/CaseStudies.astro';
+import DarkFeatures from '../components/sections/DarkFeatures.astro';
+import IntegrationsSection from '../components/sections/IntegrationsSection.astro';
+import TestimonialsRow from '../components/sections/TestimonialsRow.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+import Footer from '../components/sections/Footer.astro';
+import Container from '../components/ui/Container.astro';
+import '../styles/global.css';
+
+const comparisonRows = [
+  {
+    feature: 'Approach',
+    competitor: 'AI-powered native app builder with generative design tools. You build your app using their drag-and-drop editor and AI prompts.',
+    mobiloud: 'Your existing website becomes your app. No separate platform to manage.',
+    competitorBad: false,
+    mobiloudGood: true,
+  },
+  {
+    feature: 'Store rebuild',
+    competitor: 'You design your app in their builder using 100+ template blocks or AI-generated screens.',
+    mobiloud: 'No rebuild. Your live site powers the app, including all custom code and design.',
+    competitorBad: true,
+    mobiloudGood: true,
+  },
+  {
+    feature: 'Ongoing maintenance',
+    competitor: 'App content is managed separately from your website in their editor.',
+    mobiloud: 'Update your site once. Your app syncs automatically.',
+    competitorBad: true,
+    mobiloudGood: true,
+  },
+  {
+    feature: 'Integrations',
+    competitor: '80+ Shopify app integrations via built-in connectors.',
+    mobiloud: 'Unlimited. Every tool on your website works in your app automatically.',
+    competitorBad: false,
+    mobiloudGood: true,
+  },
+  {
+    feature: 'Custom features',
+    competitor: 'Pixel-level customization in their editor. AI Creative Assistant for generating screens. Social commerce Community Corner feature.',
+    mobiloud: 'All custom features from your website carry over with no extra development.',
+    competitorBad: false,
+    mobiloudGood: true,
+  },
+  {
+    feature: 'Service model',
+    competitor: 'Hands-on support team with 24/7 availability.',
+    mobiloud: 'Fully managed on Corporate. Dedicated success manager, Slack support, regular meetings.',
+    competitorBad: false,
+    mobiloudGood: true,
+  },
+  {
+    feature: 'Pricing',
+    competitor: 'Free to build. From $999/mo when publishing to app stores. No revenue share. Shopify-only.',
+    mobiloud: 'From $799/mo (Growth) to $1,499/mo (Corporate). Flat fee, no revenue share. Any platform.',
+    competitorBad: false,
+    mobiloudGood: true,
+  },
+];
+
+const faqs = [
+  {
+    q: 'How is MobiLoud different from Fuego?',
+    a: 'Fuego is an AI-powered app builder where you design your app using generative AI tools and a drag-and-drop editor, separate from your website. MobiLoud takes a different approach: your existing website becomes your app. Everything you already have, design, integrations, custom code, works automatically. No rebuilding, no managing two platforms.',
+  },
+  {
+    q: 'Fuego uses AI to build apps. Is that better?',
+    a: "Fuego's AI helps you design app screens faster in their editor, but you still end up with a separate app that needs to be designed and managed independently from your website. MobiLoud skips the design step entirely. Your website is already designed, tested, and optimized. We turn that into your app directly.",
+  },
+  {
+    q: 'Fuego has a Community Corner feature. Does MobiLoud?',
+    a: "Fuego's Community Corner is an in-app social engagement feature built into their platform. MobiLoud doesn't replicate this specific feature, but if you have community or social features on your website (forums, user reviews, social feeds), they work in your MobiLoud app automatically.",
+  },
+  {
+    q: 'How does pricing compare?',
+    a: "Fuego starts at $999/mo when you publish to app stores. MobiLoud starts at $799/mo (Growth) and $1,499/mo (Corporate). MobiLoud's Corporate plan includes a dedicated success manager, Slack and phone support, regular strategy meetings, and hands-on launch support. Neither charges revenue share.",
+  },
+  {
+    q: 'Do I need to rebuild my store?',
+    a: "No. With MobiLoud, there's nothing to rebuild. Your existing website becomes your app with all custom code and design intact. With Fuego, you design your app in their builder using template blocks or AI-generated screens, a separate experience from your website.",
+  },
+  {
+    q: 'Does MobiLoud only work with Shopify?',
+    a: "No. MobiLoud works with any platform: Shopify, WooCommerce, Magento, BigCommerce, custom platforms, or any website that runs in a browser. Fuego is Shopify-only (targeting Shopify Plus and Enterprise).",
+  },
+  {
+    q: 'Will all my integrations work?',
+    a: "Yes. Because your app is powered by your live website, every tool and integration you already use works automatically. Fuego supports 80+ Shopify app integrations, but you're limited to what they've built connectors for. With MobiLoud, if it works on your site, it works in your app.",
+  },
+  {
+    q: 'How long does it take to launch?',
+    a: "About 30 days from sign-up to launch. Our team handles everything: app development, custom graphics, app store submissions, and approval monitoring. Fuego advertises rapid deployment, but you need to design your app in their builder first.",
+  },
+  {
+    q: 'What kind of support do I get?',
+    a: "On MobiLoud's Corporate plan, you get a dedicated Customer Success Manager, Slack and phone support, weekly meetings during launch, and ongoing strategy guidance. Fuego offers 24/7 email support with a hands-on team.",
+  },
+  {
+    q: 'What is your cancellation policy?',
+    a: "You can cancel anytime with 30 days written notice if you're not on a contract. If your app is rejected by Apple or Google due to a MobiLoud platform-specific issue, we will refund subscription fees paid. Setup fees are non-refundable.",
+  },
+];
+---
+
+<Layout
+  title="MobiLoud vs Fuego - A Managed App Without Rebuilding Your Store"
+  description="Compare MobiLoud and Fuego. MobiLoud turns your existing website into a native app with fully managed service. No AI builder, no separate platform to manage."
+>
+  <Nav />
+
+  <CompetitorHero
+    competitor="Fuego"
+    headline="Your Store as a Native App. No Builder. No AI Design."
+    subhead="Fuego uses AI to help you build apps faster in their editor, but you still design and manage a separate app. MobiLoud takes a different approach: your existing site becomes your app, and our team handles everything."
+    checklist={[
+      'No designing your app in a separate builder, AI or otherwise',
+      'No managing two platforms. Your site and app stay in sync.',
+      'Works with any platform, not just Shopify Plus.',
+    ]}
+  />
+
+  <LogoMarquee />
+
+  <CaseStudies />
+
+  <CompetitorComparison
+    competitor="Fuego"
+    rows={comparisonRows}
+  />
+
+  <DarkFeatures />
+
+  <IntegrationsSection />
+
+  <TestimonialsRow />
+
+  <!-- Competitor-specific FAQ -->
+  <section class="py-20 bg-background">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-12 lg:gap-16">
+        <!-- Left sidebar -->
+        <div class="lg:sticky lg:top-24 lg:self-start">
+          <h3 class="font-display text-display-4 text-primary-700 mb-4">Your questions, answered.</h3>
+          <p class="text-neutral-600 text-base leading-relaxed mb-6">
+            See how your store looks as a MobiLoud app. Free preview, no commitment.
+          </p>
+          <a href="#lead-form-section" class="btn-primary text-sm !py-2.5 !px-5">Get Your Free Preview</a>
+        </div>
+
+        <!-- Right: FAQ accordion -->
+        <div class="space-y-0">
+          {faqs.map((faq, i) => (
+            <div class="border-b border-neutral-200">
+              <button
+                class="faq-trigger w-full flex items-center justify-between py-5 text-left cursor-pointer group"
+                aria-expanded="false"
+                data-faq-index={i}
+              >
+                <span class="font-display font-semibold text-neutral-900 text-base pr-4 group-hover:text-primary-700 transition-colors">{faq.q}</span>
+                <svg class="faq-arrow flex-shrink-0 w-5 h-5 text-neutral-400" viewBox="0 0 20 20" fill="none">
+                  <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="faq-answer" data-faq-answer={i}>
+                <p class="text-neutral-600 text-base leading-relaxed pb-5">{faq.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <FinalCTA />
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const triggers = document.querySelectorAll('.faq-trigger');
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const index = (trigger as HTMLElement).dataset.faqIndex;
+        const answer = document.querySelector(`[data-faq-answer="${index}"]`);
+        const arrow = trigger.querySelector('.faq-arrow');
+        const isOpen = answer?.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-arrow').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-trigger').forEach(t => t.setAttribute('aria-expanded', 'false'));
+
+        // Toggle current
+        if (!isOpen) {
+          answer?.classList.add('open');
+          arrow?.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  });
+</script>

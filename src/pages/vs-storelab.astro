@@ -1,0 +1,202 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/sections/Nav.astro';
+import CompetitorHero from '../components/sections/CompetitorHero.astro';
+import LogoMarquee from '../components/sections/LogoMarquee.astro';
+import CompetitorComparison from '../components/sections/CompetitorComparison.astro';
+import CaseStudies from '../components/sections/CaseStudies.astro';
+import DarkFeatures from '../components/sections/DarkFeatures.astro';
+import IntegrationsSection from '../components/sections/IntegrationsSection.astro';
+import TestimonialsRow from '../components/sections/TestimonialsRow.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+import Footer from '../components/sections/Footer.astro';
+import Container from '../components/ui/Container.astro';
+import '../styles/global.css';
+
+const comparisonRows = [
+  {
+    feature: 'Approach',
+    competitor: 'No-code drag-and-drop app builder with bundled managed services (ads, coaching). You design your app in their editor.',
+    mobiloud: 'Your existing website becomes your app. No separate platform to manage.',
+    competitorBad: false,
+    mobiloudGood: true,
+  },
+  {
+    feature: 'Store rebuild',
+    competitor: 'You recreate your store in their builder, which mirrors the Shopify Online Store editor.',
+    mobiloud: 'No rebuild. Your live site powers the app, including all custom code and design.',
+    competitorBad: true,
+    mobiloudGood: true,
+  },
+  {
+    feature: 'Ongoing maintenance',
+    competitor: 'Your website and app are managed separately.',
+    mobiloud: 'Update your site once. Your app syncs automatically.',
+    competitorBad: true,
+    mobiloudGood: true,
+  },
+  {
+    feature: 'Integrations',
+    competitor: 'Supports Shopify app integrations including loyalty (Smile.io, LoyaltyLion), reviews (Stamped, Reviews.io), and search tools.',
+    mobiloud: 'Unlimited. Every tool on your website works in your app automatically.',
+    competitorBad: false,
+    mobiloudGood: true,
+  },
+  {
+    feature: 'Custom features',
+    competitor: 'Customization limited to their drag-and-drop components and available integrations.',
+    mobiloud: 'All custom features from your website carry over with no extra development.',
+    competitorBad: false,
+    mobiloudGood: true,
+  },
+  {
+    feature: 'Service model',
+    competitor: 'Dedicated account manager on all plans. Professional plan adds Meta ads management and business coaching.',
+    mobiloud: 'Fully managed on Corporate. Dedicated success manager, Slack support, regular meetings.',
+    competitorBad: false,
+    mobiloudGood: true,
+  },
+  {
+    feature: 'Pricing',
+    competitor: 'From $499/mo (Guided) to $999/mo (Professional). Shopify-only. Includes account management.',
+    mobiloud: 'From $799/mo (Growth) to $1,499/mo (Corporate). Flat fee, no revenue share. Any platform.',
+    competitorBad: false,
+    mobiloudGood: true,
+  },
+];
+
+const faqs = [
+  {
+    q: 'How is MobiLoud different from StoreLab?',
+    a: 'StoreLab is a Shopify app builder bundled with managed services like account management, Meta ads, and business coaching. You still design and manage your app in their drag-and-drop editor. MobiLoud takes a different approach: your existing website becomes your app. Everything you already have, design, integrations, custom code, works automatically. No rebuilding, no managing two platforms.',
+  },
+  {
+    q: 'StoreLab includes account management. How is MobiLoud different?',
+    a: "Both offer managed support, but the scope is different. StoreLab's account management helps you use their app builder and run Meta ads. MobiLoud's Corporate plan includes a dedicated success manager who handles your entire app: building it from your website, submitting to app stores, managing updates, optimizing push notifications, and ongoing strategy. You don't touch the app builder because there isn't one to manage.",
+  },
+  {
+    q: 'Do I need to rebuild my store?',
+    a: "No. With MobiLoud, there's nothing to rebuild. Your existing website becomes your app with all custom code and design intact. StoreLab requires building your app in their editor, which mirrors the Shopify Online Store builder.",
+  },
+  {
+    q: 'Does MobiLoud only work with Shopify?',
+    a: "No. MobiLoud works with any platform: Shopify, WooCommerce, Magento, BigCommerce, custom platforms, or any website that runs in a browser. StoreLab is Shopify-only. If you're considering a platform change in the future, MobiLoud works regardless.",
+  },
+  {
+    q: 'How do integrations compare?',
+    a: "StoreLab supports Shopify app integrations for loyalty, reviews, and search. With MobiLoud, your app is powered by your live website, so every tool and integration you already use works automatically, no connectors to configure, no compatibility list to check.",
+  },
+  {
+    q: 'How long does it take to launch?',
+    a: "About 30 days from sign-up to launch. Our team handles everything: app development, custom graphics, app store submissions, and approval monitoring. You don't need to do any technical work or spend time in an app builder.",
+  },
+  {
+    q: 'What kind of support do I get?',
+    a: "On MobiLoud's Corporate plan, you get a dedicated Customer Success Manager, Slack and phone support, weekly meetings during launch, and ongoing strategy guidance. We handle all platform and OS updates, app store compliance, and help optimize your engagement flows.",
+  },
+  {
+    q: 'What is your cancellation policy?',
+    a: "You can cancel anytime with 30 days written notice if you're not on a contract. If your app is rejected by Apple or Google due to a MobiLoud platform-specific issue, we will refund subscription fees paid. Setup fees are non-refundable.",
+  },
+];
+---
+
+<Layout
+  title="MobiLoud vs StoreLab - A Managed App Without Rebuilding Your Store"
+  description="Compare MobiLoud and StoreLab. MobiLoud turns your existing website into a native app with fully managed service. No rebuilding, no separate editor to manage."
+>
+  <Nav />
+
+  <CompetitorHero
+    competitor="StoreLab"
+    headline="Your Store as a Native App. No Rebuilding. No Editor."
+    subhead="StoreLab bundles an app builder with account management and coaching, but you still build your app in their editor. MobiLoud takes a different approach: your existing site becomes your app, and our team handles everything."
+    checklist={[
+      'No rebuilding your store in a drag-and-drop editor',
+      'No managing two platforms. Your site and app stay in sync.',
+      'Works with any platform, not just Shopify.',
+    ]}
+  />
+
+  <LogoMarquee />
+
+  <CaseStudies />
+
+  <CompetitorComparison
+    competitor="StoreLab"
+    rows={comparisonRows}
+  />
+
+  <DarkFeatures />
+
+  <IntegrationsSection />
+
+  <TestimonialsRow />
+
+  <!-- Competitor-specific FAQ -->
+  <section class="py-20 bg-background">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-12 lg:gap-16">
+        <!-- Left sidebar -->
+        <div class="lg:sticky lg:top-24 lg:self-start">
+          <h3 class="font-display text-display-4 text-primary-700 mb-4">Your questions, answered.</h3>
+          <p class="text-neutral-600 text-base leading-relaxed mb-6">
+            See how your store looks as a MobiLoud app. Free preview, no commitment.
+          </p>
+          <a href="#lead-form-section" class="btn-primary text-sm !py-2.5 !px-5">Get Your Free Preview</a>
+        </div>
+
+        <!-- Right: FAQ accordion -->
+        <div class="space-y-0">
+          {faqs.map((faq, i) => (
+            <div class="border-b border-neutral-200">
+              <button
+                class="faq-trigger w-full flex items-center justify-between py-5 text-left cursor-pointer group"
+                aria-expanded="false"
+                data-faq-index={i}
+              >
+                <span class="font-display font-semibold text-neutral-900 text-base pr-4 group-hover:text-primary-700 transition-colors">{faq.q}</span>
+                <svg class="faq-arrow flex-shrink-0 w-5 h-5 text-neutral-400" viewBox="0 0 20 20" fill="none">
+                  <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="faq-answer" data-faq-answer={i}>
+                <p class="text-neutral-600 text-base leading-relaxed pb-5">{faq.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <FinalCTA />
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const triggers = document.querySelectorAll('.faq-trigger');
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const index = (trigger as HTMLElement).dataset.faqIndex;
+        const answer = document.querySelector(`[data-faq-answer="${index}"]`);
+        const arrow = trigger.querySelector('.faq-arrow');
+        const isOpen = answer?.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-arrow').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-trigger').forEach(t => t.setAttribute('aria-expanded', 'false'));
+
+        // Toggle current
+        if (!isOpen) {
+          answer?.classList.add('open');
+          arrow?.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  });
+</script>

@@ -1,0 +1,206 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/sections/Nav.astro';
+import CompetitorHero from '../components/sections/CompetitorHero.astro';
+import LogoMarquee from '../components/sections/LogoMarquee.astro';
+import CompetitorComparison from '../components/sections/CompetitorComparison.astro';
+import CaseStudies from '../components/sections/CaseStudies.astro';
+import DarkFeatures from '../components/sections/DarkFeatures.astro';
+import IntegrationsSection from '../components/sections/IntegrationsSection.astro';
+import TestimonialsRow from '../components/sections/TestimonialsRow.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+import Footer from '../components/sections/Footer.astro';
+import Container from '../components/ui/Container.astro';
+import '../styles/global.css';
+
+const comparisonRows = [
+  {
+    feature: 'Approach',
+    competitor: 'Managed app builder, primarily for WooCommerce. Shopify support available at higher pricing.',
+    mobiloud: 'Your existing website becomes your app. No separate platform to manage.',
+    competitorBad: false,
+    mobiloudGood: true,
+  },
+  {
+    feature: 'Store rebuild',
+    competitor: 'They build a separate native app (React Native) from your store data. App is a separate experience from your website.',
+    mobiloud: 'No rebuild. Your live site powers the app, including all custom code and design.',
+    competitorBad: true,
+    mobiloudGood: true,
+  },
+  {
+    feature: 'Ongoing maintenance',
+    competitor: 'App and website are separate products. Changes to one don\'t automatically reflect in the other.',
+    mobiloud: 'Update your site once. Your app syncs automatically.',
+    competitorBad: true,
+    mobiloudGood: true,
+  },
+  {
+    feature: 'Integrations',
+    competitor: 'Claims compatibility with WordPress plugin ecosystem. Named integrations include Firebase, OneSignal, Klaviyo.',
+    mobiloud: 'Unlimited. Every tool on your website works in your app automatically.',
+    competitorBad: false,
+    mobiloudGood: true,
+  },
+  {
+    feature: 'Custom features',
+    competitor: 'Custom CSS/JS injection. Custom development hours available on Scale plan ($795/mo).',
+    mobiloud: 'All custom features from your website carry over with no extra development.',
+    competitorBad: false,
+    mobiloudGood: true,
+  },
+  {
+    feature: 'Service model',
+    competitor: 'Managed service. Email on Starter, video calls on Growth, WhatsApp + priority on Scale.',
+    mobiloud: 'Fully managed on Corporate. Dedicated success manager, Slack support, regular meetings.',
+    competitorBad: false,
+    mobiloudGood: true,
+  },
+  {
+    feature: 'Pricing',
+    competitor: 'Shopify: from $945/mo to $1,495/mo. WooCommerce: from $245/mo. No Shopify App Store listing.',
+    mobiloud: 'From $799/mo (Growth) to $1,499/mo (Corporate). Flat fee, no revenue share. Any platform.',
+    competitorBad: false,
+    mobiloudGood: true,
+  },
+];
+
+const faqs = [
+  {
+    q: 'How is MobiLoud different from ShopApper?',
+    a: 'ShopApper builds a separate native app (React Native) from your store data, primarily for WooCommerce with Shopify as a secondary offering. MobiLoud takes a different approach: your existing website becomes your app. Everything you already have, design, integrations, custom code, works automatically. No separate app experience to manage.',
+  },
+  {
+    q: 'ShopApper is also a managed service. What\'s the difference?',
+    a: "Both offer managed services, but the approach is fundamentally different. ShopApper builds a separate app that needs to be kept in sync with your website. MobiLoud turns your website into your app directly, so there's nothing to keep in sync. Your site is your app. MobiLoud's Corporate plan also includes a dedicated success manager, Slack support, regular strategy meetings, and a much larger team with a track record of serving 2,000+ brands.",
+  },
+  {
+    q: 'Do I need to rebuild my store?',
+    a: "No. With MobiLoud, there's nothing to rebuild. Your existing website becomes your app with all custom code and design intact. ShopApper builds a separate app from your store data, which means your app and website are two different products.",
+  },
+  {
+    q: 'How does pricing compare for Shopify stores?',
+    a: "ShopApper's Shopify plans start at $945/mo (Business) and go up to $1,495/mo (Enterprise Plus). MobiLoud starts at $799/mo (Growth) and $1,499/mo (Corporate). MobiLoud's Corporate plan is comparable in price but includes a dedicated success manager and works with any platform. ShopApper also has no Shopify App Store listing, which means no one-click install and no ecosystem reviews.",
+  },
+  {
+    q: 'Does MobiLoud work with WooCommerce too?',
+    a: "Yes. MobiLoud works with any platform: Shopify, WooCommerce, Magento, BigCommerce, custom platforms, or any website that runs in a browser. ShopApper's primary focus is WooCommerce, with Shopify as a secondary, more expensive offering.",
+  },
+  {
+    q: 'Will all my integrations work?',
+    a: "Yes. Because your app is powered by your live website, every tool and integration you already use works automatically. There's no compatibility list to check. ShopApper claims WordPress plugin compatibility, but each integration needs to be verified and potentially configured separately.",
+  },
+  {
+    q: 'How long does it take to launch?',
+    a: "About 30 days from sign-up to launch. Our team handles everything: app development, custom graphics, app store submissions, and approval monitoring. You don't need to do any technical work.",
+  },
+  {
+    q: 'What kind of support do I get?',
+    a: "On MobiLoud's Corporate plan, you get a dedicated Customer Success Manager, Slack and phone support, weekly meetings during launch, and ongoing strategy guidance. We handle all platform and OS updates, app store compliance, and help optimize your engagement flows.",
+  },
+  {
+    q: 'What is your cancellation policy?',
+    a: "You can cancel anytime with 30 days written notice if you're not on a contract. If your app is rejected by Apple or Google due to a MobiLoud platform-specific issue, we will refund subscription fees paid. Setup fees are non-refundable.",
+  },
+];
+---
+
+<Layout
+  title="MobiLoud vs ShopApper - A Managed App Without Rebuilding Your Store"
+  description="Compare MobiLoud and ShopApper. MobiLoud turns your existing website into a native app with fully managed service. No separate app to build, no platform limitations."
+>
+  <Nav />
+
+  <CompetitorHero
+    competitor="ShopApper"
+    headline="Your Store as a Native App. One Platform. Fully Managed."
+    subhead="ShopApper builds a separate app from your store data, primarily for WooCommerce. MobiLoud takes a different approach: your existing site becomes your app, works with any platform, and our team handles everything."
+    checklist={[
+      'No separate app experience to build and maintain',
+      'No managing two platforms. Your site and app stay in sync.',
+      'Works with any platform, not just WooCommerce or Shopify.',
+    ]}
+  />
+
+  <LogoMarquee />
+
+  <CaseStudies />
+
+  <CompetitorComparison
+    competitor="ShopApper"
+    rows={comparisonRows}
+  />
+
+  <DarkFeatures />
+
+  <IntegrationsSection />
+
+  <TestimonialsRow />
+
+  <!-- Competitor-specific FAQ -->
+  <section class="py-20 bg-background">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-12 lg:gap-16">
+        <!-- Left sidebar -->
+        <div class="lg:sticky lg:top-24 lg:self-start">
+          <h3 class="font-display text-display-4 text-primary-700 mb-4">Your questions, answered.</h3>
+          <p class="text-neutral-600 text-base leading-relaxed mb-6">
+            See how your store looks as a MobiLoud app. Free preview, no commitment.
+          </p>
+          <a href="#lead-form-section" class="btn-primary text-sm !py-2.5 !px-5">Get Your Free Preview</a>
+        </div>
+
+        <!-- Right: FAQ accordion -->
+        <div class="space-y-0">
+          {faqs.map((faq, i) => (
+            <div class="border-b border-neutral-200">
+              <button
+                class="faq-trigger w-full flex items-center justify-between py-5 text-left cursor-pointer group"
+                aria-expanded="false"
+                data-faq-index={i}
+              >
+                <span class="font-display font-semibold text-neutral-900 text-base pr-4 group-hover:text-primary-700 transition-colors">{faq.q}</span>
+                <svg class="faq-arrow flex-shrink-0 w-5 h-5 text-neutral-400" viewBox="0 0 20 20" fill="none">
+                  <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="faq-answer" data-faq-answer={i}>
+                <p class="text-neutral-600 text-base leading-relaxed pb-5">{faq.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <FinalCTA />
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const triggers = document.querySelectorAll('.faq-trigger');
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const index = (trigger as HTMLElement).dataset.faqIndex;
+        const answer = document.querySelector(`[data-faq-answer="${index}"]`);
+        const arrow = trigger.querySelector('.faq-arrow');
+        const isOpen = answer?.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-arrow').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-trigger').forEach(t => t.setAttribute('aria-expanded', 'false'));
+
+        // Toggle current
+        if (!isOpen) {
+          answer?.classList.add('open');
+          arrow?.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  });
+</script>
