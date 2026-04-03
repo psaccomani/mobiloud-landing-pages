@@ -17,14 +17,14 @@ const comparisonRows = [
   {
     feature: 'Approach',
     competitor: 'Managed app builder, primarily for WooCommerce. Shopify support available at higher pricing.',
-    mobiloud: 'Your existing website becomes your app. No separate platform to manage.',
+    mobiloud: 'Builds on your existing site. Fully customizable app experience with automatic sync and full tech stack access.',
     competitorBad: false,
     mobiloudGood: true,
   },
   {
     feature: 'Store rebuild',
     competitor: 'They build a separate native app (React Native) from your store data. App is a separate experience from your website.',
-    mobiloud: 'No rebuild. Your live site powers the app, including all custom code and design.',
+    mobiloud: 'No rebuild needed. Your app is built on your existing codebase, with full flexibility to customize the experience.',
     competitorBad: true,
     mobiloudGood: true,
   },
@@ -58,7 +58,7 @@ const comparisonRows = [
   },
   {
     feature: 'Pricing',
-    competitor: 'Shopify: from $945/mo to $1,495/mo. WooCommerce: from $245/mo. No Shopify App Store listing.',
+    competitor: 'Shopify: from $945/mo to $1,495/mo. WooCommerce: from $245/mo.',
     mobiloud: 'From $799/mo (Growth) to $1,499/mo (Corporate). Flat fee, no revenue share. Any platform.',
     competitorBad: false,
     mobiloudGood: true,
@@ -68,19 +68,19 @@ const comparisonRows = [
 const faqs = [
   {
     q: 'How is MobiLoud different from ShopApper?',
-    a: 'ShopApper builds a separate native app (React Native) from your store data, primarily for WooCommerce with Shopify as a secondary offering. MobiLoud takes a different approach: your existing website becomes your app. Everything you already have, design, integrations, custom code, works automatically. No separate app experience to manage.',
+    a: 'ShopApper builds a separate native app (React Native) from your store data, primarily for WooCommerce with Shopify as a secondary offering. MobiLoud takes a different approach: we build on your existing site, so every integration, customization, and feature you already have works in the app automatically. You can also customize the app experience independently, with app-specific pages, layouts, and features, all built on the same codebase.',
   },
   {
     q: 'ShopApper is also a managed service. What\'s the difference?',
-    a: "Both offer managed services, but the approach is fundamentally different. ShopApper builds a separate app that needs to be kept in sync with your website. MobiLoud turns your website into your app directly, so there's nothing to keep in sync. Your site is your app. MobiLoud's Corporate plan also includes a dedicated success manager, Slack support, regular strategy meetings, and a much larger team with a track record of serving 2,000+ brands.",
+    a: "Both offer managed services, but the approach is fundamentally different. ShopApper builds a separate app that needs to be kept in sync with your website. MobiLoud builds on your existing site, so everything stays in sync automatically. Every site update, new product, and integration flows to the app with no duplicate work. MobiLoud's Corporate plan also includes a dedicated success manager, Slack support, regular strategy meetings, and a much larger team with a track record of serving 2,000+ brands.",
   },
   {
     q: 'Do I need to rebuild my store?',
-    a: "No. With MobiLoud, there's nothing to rebuild. Your existing website becomes your app with all custom code and design intact. ShopApper builds a separate app from your store data, which means your app and website are two different products.",
+    a: "No. MobiLoud builds on your existing site, so there's nothing to recreate. All your custom code, design, and integrations carry over automatically. You can also add app-specific customizations using standard web development. ShopApper builds a separate app from your store data, which means your app and website are two different products.",
   },
   {
     q: 'How does pricing compare for Shopify stores?',
-    a: "ShopApper's Shopify plans start at $945/mo (Business) and go up to $1,495/mo (Enterprise Plus). MobiLoud starts at $799/mo (Growth) and $1,499/mo (Corporate). MobiLoud's Corporate plan is comparable in price but includes a dedicated success manager and works with any platform. ShopApper also has no Shopify App Store listing, which means no one-click install and no ecosystem reviews.",
+    a: "ShopApper's Shopify plans start at $945/mo (Business) and go up to $1,495/mo (Enterprise Plus). MobiLoud starts at $799/mo (Growth) and $1,499/mo (Corporate). MobiLoud's Corporate plan is comparable in price but includes a dedicated success manager, full app customization, automatic sync, and works with any platform.",
   },
   {
     q: 'Does MobiLoud work with WooCommerce too?',
@@ -107,14 +107,14 @@ const faqs = [
 
 <Layout
   title="MobiLoud vs ShopApper - A Managed App Without Rebuilding Your Store"
-  description="Compare MobiLoud and ShopApper. MobiLoud turns your existing website into a native app with fully managed service. No separate app to build, no platform limitations."
+  description="Compare MobiLoud and ShopApper. MobiLoud builds on your existing site to deliver a fully customizable native app with automatic sync and managed service."
 >
   <Nav />
 
   <CompetitorHero
     competitor="ShopApper"
     headline="Your Store as a Native App. One Platform. Fully Managed."
-    subhead="ShopApper builds a separate app from your store data, primarily for WooCommerce. MobiLoud takes a different approach: your existing site becomes your app, works with any platform, and our team handles everything."
+    subhead="ShopApper builds a separate app from your store data, primarily for WooCommerce. MobiLoud builds on your existing site to deliver a fully customizable native app, with automatic sync, full tech stack access, and a team that handles everything."
     checklist={[
       'No separate app experience to build and maintain',
       'No managing two platforms. Your site and app stay in sync.',
