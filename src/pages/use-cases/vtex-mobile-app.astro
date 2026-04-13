@@ -1,214 +1,35 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/sections/Nav.astro';
-import Footer from '../../components/sections/Footer.astro';
+import DarkHero from '../../components/sections/DarkHero.astro';
+import LogoMarquee from '../../components/sections/LogoMarquee.astro';
+import ComparisonSection from '../../components/sections/ComparisonSection.astro';
+import ValueProp from '../../components/sections/ValueProp.astro';
+import CaseStudies from '../../components/sections/CaseStudies.astro';
+import DarkFeatures from '../../components/sections/DarkFeatures.astro';
+import IntegrationsSection from '../../components/sections/IntegrationsSection.astro';
+import TestimonialsRow from '../../components/sections/TestimonialsRow.astro';
 import FAQSidebar from '../../components/sections/FAQSidebar.astro';
 import FinalCTA from '../../components/sections/FinalCTA.astro';
+import Footer from '../../components/sections/Footer.astro';
 import '../../styles/global.css';
 
 const faqs = [];
 ---
 
 <Layout
-  title="How to Build a Mobile App for Your VTEX Site: The Complete Guide"
+  title="MobiLoud - How to Build a Mobile App for Your VTEX Site: The Complete Guide"
   description="MobiLoud turns your existing VTEX storefront into a native iOS and Android app. Everything you've built, every integration, every customization, works in the app automatically. No rebuilding. Live in 30 days."
 >
   <Nav />
-
-  <section class="py-20 md:py-32 px-4">
-    <div class="max-w-3xl mx-auto">
-      <span class="text-sm font-semibold text-emerald-600 uppercase tracking-wider">Website Builders</span>
-      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mt-4 mb-6">How to Build a Mobile App for Your VTEX Site: The Complete Guide</h1>
-      <p class="text-xl text-slate-600 mb-8">MobiLoud turns your existing VTEX storefront into a native iOS and Android app. Everything you've built, every integration, every customization, works in the app automatically. No rebuilding. Live in 30 days.</p>
-    </div>
-  </section>
-
-  <section class="py-16 px-4 bg-slate-50">
-    <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
-      <h2>How to Launch a Mobile App for Your VTEX Store</h2><p>Most ecommerce platforms, VTEX included, don't come with a built-in way to create a native mobile app. That's normal. Very few do. The typical path has been hiring a development team to build one from scratch, which means recreating your entire storefront as a separate codebase and maintaining both indefinitely.</p><p>There's a simpler approach: <strong>using your existing VTEX storefront as the foundation for your app</strong>.</p><p>This is MobiLoud's website-to-app model. Instead of rebuilding your store in Swift and Kotlin, React Native, or Flutter, MobiLoud creates a native mobile app <em>powered by your existing site</em>. Your VTEX IO apps, your SmartCheckout flow, your promotions engine, your custom components: they all carry over because the app is running your actual site, not a recreation of it.</p><p>The result is a native app on the App Store and Google Play that looks and functions identically to your website, plus the native capabilities you can't get on the mobile web: push notifications, a home screen icon, offline caching, and the performance and UX patterns customers expect from a native app.</p><figure class="w-richtext-figure-type-image w-richtext-align-fullwidth" style="max-width:1680px" data-rt-type="image" data-rt-align="fullwidth" data-rt-max-width="1680px"><div><img src="https://cdn.prod.website-files.com/63894f0e251e567f6e443bfa/689067498a7902df37bc24f6_MobiLoud%20ecommerce%20mobile%20apps(2).webp" loading="lazy" alt="__wf_reserved_inherit" width="auto" height="auto"></div><figcaption>A few of the mobile apps we've built for high-revenue ecommerce brands.&nbsp;See more examples <a href="https://www.mobiloud.com/examples">here</a>.</figcaption></figure><p><a href="https://www.mobiloud.com/">MobiLoud</a> is a done-for-you service that handles this entire process: building the app, submitting it to both app stores, and maintaining it on an ongoing basis. When you update your VTEX storefront, the app updates automatically. There's no second system to manage.</p><h2>Launching a Mobile App that Works With Your Entire VTEX Setup</h2><p>For brands with a custom, deeply-optimized web storefront, the first question you're likley to ask of a mobile app is some version of "will my [specific feature] still work?" </p><p>With MobiLoud, the short answer is almost always yes.</p><p>Because the app runs your actual VTEX storefront, anything that works on your site works in the app. That includes first-party VTEX features, third-party integrations, and custom-built components. There's nothing to reconnect or rebuild.</p><div data-rt-embed-type='true'><style>
-/* --- Platform parity grid --- */
-.parity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 24px 0; border-radius: 12px; overflow: hidden; border: 1px solid #d0d5dd; }
-.parity-item { display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #eee; background: #fff; font-size: 15px; color: #333; line-height: 1.5; }
-.parity-item:nth-child(odd) { border-right: 1px solid #eee; }
-.parity-item:nth-last-child(1), .parity-item:nth-last-child(2) { border-bottom: none; }
-.parity-check { color: #0b6e4f; font-weight: 700; font-size: 1.2em; flex-shrink: 0; line-height: 1; }
-.parity-note { margin-top: 16px; font-size: 15px; color: #666; line-height: 1.6; }
-.parity-note a { color: #0b6e4f; text-decoration: underline; }
-
-@media screen and (max-width: 768px) {
-  .parity-grid { grid-template-columns: 1fr; }
-  .parity-item:nth-child(odd) { border-right: none; }
-  .parity-item:nth-last-child(2) { border-bottom: 1px solid #eee; }
-}
-</style>
-
-<div class="parity-grid">
-  <div class="parity-item"><span class="parity-check">&#10003;</span> VTEX IO apps and custom components</div>
-  <div class="parity-item"><span class="parity-check">&#10003;</span> SmartCheckout</div>
-  <div class="parity-item"><span class="parity-check">&#10003;</span> Promotions and coupons engine</div>
-  <div class="parity-item"><span class="parity-check">&#10003;</span> Multi-store and multi-language</div>
-  <div class="parity-item"><span class="parity-check">&#10003;</span> Intelligent Search</div>
-  <div class="parity-item"><span class="parity-check">&#10003;</span> VTEX Order Management</div>
-  <div class="parity-item"><span class="parity-check">&#10003;</span> Customer accounts and wishlists</div>
-  <div class="parity-item"><span class="parity-check">&#10003;</span> Third-party integrations (Klaviyo, Yotpo, etc.)</div>
-  <div class="parity-item"><span class="parity-check">&#10003;</span> Custom storefront themes</div>
-  <div class="parity-item"><span class="parity-check">&#10003;</span> Product reviews and UGC</div>
-  <div class="parity-item"><span class="parity-check">&#10003;</span> Payment gateways</div>
-  <div class="parity-item"><span class="parity-check">&#10003;</span> Loyalty and rewards programs</div>
-</div>
-<p class="parity-note">If it works on your VTEX site, it works in your app. Not sure about a specific integration? <a href="https://www.mobiloud.com/demo">Ask us</a>, and we'll confirm before you commit to anything.</p></div><h2>What a Native App Adds to Your VTEX Store</h2><p>Your VTEX storefront already handles product discovery, checkout, and account management. A native app extends that experience with capabilities the mobile web can't offer.</p><div data-rt-embed-type='true'><style>
-/* --- Native features cards --- */
-.nf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 28px 0 8px; }
-.nf-card { background: #fff; border-radius: 10px; padding: 24px; border: 1px solid #e8e8e8; }
-.nf-card h3 { font-size: 17px; font-weight: 600; color: #1a1a2e; margin: 0 0 8px 0; line-height: 1.3; }
-.nf-card p { font-size: 15px; color: #555; margin: 0; line-height: 1.65; }
-
-@media screen and (max-width: 768px) {
-  .nf-grid { grid-template-columns: 1fr; }
-}
-</style>
-
-<div class="nf-grid">
-  <div class="nf-card">
-    <h3>Push Notifications</h3>
-    <p>Send targeted messages directly to your customers' lock screens. Announce sales, recover abandoned carts, or notify about restocks. Push typically drives higher engagement than email because there's no inbox to compete with.</p>
-  </div>
-  <div class="nf-card">
-    <h3>Home Screen Presence</h3>
-    <p>Your app icon sits alongside Amazon, Instagram, and every other app your customers use daily. That visibility keeps your brand top of mind in a way a browser bookmark never will.</p>
-  </div>
-  <div class="nf-card">
-    <h3>App Store Distribution</h3>
-    <p>A listing on the App Store and Google Play gives your brand a presence where millions of consumers discover and evaluate products. It also signals credibility, especially for brands competing with larger retailers.</p>
-  </div>
-  <div class="nf-card">
-    <h3>Native Performance and UX</h3>
-    <p>Smooth transitions, faster perceived load times, and interface patterns customers are trained to expect from apps. The experience feels like an app, because it is one.</p>
-  </div>
-</div></div><h2>How MobiLoud Compares to the Alternatives</h2><p>MobiLoud is the all-round number one option for VTEX&nbsp;brands who want to launch a mobile app, without sacrifcing features from their website, and without the gamble of a six-figure investment.</p><p>Here's how it compares to other options.</p><h3>Custom Native Development</h3><p>Hiring a development agency or in-house team to build your app from scratch (Swift, Kotlin,&nbsp;React Native or Flutter) gives you maximum flexibility, but at a cost.</p><p>You're looking at a cost of potentially $150K-$500K upfront, along with a 6-12 month timeline. You'll also need to budget $45K-$75K+ per year to keep the app up to date and in sync with your website. </p><p>Custom development makes sense if you need deeply proprietary functionality that can't exist on the web, but for most ecommerce stores, you're investing a huge amount of money just to rebuild what already works.</p><h3>No-Code App Builders</h3><p>DIY no-code tools are built from templates, and struggle to deliver a unique result true to your brand. And very few (if any) no-code tools are compatible with custom&nbsp;VTEX&nbsp;stores, which means this option is a non-starter.</p><h3>Website-to-App (MobiLoud)</h3><p>MobiLoud takes your existing VTEX storefront and turns it into a native app. Because the app runs your actual website, every feature, integration, and customization works from day one.</p><p>There's no second system to maintain. Updates to your site are reflected in the app automatically. MobiLoud handles the build, app store submission, and ongoing maintenance as a fully managed service. </p><p>The typical timeline to launch is about 30 days. With the cost, the low operational lift, and the fact that you're building on what already works, it's essentially risk-free.</p><div data-rt-embed-type='true'><style>
-/* --- Two-column comparison --- */
-.uc-wrap { border-radius: 12px; overflow: hidden; border: 1px solid #d0d5dd; margin: 24px 0; }
-.uc { width: 100%; border-collapse: collapse; font-size: 18px; line-height: 1.6; }
-.uc th { padding: 16px 20px; color: #fff; font-weight: 600; font-size: 15px; letter-spacing: .02em; text-align: center; }
-.uc th.uc-hi { background: #0b6e4f; }
-.uc th.uc-def { background: #1a1a2e; }
-.uc td { padding: 14px 20px; border-top: 1px solid #e8e8e8; text-align: center; font-size: 15px; }
-.uc td.uc-h { background: #f0faf6; color: #1a1a2e; font-weight: 500; }
-.uc td.uc-c { color: #444; }
-.uc tbody tr:nth-child(even) td.uc-h { background: #e6f5ee; }
-.uc tbody tr:nth-child(even) td.uc-c { background: #f8f9fa; }
-.uc tbody tr:nth-child(odd) td.uc-c { background: #fff; }
-
-@media screen and (max-width: 768px) {
-  .uc th { font-size: 14px; padding: 14px 16px; }
-  .uc td { font-size: 14px; padding: 12px 16px; }
-}
-</style>
-
-<div class="uc-wrap">
-<table class="uc">
-  <thead>
-    <tr>
-      <th class="uc-hi">MobiLoud</th>
-      <th class="uc-def">Custom Development</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="uc-h">Cost starts from $799/mo</td>
-      <td class="uc-c">$150K+ to launch</td>
-    </tr>
-    <tr>
-      <td class="uc-h">Launch in 30 days</td>
-      <td class="uc-c">6-12 month timeline</td>
-    </tr>
-    <tr>
-      <td class="uc-h">Maintenance included in monthly cost</td>
-      <td class="uc-c">$50K+ annually to maintain</td>
-    </tr>
-    <tr>
-      <td class="uc-h">Update once, live everywhere</td>
-      <td class="uc-c">Double the workload, forever</td>
-    </tr>
-    <tr>
-      <td class="uc-h">All site features carry over, automatically</td>
-      <td class="uc-c">The more complex your site, the higher the cost</td>
-    </tr>
-  </tbody>
-</table>
-</div></div><h2>Getting Started</h2><p>The process is straightforward. MobiLoud handles the technical work; your team's involvement is minimal.</p><ol start="1"><li>‍<strong>Book a Strategy Call</strong>: A 30-minute conversation to discuss your goals, walk through your VTEX setup, your priorities, and answer questions. No commitment, no pressure. On the call, we'll show you a live preview of your VTEX mobile app, so you know what to expect</li><li><strong>We Build and Launch&nbsp;Your App</strong>: The MobiLoud team handles everything: custom design, app store submission, and approval. You review and approve, we do the work.</li><li><strong>Grow With Your App</strong>: Push notifications, analytics, and ongoing optimization. Your app stays in sync with your site and our team keeps it running smoothly.</li></ol><p>MobiLoud has helped over 2,000 brands launch their own fast, low-maintenance mobile apps, including brands across every major ecommerce platform.</p><p>It's the easiest, most risk-free way to launch a mobile app for your VTEX store. You're not spending six figures on a custom build that requires dedicated developers on staff to maintain. </p><p>You get your existing storefront, as it is, with all your features, integrations and customizations, turned into a native app that lives on your customer's home screen.</p><p>Get in touch and we'll show you what your app could look like, plus the ROI expectations and business case for your app.</p><div data-rt-embed-type='true'><div style="text-align: center; margin: 2.5em auto;">
-<a href="https://www.mobiloud.com/demo" style="display: inline-block; background: #0b6e4f; color: #fff; font-weight: 600; font-size: 16px; padding: 14px 32px; border-radius: 8px; text-decoration: none; transition: opacity 0.2s ease;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Get Your Free App Preview</a>
-</div></div><h2>VTEX&nbsp;Mobile App FAQs</h2><div data-rt-embed-type='true'><style>
-/* --- FAQ section --- */
-.faq-list { margin: 24px 0 0; }
-.faq-item { border-bottom: 1px solid #e8e8e8; }
-.faq-q { font-size: 17px; font-weight: 600; color: #1a1a2e; padding: 20px 0; margin: 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-.faq-q::after { content: '+'; font-size: 22px; font-weight: 400; color: #999; flex-shrink: 0; transition: transform 0.2s ease; }
-.faq-q.open::after { content: '−'; }
-.faq-a { font-size: 15px; color: #555; line-height: 1.7; padding: 0 0 20px; margin: 0; display: none; }
-.faq-a.open { display: block; }
-
-@media screen and (max-width: 768px) {
-  .faq-q { font-size: 16px; }
-}
-</style>
-
-<div class="faq-list">
-
-  <div class="faq-item">
-    <p class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Will my VTEX IO apps and custom components work in the app?</p>
-    <div class="faq-a">Yes. Because the app runs your actual VTEX storefront, every VTEX IO app and custom component you've installed works automatically. There's nothing to rebuild or reconnect. If it works on your site, it works in the app.</div>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Does SmartCheckout carry over to the app?</p>
-    <div class="faq-a">Yes. Your SmartCheckout flow runs exactly the same way in the app as it does on your website. Saved cards, one-click checkout, address autofill: all of it carries over. Customers get the same checkout experience they're already used to.</div>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">What about third-party integrations like Klaviyo, Yotpo, or my payment gateway?</p>
-    <div class="faq-a">Any third-party tool that runs on your VTEX storefront works in the app. That includes analytics, reviews, loyalty programs, live chat, payment gateways, and anything else that loads on your site. There's no integration limit and nothing to configure separately.</div>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">How long does it take to launch?</p>
-    <div class="faq-a">Most apps go live within about 30 days. MobiLoud handles the build, testing, and submission to the App Store and Google Play. Your team's involvement is minimal, mainly reviewing the app preview and providing App Store assets like screenshots and descriptions.</div>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Do I need to maintain the app separately from my website?</p>
-    <div class="faq-a">No. When you update your VTEX storefront, add products, change pricing, or install a new integration, the app reflects those changes automatically. There's no second codebase or content management system. MobiLoud handles ongoing app maintenance, including OS updates and app store compliance.</div>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">We already have a headless or custom VTEX storefront. Does that work?</p>
-    <div class="faq-a">Yes. MobiLoud works with any VTEX storefront setup, whether you're using VTEX's standard Store Framework, a headless front end built with FastStore or a custom React app, or a fully composable architecture. As long as it renders in a browser, it works in the app.</div>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">We run multiple storefronts or languages on VTEX. Can the app handle that?</p>
-    <div class="faq-a">Yes. Multi-store and multi-language setups work the same way in the app as they do on your site. If your VTEX instance serves multiple regions or languages, the app respects the same logic and routing. You can also publish separate apps per storefront if needed. Get on a call and describe your setup and we'll confirm that we'll be able to handle it.</div>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">What native features does the app add beyond what our mobile site already does?</p>
-    <div class="faq-a">The main additions are push notifications (direct to lock screen, no email inbox to compete with), a home screen icon (persistent brand visibility) and distribution via the App Store and Google Play (discoverability and credibility). These are capabilities the mobile web can't fully replicate.</div>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Can't we just use VTEX's PWA capabilities instead?</p>
-    <div class="faq-a">VTEX supports progressive web apps, but PWAs have practical limitations. There's no App Store or Google Play listing, so customers can't discover your brand through those channels. The "add to home screen" prompt is unintuitive, and most customers never use it. A native app gives you an actual app store presence, push notifications that work reliably across devices, and the UX expectations customers have when they open something from their home screen.</div>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">How much does it cost?</p>
-    <div class="faq-a">MobiLoud starts at $799/month, which includes the initial build, app store submission, and ongoing maintenance and support. There are no revenue-share fees. For context, custom native app development typically costs $150K-$500K upfront plus $45K-$75K+ per year in maintenance.</div>
-  </div>
-
-</div></div>
-    </div>
-  </section>
-
+  <DarkHero />
+  <LogoMarquee />
+  <ComparisonSection />
+  <ValueProp heading="From your VTEX store to the App Store in 3 steps" />
+  <CaseStudies />
+  <DarkFeatures />
+  <IntegrationsSection />
+  <TestimonialsRow />
   <FAQSidebar faqs={faqs} />
   <FinalCTA />
   <Footer />

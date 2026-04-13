@@ -1,34 +1,35 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/sections/Nav.astro';
-import Footer from '../../components/sections/Footer.astro';
+import DarkHero from '../../components/sections/DarkHero.astro';
+import LogoMarquee from '../../components/sections/LogoMarquee.astro';
+import ComparisonSection from '../../components/sections/ComparisonSection.astro';
+import ValueProp from '../../components/sections/ValueProp.astro';
+import CaseStudies from '../../components/sections/CaseStudies.astro';
+import DarkFeatures from '../../components/sections/DarkFeatures.astro';
+import IntegrationsSection from '../../components/sections/IntegrationsSection.astro';
+import TestimonialsRow from '../../components/sections/TestimonialsRow.astro';
 import FAQSidebar from '../../components/sections/FAQSidebar.astro';
 import FinalCTA from '../../components/sections/FinalCTA.astro';
+import Footer from '../../components/sections/Footer.astro';
 import '../../styles/global.css';
 
 const faqs = [];
 ---
 
 <Layout
-  title="How to Turn Your Shoptet Store Into a Native Mobile App"
+  title="MobiLoud - How to Turn Your Shoptet Store Into a Native Mobile App"
   description="Maximize conversions and search visibility by turning your Shoptet store into a mobile app. See how MobiLoud could be the best way to make that happen."
 >
   <Nav />
-
-  <section class="py-20 md:py-32 px-4">
-    <div class="max-w-3xl mx-auto">
-      <span class="text-sm font-semibold text-emerald-600 uppercase tracking-wider">Website Builders</span>
-      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mt-4 mb-6">How to Turn Your Shoptet Store Into a Native Mobile App</h1>
-      <p class="text-xl text-slate-600 mb-8">Maximize conversions and search visibility by turning your Shoptet store into a mobile app. See how MobiLoud could be the best way to make that happen.</p>
-    </div>
-  </section>
-
-  <section class="py-16 px-4 bg-slate-50">
-    <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
-      <blockquote>‍<strong>The Bottom Line:</strong> Shoptet powers 46,000+ e-shops across Czech Republic and Slovakia, but offers no customer-facing mobile app. MobiLoud takes your existing Shoptet storefront, including all your local integrations (Zasilkovna, Heureka, Shoptet Pay, Shoptet Baliky), and delivers it as a native iOS and Android app. Everything works in the app exactly as it does on your website.</blockquote><p><a href="https://www.shoptet.cz/">Shoptet</a> is the dominant ecommerce platform in Czech Republic and Slovakia. Around 46,000 active e-shops, roughly a third of all online stores in the region, generating over <a href="https://press.team.blue/253885-team-blue-strengthens-its-e-commerce-position-with-the-acquisition-of-shoptet/">66 billion CZK in annual turnover</a>. Since team.blue acquired the platform, investment in enterprise capabilities through Shoptet Premium has accelerated.</p><p>What hasn't appeared is a customer-facing mobile app. Shoptet has the Shoptet Aplikace for store management (checking orders, managing inventory from your phone), but nothing for your customers. No app they can download, no push notifications, no home screen icon for your store.</p><p>For established Shoptet merchants with loyal customers and growing mobile traffic, that's a gap worth closing.</p><h2>Is a Mobile App Right for Your Shoptet Store?</h2><p>Shoptet serves everyone from first-time sellers on the free plan to established brands on <a href="https://www.shoptetpremium.com/">Shoptet Premium</a>. A mobile app doesn't make sense for all of them.</p><p><strong>A mobile app probably isn't for you if:</strong></p><ul><li>You're on Shoptet's free tier or a basic plan with under 100 products</li><li>Your store is less than a year old and you're still building traffic</li><li>You're primarily selling through marketplaces (Heureka, Zbozi.cz, Glami) rather than your own storefront</li><li>Your monthly revenue is under 200,000 CZK</li></ul><p><strong>A mobile app makes sense if:</strong></p><ul><li>You're on a mid-tier or Premium plan with an established product catalog</li><li>You have repeat customers who buy from you regularly</li><li>Mobile is a significant share of your traffic (check your analytics, it's probably 60%+)</li><li>You're investing in your own brand and direct sales, not just marketplace listings</li><li>Your annual turnover is in the millions of CZK and growing</li></ul><p>If you're in the second group, keep reading.</p><h2>Can You Build a Mobile App With Shoptet?</h2><h3>Shoptet Has No Customer-Facing App</h3><p>The Shoptet admin app lets you manage your store from your phone. Your customers can't use it to shop. There's no customer-facing mobile app in the Shoptet platform, and the Shoptet Doplnky marketplace (393 add-ons) doesn't include any mobile app builders.</p><h3>Limited API for Custom Development</h3><p>Shoptet has a <a href="https://developers.shoptet.com/">developer API</a> that covers product data, orders, and customer information. A development team could build a custom app against it, but the API doesn't expose everything. Your theme, custom pages, add-on functionality, and the full checkout experience would need to be rebuilt separately.</p><p>For a Shoptet store, a custom native app runs roughly 1.5M-4M CZK for the initial build, plus 500K-1.5M CZK annually for maintenance. That's a significant investment for a mid-market Czech e-shop, and finding Czech mobile developers who also know the Shoptet ecosystem adds complexity.</p><h2>Website-to-App With MobiLoud</h2><p>Your Shoptet storefront already works on phones. Products display, search works, checkout completes, and all your Shoptet add-ons function. MobiLoud takes that complete storefront and delivers it as a native iOS and Android app.</p><h3>All Your Czech Integrations Stay Connected</h3><p>This is especially important for Shoptet merchants. Your store is wired into the Czech ecommerce ecosystem in ways that a custom app would struggle to replicate:</p><ul><li><strong>Zasilkovna (Packeta) pickup points</strong> with the map selector and point-of-pickup interface work in the app.</li><li><strong>Shoptet Pay</strong> payment processing works unchanged.</li><li><strong>Shoptet Baliky</strong> shipping management stays connected.</li><li><strong>Heureka, Zbozi.cz, and Glami</strong> tracking and conversion pixels continue to function.</li><li><strong>Czech Post and other local carriers</strong> with tracking integrations work as-is.</li></ul><p>A custom app would need to individually integrate with each of these services. MobiLoud preserves them automatically because the app runs your website.</p><h3>Your Theme and Add-Ons Carry Over</h3><p>Whatever Shoptet template you're using, however you've customized it, your add-ons from Doplnky, your custom product pages: it all appears in the app exactly as customers see it on the web. Consistent experience across both channels.</p><h3>Push Notifications in Czech</h3><p>Push notifications are the primary reason established Shoptet merchants need a native app. You can reach your customers directly in Czech, with messages that land on their phone screens:</p><ul><li>Slevove akce and flash sales</li><li>Back-in-stock alerts for popular products</li><li>Abandoned cart reminders</li><li>Order and shipping updates</li><li>New collection announcements</li></ul><p>For Shoptet merchants who've built a loyal Czech customer base, push notifications provide a direct channel that doesn't depend on email deliverability or social media algorithms.</p><h3>No Technical Skills Required</h3><p>MobiLoud is a fully managed service. The app build, app store submissions (Apple App Store and Google Play), ongoing maintenance, and OS updates are all handled. Your team keeps managing the Shoptet admin as usual. Every product you add, every price you change, every promotion you set up appears in the app instantly.</p><blockquote>Ready to see if MobiLoud is right for you? <a href="https://www.mobiloud.com/demo">Book a free consultation now</a>.</blockquote><h2>How It Works</h2><ol><li><strong>Preview your e-shop as an app.</strong> Share your Shoptet store URL. We'll create a working preview so you can test your store as a native app on your own phone.</li><li><strong>App build.</strong> MobiLoud creates your native iOS and Android apps with push notifications, native navigation, deep linking, and your branding.</li><li><strong>Test and provide feedback.</strong> Walk through the full shopping experience: browsing, Zasilkovna selector, checkout, account login. We refine based on your input.</li><li><strong>App store launch.</strong> MobiLoud handles Apple App Store and Google Play submission, compliance, and metadata. We can localize the listing for the Czech and Slovak markets.</li><li><strong>Ongoing management.</strong> Your apps go live. MobiLoud handles OS updates, policy changes, and support. Your Shoptet store remains your single point of management.</li></ol><p>Typical timeline to launch is around four weeks.</p><h2>Next Steps</h2><p>If you're running an established Shoptet store with loyal customers and significant mobile traffic, a native app gives you something your competitors on Shoptet don't have: a direct channel to your customers' home screens.</p><p>46,000 Shoptet stores, and virtually none of them have a mobile app. For the merchants doing real volume, that's an opportunity.</p><p><a href="https://www.mobiloud.com/demo">Book a free strategy call</a> to see your Shoptet store as a native app.</p>
-    </div>
-  </section>
-
+  <DarkHero />
+  <LogoMarquee />
+  <ComparisonSection />
+  <ValueProp heading="From your Shoptet store to the App Store in 3 steps" />
+  <CaseStudies />
+  <DarkFeatures />
+  <IntegrationsSection />
+  <TestimonialsRow />
   <FAQSidebar faqs={faqs} />
   <FinalCTA />
   <Footer />

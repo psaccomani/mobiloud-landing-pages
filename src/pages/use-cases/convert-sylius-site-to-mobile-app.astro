@@ -1,172 +1,35 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/sections/Nav.astro';
-import Footer from '../../components/sections/Footer.astro';
+import DarkHero from '../../components/sections/DarkHero.astro';
+import LogoMarquee from '../../components/sections/LogoMarquee.astro';
+import ComparisonSection from '../../components/sections/ComparisonSection.astro';
+import ValueProp from '../../components/sections/ValueProp.astro';
+import CaseStudies from '../../components/sections/CaseStudies.astro';
+import DarkFeatures from '../../components/sections/DarkFeatures.astro';
+import IntegrationsSection from '../../components/sections/IntegrationsSection.astro';
+import TestimonialsRow from '../../components/sections/TestimonialsRow.astro';
 import FAQSidebar from '../../components/sections/FAQSidebar.astro';
 import FinalCTA from '../../components/sections/FinalCTA.astro';
+import Footer from '../../components/sections/Footer.astro';
 import '../../styles/global.css';
 
 const faqs = [];
 ---
 
 <Layout
-  title="How to Convert Your Sylius Store Into A Mobile App"
+  title="MobiLoud - How to Convert Your Sylius Store Into A Mobile App"
   description="Transform your Sylius store into a mobile app to maximize conversions and improve search visibility. Stay competitive and reach customers on their preferred devices."
 >
   <Nav />
-
-  <section class="py-20 md:py-32 px-4">
-    <div class="max-w-3xl mx-auto">
-      <span class="text-sm font-semibold text-emerald-600 uppercase tracking-wider">Website Builders</span>
-      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mt-4 mb-6">How to Convert Your Sylius Store Into A Mobile App</h1>
-      <p class="text-xl text-slate-600 mb-8">Transform your Sylius store into a mobile app to maximize conversions and improve search visibility. Stay competitive and reach customers on their preferred devices.</p>
-    </div>
-  </section>
-
-  <section class="py-16 px-4 bg-slate-50">
-    <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
-      <p>Sylius gives you a powerful, customizable foundation for an ecommerce store. You use it because you can shape your storefront, the checkout, the catalog logic, and the backend workflows around how your business actually works.</p><p>But that same flexibility makes traditional app projects slower and more expensive than most brands expect. You can hire an agency or build an in-house team, but both routes usually mean a parallel product (and a second backlog) to maintain.&nbsp;</p><p>For established Sylius stores with a solid mobile website, looking to extend that great experience to a mobile app, MobiLoud is the simplest way to do it.</p><p>You launch real iOS and Android apps based on your existing website, keep everything in sync, and get a fully managed team to handle the heavy lifting - including push notifications and app store submission.</p><p>In this guide, we’ll walk you through everything you need to know about building a mobile app for your Sylius-powered web store, and explain how your app could be up and running in just 30 days.</p><h2>Why Your Brand Needs a Mobile App</h2><p>A mobile app creates leverage you cannot get from mobile web alone.</p><p>It’s a powerful brand asset, and drives meaningful increases in:</p><ul><li>Retention: you stay on the customer’s home screen, not in a browser tab.</li><li>Repeat purchases: you reduce friction for returning buyers.</li><li>Launch velocity: you can drive traffic instantly with push notifications.</li><li>Brand focus: fewer distractions than mobile web (no competing tabs, fewer detours).</li></ul><p>These are serious needle-movers for your business; not to mention a new level of legitimacy by appearing in the app stores next to the world’s biggest brands.</p><p>But unfortunately, the more custom your Sylius build, the harder it is to justify building a separate native app that has to replicate all of that behavior: pricing rules, customer groups, promotions, shipping logic, payment flows, ERP integrations, and the day-to-day UI tweaks your team ships on the site.</p><p>The potential is there - but the bigger the investment, the bigger the gamble.</p><p>That is why most Sylius brands hit the same wall when they talk about apps. They want the retention upside (home screen presence, a focused shopping experience, push notifications), but they do not want a second product that constantly drifts from the website.</p><p>They want to ship fast, without gambling on a rebuild.</p><h2>Your Two Traditional App Development Paths (And Why They're Not Ideal)</h2><p>Sylius gives you control - but it also means your “app project” is rarely a simple build. Here are the two classic routes and the real trade-offs.</p><h3>Hiring A Mobile App Agency</h3><p>An agency can build a polished native app, and you do not need to recruit a full internal team.</p><p>What you typically get:</p><ul><li>A dedicated delivery team: design, iOS, Android, QA, project management.</li><li>A clear timeline: discovery, design, development, launch.</li><li>Experience shipping to app stores: fewer surprises at the finish line.</li></ul><p>The structural downside for Sylius brands:</p><ul><li>You end up rebuilding your store inside an app (or re-implementing core flows).</li><li>Integrations become a second project (payments, analytics, marketing tools, ERP, PIM).</li><li>Every future site change becomes coordination across two products.</li><li>You inherit long-term maintenance (OS updates, SDK changes, bug fixes).</li></ul><p>Agencies can be a good fit when the app is a core product with heavy native-only requirements.&nbsp;</p><p>But for most ecommerce stores, it is an expensive way to recreate what already works on the website.</p><h3>Building An In-House App Team</h3><p>In-house teams give you control, speed of iteration, and alignment with your roadmap.</p><p>What you gain:</p><ul><li>Direct ownership of priorities and quality.</li><li>Tighter feedback loops between ecommerce, product, and engineering.</li><li>Long-term compounding if the app becomes a major channel.</li></ul><p>What it costs in practice:</p><ul><li>Hiring difficulty: you need strong mobile engineers (and usually iOS + Android or a cross-platform specialist).</li><li>Opportunity cost: every sprint on the app is a sprint not spent improving the website.</li><li>Permanent maintenance load: the app never “finishes.”</li><li>Two backlogs forever: site work and app work drift unless you relentlessly manage parity.</li></ul><p>If the app is central to your business model, in-house can make sense. If you’re building Instacart or Uber, you can justify building a dedicated app team.</p><p>If your app’s primary job is to sell what your Sylius site already sells, you are usually paying a premium for duplicate work.</p><h3>The (Superior) Third Option: MobiLoud</h3><figure class="w-richtext-figure-type-image w-richtext-align-fullwidth" style="max-width:1201px" data-rt-type="image" data-rt-align="fullwidth" data-rt-max-width="1201px"><div><img src="https://cdn.prod.website-files.com/63894f0e251e567f6e443bfa/6993ee2ac5423f79fb31c4d3_Mobi%20meta%20image.webp" loading="lazy" alt="__wf_reserved_inherit"></div></figure><p><a href="https://www.mobiloud.com/">MobiLoud</a> is a fully managed website-to-app service. Instead of rebuilding your Sylius store into a separate native application, MobiLoud uses your existing mobile site as the foundation for real iOS and Android apps.</p><p>This is why it is a great fit for Sylius brands specifically:</p><ul><li>No rebuild required: your storefront, checkout, and custom logic remain the source of truth.</li><li>Everything stays in sync: update the website once; the app reflects it.</li><li>No extra tech debt: you are not maintaining a second ecommerce front end.</li><li>Fully managed delivery: MobiLoud builds, supports, and maintains the apps.</li><li>Push notifications included: you get a direct retention channel without per-subscriber fees.</li><li>App store submission handled: less risk and less back-and-forth.</li></ul><p>For established Sylius brands, this is usually the sweet spot: you get the upside of “having an app” without signing up for a second platform rebuild.</p><blockquote>Want to see what’s possible? <a href="https://www.mobiloud.com/demo">Get a free consultation</a> on how you can launch the ideal mobile app for your Sylius-powered website</blockquote><h2>How MobiLoud Works For Your Sylius Store</h2><p>The simplest way to think about it: your Sylius website powers your store, on both web and app.&nbsp;</p><p>The mobile app is a native shopping experience built on top of what already works.</p><p>Here is what the process looks like:</p><h3>Step 1: Start From Your Existing Mobile Site</h3><p>MobiLoud relies on your mobile web experience because that is where your real ecommerce logic already lives.</p><p>That means your app can keep using:</p><ul><li>Your Sylius storefront and theme</li><li>Your custom checkout behavior (promotions, shipping logic, customer groups)</li><li>Your existing integrations (analytics, marketing tags, backend systems)</li></ul><p>If something is broken or awkward on your mobile website, fix it there first. The fastest way to build a great app is to start from a great mobile site.</p><h3>Step 2: Add App Essentials (Without Building A New Store)</h3><p>MobiLoud layers in key app capabilities so the result feels like a real app on the home screen.</p><p>Common app features include:</p><ul><li>Native navigation (tab bar, menus, streamlined flows)</li><li>Push notifications for launches, drops, back-in-stock, promotions</li><li>Deep linking so campaigns open the right collection or product</li><li>App-only UX touches that reduce friction for repeat buyers</li></ul><h3>Step 3: Launch On The App Store And Google Play</h3><p>Publishing is where many “DIY app” projects slow down. The Apple App Store, in particular, has rather stringent guidelines that can add weeks, sometimes months, to your launch.</p><p>MobiLoud’s team has coordinated over 2,000 app launches, and knows exactly what’s needed to get your app approved. They handle the submission process and work through review requirements so you actually get live.</p><h3>Step 4: Keep Everything Simple After Launch</h3><p>This is the part your team will love: once you launch, you keep managing everything through your website as usual.</p><ul><li>Want to change merchandising or product pages? Update Sylius.</li><li>Want to run a new promo? Do it on the site.</li><li>Want to ship a new content section? Add it to your site.</li></ul><p>Most native apps become a whole new storefront to manage, creating an overwhelming amount of work to keep your app and site in sync.</p><p>With MobiLoud, your app stays aligned with your site by default. There’s nothing new to manage.</p><blockquote>Ready to see what's possible? <a href="https://www.mobiloud.com/demo">Book a free 30-minute strategy call</a> with one of our project managers now.</blockquote><h2>Quick Comparison: Agency vs In-House vs MobiLoud</h2><p>All three options can get you an app. The difference is what you have to invest, and what you have to maintain afterward.</p><div data-rt-embed-type='true'><style>
-  .comparison-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-  }
-
-  .comparison-table thead th {
-    background: #1a1a2e;
-    color: #fff;
-    font-weight: 600;
-    text-align: left;
-    padding: 12px 16px;
-  }
-
-  .comparison-table thead th:first-child {
-    border-radius: 8px 0 0 0;
-  }
-
-  .comparison-table thead th:last-child {
-    border-radius: 0 8px 0 0;
-  }
-
-  .comparison-table tbody td {
-    padding: 14px 16px;
-    border-bottom: 1px solid #e5e7eb;
-    vertical-align: top;
-  }
-
-  .comparison-table tbody tr:last-child td {
-    border-bottom: none;
-  }
-
-  .comparison-table tbody tr:last-child td:first-child {
-    border-radius: 0 0 0 8px;
-  }
-
-  .comparison-table tbody tr:last-child td:last-child {
-    border-radius: 0 0 8px 0;
-  }
-
-  .comparison-table tbody tr:hover td {
-    background: #f9fafb;
-  }
-
-  .comparison-table tbody td:first-child {
-    font-weight: 600;
-    white-space: nowrap;
-  }
-
-  .comparison-table tbody tr:last-child td:first-child {
-    color: #6366f1;
-  }
-
-  @media (max-width: 768px) {
-    .comparison-table,
-    .comparison-table thead,
-    .comparison-table tbody,
-    .comparison-table tr,
-    .comparison-table th,
-    .comparison-table td {
-      display: block;
-    }
-
-    .comparison-table thead {
-      display: none;
-    }
-
-    .comparison-table tbody tr {
-      margin-bottom: 16px;
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .comparison-table tbody td {
-      padding: 10px 16px;
-      text-align: left;
-      border-bottom: 1px solid #f3f4f6;
-    }
-
-    .comparison-table tbody td:first-child {
-      background: #f9fafb;
-      font-size: 16px;
-    }
-
-    .comparison-table tbody td:last-child {
-      border-bottom: none;
-    }
-
-    .comparison-table tbody td::before {
-      content: attr(data-label);
-      display: block;
-      font-weight: 600;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #6b7280;
-      margin-bottom: 4px;
-    }
-
-    .comparison-table tbody td:first-child::before {
-      display: none;
-    }
-  }
-</style>
-
-<table class="comparison-table">
-  <thead>
-    <tr>
-      <th>Option</th>
-      <th>Best For</th>
-      <th>Main Upside</th>
-      <th>Main Trade-Off</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Agency-built native app</td>
-      <td data-label="Best For">Brands needing heavy native-only features</td>
-      <td data-label="Main Upside">Polished delivery without hiring</td>
-      <td data-label="Main Trade-Off">Typically becomes a parallel rebuild + long-term maintenance</td>
-    </tr>
-    <tr>
-      <td>In-house mobile team</td>
-      <td data-label="Best For">Brands where the app is the primary product</td>
-      <td data-label="Main Upside">Full control and faster iteration</td>
-      <td data-label="Main Trade-Off">Expensive hiring + permanent second backlog</td>
-    </tr>
-    <tr>
-      <td>MobiLoud</td>
-      <td data-label="Best For">Established Sylius stores with a strong mobile site</td>
-      <td data-label="Main Upside">Fast launch, fully managed, no rebuild</td>
-      <td data-label="Main Trade-Off">You are building on your existing site (so the site must be mobile-optimized)</td>
-    </tr>
-  </tbody>
-</table></div><h2>Why MobiLoud Is The Best Way To Build A Sylius App</h2><p>With Sylius, you have a powerful commerce engine already. The fastest way to lose momentum is to split your roadmap across two front ends.</p><p>MobiLoud is the best choice when:</p><ul><li>Your site already works well on mobile.</li><li>You want push notifications as a real retention lever.</li><li>You do not want to rebuild checkout and catalog logic in a second codebase.</li><li>You want a partner - instead of another tool your team must run.</li></ul><p>It is not “the cheapest possible app.” It is the lowest-risk way to get a real app live - and keep it live - without dragging your team into an endless rebuild.</p><h2>Convert Your Sylius Store into a Mobile App Now</h2><p>Sylius brands have an unfair advantage: a flexible, powerful platform that lets you control your ecommerce experience end-to-end.</p><p>The mistake is thinking you need to recreate that control inside a separate native app project.</p><p>If you want an app because you want better retention, repeat purchases, and a direct channel through push notifications, the smartest move is usually to keep your Sylius site as the source of truth and ship apps that stay in sync.</p><p>If you want to see what your Sylius store would look like as an app, <a href="https://www.mobiloud.com/demo">book a free consultation now</a>. You’ll get a concrete, visual starting point of what’s possible - without committing to a rebuild or hiring spree.</p><h2>Frequently Asked Questions</h2><h3>Can a Sylius store have an iOS and Android app?</h3><p>Yes. You can build native apps with an agency or an internal team, or you can use a website-to-app service like MobiLoud to launch iOS and Android apps based on your existing site.</p><h3>Do I need to rebuild my Sylius checkout to make an app?</h3><p>Not if you use MobiLoud. Your app is based on your existing website, so your checkout logic remains on the Sylius side.</p><h3>When does an in-house app team make sense?</h3><p>It makes sense when the app is a core product with major native-only requirements and a roadmap that is meaningfully different from the website.</p><h3>Will my Sylius site updates appear in the app?</h3><p>With a website-to-app approach, yes. Changes you make on the website show up in the app because the site remains the foundation.</p><h3>What is the fastest way to launch an app for a Sylius ecommerce site?</h3><p>For most established brands with a mobile-optimized Sylius storefront, using a fully managed website-to-app service is the fastest path to launching without rebuilding the store.</p>
-    </div>
-  </section>
-
+  <DarkHero />
+  <LogoMarquee />
+  <ComparisonSection />
+  <ValueProp heading="From your Sylius store to the App Store in 3 steps" />
+  <CaseStudies />
+  <DarkFeatures />
+  <IntegrationsSection />
+  <TestimonialsRow />
   <FAQSidebar faqs={faqs} />
   <FinalCTA />
   <Footer />

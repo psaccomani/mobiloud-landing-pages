@@ -1,103 +1,35 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/sections/Nav.astro';
-import Footer from '../../components/sections/Footer.astro';
+import DarkHero from '../../components/sections/DarkHero.astro';
+import LogoMarquee from '../../components/sections/LogoMarquee.astro';
+import ComparisonSection from '../../components/sections/ComparisonSection.astro';
+import ValueProp from '../../components/sections/ValueProp.astro';
+import CaseStudies from '../../components/sections/CaseStudies.astro';
+import DarkFeatures from '../../components/sections/DarkFeatures.astro';
+import IntegrationsSection from '../../components/sections/IntegrationsSection.astro';
+import TestimonialsRow from '../../components/sections/TestimonialsRow.astro';
 import FAQSidebar from '../../components/sections/FAQSidebar.astro';
 import FinalCTA from '../../components/sections/FinalCTA.astro';
+import Footer from '../../components/sections/Footer.astro';
 import '../../styles/global.css';
 
 const faqs = [];
 ---
 
 <Layout
-  title="Magento Mobile App Development: Turn Your Site into a Native App"
+  title="MobiLoud - Magento Mobile App Development: Turn Your Site into a Native App"
   description="Any successful ecommerce brand in 2026 needs their own mobile app. MobiLoud makes it easy, by converting everything from your site into a high-performing, full-featured mobile app. Read on and learn more about how it works."
 >
   <Nav />
-
-  <section class="py-20 md:py-32 px-4">
-    <div class="max-w-3xl mx-auto">
-      <span class="text-sm font-semibold text-emerald-600 uppercase tracking-wider">Website Builders</span>
-      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mt-4 mb-6">Magento Mobile App Development: Turn Your Site into a Native App</h1>
-      <p class="text-xl text-slate-600 mb-8">Any successful ecommerce brand in 2026 needs their own mobile app. MobiLoud makes it easy, by converting everything from your site into a high-performing, full-featured mobile app. Read on and learn more about how it works.</p>
-    </div>
-  </section>
-
-  <section class="py-16 px-4 bg-slate-50">
-    <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
-      <p>Magento has no built-in way to launch a native mobile app. They have a PWA solution and other mobile web optimization tools, but not a native app builder.</p><p>If you’re looking to launch a mobile app for your Magento store, <a href="https://www.mobiloud.com/cms/magento-mobile-app-builder">MobiLoud</a> is the best option. It works with all the custom extensions and checkout logic that make your store yours, and doesn’t come with the massive cost and time investment of custom development.</p><p>The rest of this guide explains why launching a great mobile app for Magento brands tends to be difficult, why MobiLoud is actually the perfect solution, and everything else you need to know to go live in the app stores.</p><h2>Can You Build Mobile Apps with Magento?</h2><p>No. Adobe (nor Magento, pre-acquisition) has never shipped a product that puts your store in the App Store or Google Play. Understanding why helps you evaluate your actual options.</p><h3>PWA Studio: Adobe's Abandoned Mobile Strategy</h3><p>For years, <a href="https://www.mobiloud.com/blog/adobe-commerce-pwa-studio">PWA Studio</a> was Adobe's answer to mobile commerce. It offers a React-based toolkit for building Progressive Web App storefronts on top of your Magento backend via GraphQL.</p><p>PWA Studio gave you a fast, app-like experience in the mobile browser. But there were (and are) two issues.</p><ol><li>It lets you launch a PWA - not a real native app</li><li>It seems it’s no longer being maintained. The last significant PWA Studio release was in early 2025, and Adobe is shifting resources into things like Edge Delivery Services instead.</li></ol><p>Some might have seen PWA Studio as a faster way to ship a native app, but it was never that.</p><h3>Edge Delivery Services: Web Speed, Not App Store</h3><p>Adobe's current frontend strategy is Edge Delivery Services (EDS), focused on web performance, Lighthouse scores, and document-based authoring.</p><p>EDS makes your website faster. That's genuinely valuable. But, like PWA Studio, it doesn't get you into the App Store or Google Play.&nbsp;</p><p>It’s not a way to launch a real mobile app, with a home screen icon, native push notifications, or the engagement patterns that come from a dedicated app.&nbsp;</p><p>Edge Delivery Services solves a web performance problem. The mobile app gap remains.</p><h3>Headless Commerce: An API, Not an App</h3><p>Magento's GraphQL API supports headless architecture, meaning you can build any frontend (including, in theory, a native app) on top of your commerce backend.</p><p>So, yes, that makes launching a mobile app possible. But you’re going to need a team of mobile developers to build your app, which will likely cost $100K+, at least, upfront (not to mention ongoing expenses).</p><p>And the more custom your site, the more it’ll cost. Headless isn’t an ideal solution for lean teams that don’t want to build an expensive and complicated new channel.</p><h2>How to Turn Your Magento Store into a Mobile App</h2><p>There’s a way to turn your existing store into a mobile app, without the massive cost of a custom app (and without settling for a poor substitute like a PWA).</p><p><a href="https://www.mobiloud.com/">MobiLoud</a> takes the Magento storefront you've already built and delivers it as a native iOS and Android app. Your storefront is the app. Every extension, integration, and customization carries over.</p><p>There's no rebuild, no new codebase, and no API integration project. MobiLoud adds native capabilities on top of what you already have: push notifications, native navigation, App Store and Google Play presence, deep linking, and a home screen icon that puts your store next to Amazon and Instagram on your customers' phones.</p><p>The cost starts from <a href="https://www.mobiloud.com/pricing">$799/month</a>, and you can go live in weeks, not months, with minimal operational lift for your team.</p><div data-rt-embed-type='true'><div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 12px; padding: 40px 36px; margin: 2.5em 0; color: #fff;">
-<p style="font-size: 1.25em; font-weight: 600; margin: 0 0 16px 0; line-height: 1.4; color: #fff;">See your Magento store as a native app</p>
-<p style="font-size: 1em; line-height: 1.7; margin: 0 0 24px 0; color: #cfd4dc;">Get a free, interactive preview of your store as an iOS and Android app. No code changes, no commitment.</p>
-<a href="https://www.mobiloud.com/demo" style="display: inline-block; background: #0b6e4f; color: #fff; font-weight: 600; font-size: 1em; padding: 14px 28px; border-radius: 8px; text-decoration: none;">Get a Free App Preview</a>
-</div></div><h2>Why MobiLoud Is the Best Way to Launch a Magento Mobile App</h2><p>We’ve given you the short version. Let’s dive deeper into why this approach is the right one for Magento stores specifically.</p><h3>Every extension and customization carries over</h3><p>This is the single biggest reason MobiLoud works where other approaches don't.</p><p>Your loyalty apps (Amasty, Yotpo, Smile.io), your search and filtering app (Algolia, Klevu), your product configurators, your reviews, your size guides, your live chat: if it works on your website, it works in the app.</p><figure class="w-richtext-figure-type-image w-richtext-align-fullwidth" style="max-width:800px" data-rt-type="image" data-rt-align="fullwidth" data-rt-max-width="800px"><div><img src="https://cdn.prod.website-files.com/63894f0e251e567f6e443bfa/68a2d91ce119e71663c5d27d_wrapper%20john%20varvatos.webp" loading="lazy" alt="__wf_reserved_inherit" width="auto" height="auto"></div><figcaption>MobiLoud's approach converts everything from your site into a fast, native app</figcaption></figure><p>API-driven Magento app builders (<a href="https://www.mobiloud.com/blog/best-magento-mobile-app-builders">Webkul Mobikul, SimiCart, MageComp</a>) connect to your backend through the REST or GraphQL API and render a separate native interface. They can produce a clean app, but they can only replicate what the API exposes. Custom extensions, theme-level logic, and tailored checkout flows typically don't carry over. That's a structural limitation, not a bug.</p><p>MobiLoud sidesteps the integration problem entirely. The app renders content directly from your storefront, so it sees everything your customers see. There are no integration gaps, and you get full feature parity by default.</p><h3>Works with any Magento frontend</h3><p>Whether you’re on Luma, <a href="https://www.mobiloud.com/use-cases/hyva-mobile-apps">Hyvä</a>, a custom <a href="https://www.mobiloud.com/blog/headless-commerce-mobile-apps">headless</a> frontend, or a legacy theme you've been meaning to update - it doesn't matter.&nbsp;</p><p>As long as your storefront is responsive and mobile-friendly, MobiLoud can convert it into a native app.</p><p>Magento's frontend landscape is fragmented. PWA Studio is fading, Hyvä and <a href="https://www.mobiloud.com/use-cases/alokai-mobile-apps">Alokai</a> are popular but not universal, and plenty of stores still run custom or legacy frontends. That adds complexity for mobile app solutions.</p><p>MobiLoud is frontend-agnostic. Whatever you're running today, and whatever you migrate to tomorrow, the app keeps working.</p><h3>Multi-store, multi-region, multi-currency</h3><p>Many Magento merchants run <a href="https://www.mobiloud.com/features/multi-language-multi-currency-support">multiple storefronts</a> for different brands, regions, or languages. MobiLoud supports this: a single app that detects locale, or separate apps for each market. Your existing multi-store architecture carries over without being rebuilt in a separate codebase.</p><h3>B2B complexity works automatically</h3><p>Customer-specific pricing, account hierarchies, requisition lists, quick order forms, approval workflows: if your Magento <a href="https://www.mobiloud.com/industry/b2b">B2B</a> storefront handles it, the app does too. You're not trying to recreate B2B logic in a native app framework that was designed for simple consumer catalogs.</p><h3>No dependency on Adobe's frontend roadmap</h3><p>Since MobiLoud works with your storefront (not a specific framework), you're not tied to PWA Studio, Edge Delivery Services, or whatever Adobe introduces next. When you update your frontend, the app reflects those changes automatically. Your mobile strategy stays independent of Adobe's platform decisions.</p><h3>Fully managed, zero maintenance</h3><p>MobiLoud handles the build, App Store and Google Play submission, ongoing maintenance, OS updates, and technical support. Your development team stays focused on your Magento backend and storefront.</p><h2>MobiLoud vs Custom Development: Similar Result, 1% of the Cost</h2><p>While there are a few no-code tools built for Magento stores, they’re typically built for simpler stores, with basic storefronts.</p><p>If you have any kind of complexity, your only option for launching a native app was typically custom native development, where you're looking at $150,000-$500,000+ upfront, $45,000-$75,000+/year for maintenance and a 6-18 month timeline to launch.</p><p>Once you do? Now you’ve got a second codebase that needs developers who understand both mobile frameworks and Magento's GraphQL surface.&nbsp;</p><p>In contrast, MobiLoud lets you go live for potentially a fraction of a percent of the cost. And the kicker? The end result won’t be much different, particularly if you’re already running a mobile-optimized frontend, with something like PWA Studio, Hyvä or Alokai.</p><h2>Tadashi Shoji: A Magento Mobile App Success Story</h2><p>Luxury fashion brand <a href="https://www.mobiloud.com/customers/tadashi-shoji">Tadashi Shoji</a> runs on Magento and launched their mobile app with MobiLoud.</p><figure class="w-richtext-figure-type-image w-richtext-align-fullwidth" style="max-width:1200px" data-rt-type="image" data-rt-align="fullwidth" data-rt-max-width="1200px"><div><img src="https://cdn.prod.website-files.com/63894f0e251e567f6e443bfa/69cb8865cc1b0764b5cdd2c9_Tadashi%20Shoji%20(1).webp" loading="lazy" alt="__wf_reserved_inherit" width="auto" height="auto"></div></figure><figure class="w-richtext-figure-type-image w-richtext-align-fullwidth" style="max-width:1200px" data-rt-type="image" data-rt-align="fullwidth" data-rt-max-width="1200px"><div><img src="https://cdn.prod.website-files.com/63894f0e251e567f6e443bfa/69cb885f2a17d6d52b4aa2ab_Tadashi%20Shoji%20(2).webp" loading="lazy" alt="__wf_reserved_inherit" width="auto" height="auto"></div></figure><p>Not only did MobiLoud enable them to launch without a major expense, but their app has also been a major success:</p><div data-rt-embed-type='true'><style>
-.ct-wrap { border-radius:12px; overflow:hidden; border:1px solid #d0d5dd; margin:2em 0; }
-.ct { width:100%; border-collapse:collapse; font-size:16px; line-height:1.6; }
-.ct th { padding:16px 20px; color:#fff; font-weight:600; font-size:15px; letter-spacing:.02em; }
-.ct th.ct-lbl { background:#1a1a2e; text-align:left; }
-.ct th.ct-def { background:#1a1a2e; text-align:center; }
-.ct td { padding:14px 20px; border-top:1px solid #e8e8e8; }
-.ct td.ct-lbl { font-weight:600; font-size:15px; color:#333; min-width:160px; white-space:nowrap; }
-.ct td.ct-c { text-align:center; color:#444; font-size:15px; }
-.ct tbody tr:nth-child(even) { background:#f8f9fa; }
-.ct tbody tr:nth-child(odd) { background:#fff; }
-.ct tbody tr:last-child td { padding-bottom:16px; }
-
-@media screen and (max-width: 768px) {
-  .ct-wrap { border:none; border-radius:0; overflow:visible; }
-  .ct, .ct thead, .ct tbody, .ct th, .ct td, .ct tr { display:block; }
-  .ct thead { display:none; }
-  .ct tbody tr { margin-bottom:14px; border:1px solid #d0d5dd; border-radius:10px; overflow:hidden; background:#fff !important; }
-  .ct td { padding:12px 16px; text-align:left !important; border:none; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center; gap:10px; background:#fff !important; font-size:15px; }
-  .ct td.ct-lbl { background:#1a1a2e !important; color:#fff; font-size:16px; font-weight:700; display:block; padding:13px 16px; }
-  .ct td.ct-c::before { content:attr(data-label); font-weight:600; flex-shrink:0; color:#555; font-size:13px; max-width:45%; }
-  .ct td:last-child { border-bottom:none; }
-}
-</style>
-
-<div class="ct-wrap">
-<table class="ct">
-  <thead>
-    <tr>
-      <th class="ct-lbl">Metric</th>
-      <th class="ct-def">Result</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="ct-lbl">App share of total online revenue</td>
-      <td class="ct-c" data-label="Result">18%</td>
-    </tr>
-    <tr>
-      <td class="ct-lbl">App share of mobile revenue</td>
-      <td class="ct-c" data-label="Result">30%</td>
-    </tr>
-    <tr>
-      <td class="ct-lbl">Revenue per user vs mobile web</td>
-      <td class="ct-c" data-label="Result">10x higher</td>
-    </tr>
-    <tr>
-      <td class="ct-lbl">Conversion rate vs mobile web</td>
-      <td class="ct-c" data-label="Result">8.3x higher</td>
-    </tr>
-    <tr>
-      <td class="ct-lbl">Session frequency vs mobile web</td>
-      <td class="ct-c" data-label="Result">3.8x higher</td>
-    </tr>
-    <tr>
-      <td class="ct-lbl">Avg session duration vs web</td>
-      <td class="ct-c" data-label="Result">2x longer</td>
-    </tr>
-  </tbody>
-</table>
-</div></div><p>Like most Magento merchants, their team initially considered building native apps from scratch:</p><blockquote>"At first, we explored the viability of building our own native apps from the ground up. And while that was achievable, managing them effectively moving forward would not have been feasible due to the disconnected nature of such an approach." <br>--&nbsp;David Chamberlin, Lead Developer at Tadashi Shoji</blockquote><p>MobiLoud allowed them to go live with minimal cost, and importantly for their lean IT team, required no changes to their development workflow:</p><blockquote>"I could continue developing the way I am used to. It was completely frictionless for me.” <br>-- David Chamberlin, Lead Developer at Tadashi Shoji</blockquote><div data-rt-embed-type='true'><div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 12px; padding: 40px 36px; margin: 2.5em 0; color: #fff;">
-<p style="font-size: 1.25em; font-weight: 600; margin: 0 0 16px 0; line-height: 1.4; color: #fff;">Your Magento store already does the hard part</p>
-<p style="font-size: 1em; line-height: 1.7; margin: 0 0 20px 0; color: #cfd4dc;">Your catalog, checkout, extensions, and integrations are built and working. MobiLoud turns that into a native app with push notifications and App Store presence, without touching your existing infrastructure.</p>
-<p style="font-size: 1em; line-height: 1.7; margin: 0 0 24px 0; color: #cfd4dc;">Book a free strategy call to see a preview of your store as an app, get ROI expectations, and understand the exact timeline.</p>
-<a href="https://www.mobiloud.com/demo" style="display: inline-block; background: #0b6e4f; color: #fff; font-weight: 600; font-size: 1em; padding: 14px 28px; border-radius: 8px; text-decoration: none;">Book a Free Strategy Call</a>
-</div></div><h2>How It Works</h2><p>The process doesn't require your Magento development team to take on a new project.</p><h3>1. Get a Free Preview</h3><p>Start with a <a href="https://www.mobiloud.com/demo">free strategy call</a>. MobiLoud will walk through your goals, answer your questions, and put together an interactive preview so you can see your Magento store as a native app on your own device. No commitment.</p><h3>2. App Build and Testing</h3><p>MobiLoud's team handles the native app build: push notifications, native navigation, app icon, splash screen, and deep linking. You'll have a testing period to review everything and provide feedback before anything goes live.</p><h3>3. Launch and Ongoing Support</h3><p>MobiLoud handles App Store and Google Play submission (including compliance, metadata, and screenshots), then manages ongoing maintenance, OS updates, and technical support after launch.</p><p>Your Magento infrastructure isn't touched. Your development team isn't pulled off their roadmap.</p><h2>Next Steps: Launching Your Magento Mobile App</h2><p>Your Magento store already handles your catalog, your checkout, your integrations, your B2B logic. What it doesn't have is a home screen icon, push notifications that bring customers back, and the retention lift that comes from a native app.</p><p>Tadashi Shoji saw <a href="https://www.mobiloud.com/customers/tadashi-shoji">18% of total online revenue</a> shift to their app, with app users converting at 8.3x the rate of mobile web visitors.</p><p><a href="https://www.mobiloud.com/demo">Book a free strategy call</a> to see what your store looks like as a native app. MobiLoud will walk you through a custom preview, ROI expectations, and the launch timeline you can expect.</p>
-    </div>
-  </section>
-
+  <DarkHero />
+  <LogoMarquee />
+  <ComparisonSection />
+  <ValueProp heading="From your Magento store to the App Store in 3 steps" />
+  <CaseStudies />
+  <DarkFeatures />
+  <IntegrationsSection />
+  <TestimonialsRow />
   <FAQSidebar faqs={faqs} />
   <FinalCTA />
   <Footer />

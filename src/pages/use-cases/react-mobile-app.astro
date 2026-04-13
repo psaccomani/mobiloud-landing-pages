@@ -1,140 +1,35 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/sections/Nav.astro';
-import Footer from '../../components/sections/Footer.astro';
+import DarkHero from '../../components/sections/DarkHero.astro';
+import LogoMarquee from '../../components/sections/LogoMarquee.astro';
+import ComparisonSection from '../../components/sections/ComparisonSection.astro';
+import ValueProp from '../../components/sections/ValueProp.astro';
+import CaseStudies from '../../components/sections/CaseStudies.astro';
+import DarkFeatures from '../../components/sections/DarkFeatures.astro';
+import IntegrationsSection from '../../components/sections/IntegrationsSection.astro';
+import TestimonialsRow from '../../components/sections/TestimonialsRow.astro';
 import FAQSidebar from '../../components/sections/FAQSidebar.astro';
 import FinalCTA from '../../components/sections/FinalCTA.astro';
+import Footer from '../../components/sections/Footer.astro';
 import '../../styles/global.css';
 
 const faqs = [];
 ---
 
 <Layout
-  title="How to Convert a React Web App to a Mobile App"
+  title="MobiLoud - How to Convert a React Web App to a Mobile App"
   description="MobiLoud lets you launch your React web app as a mobile app, without rebuilding anything or managing a separate codebase. Your existing React app works seamlessly on mobile, and you get all the benefits of a native app, with none of the cost or tech debt. Read on below to learn how it's done."
 >
   <Nav />
-
-  <section class="py-20 md:py-32 px-4">
-    <div class="max-w-3xl mx-auto">
-      <span class="text-sm font-semibold text-emerald-600 uppercase tracking-wider">Languages Web Frameworks</span>
-      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mt-4 mb-6">How to Convert a React Web App to a Mobile App</h1>
-      <p class="text-xl text-slate-600 mb-8">MobiLoud lets you launch your React web app as a mobile app, without rebuilding anything or managing a separate codebase. Your existing React app works seamlessly on mobile, and you get all the benefits of a native app, with none of the cost or tech debt. Read on below to learn how it's done.</p>
-    </div>
-  </section>
-
-  <section class="py-16 px-4 bg-slate-50">
-    <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
-      <p>To convert your React web app into a mobile app, our tech-enabled service, <a href="https://www.mobiloud.com/canvas">MobiLoud</a> is the best way to do it. </p><p>MobiLoud is full-service, and gives you only one codebase to manage, rather than adding a new codebase for React Native or native mobile programming languages.</p><p>We're going to break down how to convert a React web app to a React mobile app for Android and iOS&nbsp;devices.</p><p>This article is relevant for you whether you have already built a React.js web app and want to turn it into a mobile app, or you're thinking about building an app with React and want to learn the best way to make your app available to mobile users.</p><p>We'll also cover converting your React.js web app to React Native and converting your React app to a PWA, and explain why it's a better idea to convert your React code directly into native mobile apps with <a href="https://www.mobiloud.com/">MobiLoud</a>.</p><figure class="w-richtext-figure-type-video w-richtext-align-fullwidth" style="padding-bottom:56.206088992974244%" data-rt-type="video" data-rt-align="fullwidth" data-rt-max-width="" data-rt-max-height="56.206088992974244%" data-rt-dimensions="854:480" data-page-url="https://www.youtube.com/watch?v=e1r0Xq0XYgU"><div><iframe allowfullscreen="true" frameborder="0" scrolling="no" src="https://www.youtube.com/embed/e1r0Xq0XYgU"></iframe></div></figure><h2>How to Convert Your React App into a Mobile App</h2><p>With <a href="https://www.mobiloud.com/">MobiLoud</a>, you can turn your React app into native mobile apps, without having to rebuild anything or write a new codebase. </p><p>Your web and mobile platforms will be completely in sync, meaning any time you make a change in your web app, the change reflects automatically in your new React mobile app.</p><p>Here's how it works:</p><ol><li>Go to our website and <a href="https://www.mobiloud.com/demo">book a free consultation</a> to discuss your project and see a free preview of your site as an app.</li><li>Sign up for a<a href="https://www.mobiloud.com/pricing"> MobiLoud plan</a>. We require no long-term commitments, and plans start from just a few hundred dollars per month for everything you need to build an maintain functional mobile apps.</li><li>After discussing what you want from your app, our team will do all the heavy lifting to bring your React app to life as mobile apps, including all coding, tweaking your UI for the apps and testing to ensure the apps are fast and bug-free.</li><li>We ship the final build, we submit your app to the Apple and Google Play app stores, taking care of 100% of the submission process (which is notoriously complicated for first-time app publishers).</li><li>Once your app is live and in the app stores, we'll handle all updates, tweaks, bugfixes and maintenance for your mobile apps as long as your MobiLoud subscription is active, helping you keep delivering a modern and professional UX to your users.</li></ol><p>That’s how straightforward it is to convert your React app into a mobile app.</p><blockquote>Ready to learn more about turning your React app into a mobile app? <a href="https://www.mobiloud.com/demo">Get a free consultation now</a> with one of our app experts.</blockquote><h2>Can ReactJS Be Used For Mobile Apps?</h2><p>You're using JavaScript and React.js in your web app, an everything's working great. But you've just realized that you can reach a lot more people and provide a better UX if you make your app available as a mobile app, and you're asking if React can be used for mobile apps as well as web apps.</p><p>The short answer is <strong>no</strong>; strictly speaking, React (aka ReactJS) cannot be used to build native mobile apps. React is a web framework, which requires the web browser to run. Mobile operating systems cannot execute JavaScript code and web-based JavaScript libraries like React.</p><p>However, there are a few options available to you, if you want to convert your React project into a mobile app.</p><ul><li>Use React Native, another JavaScript library, which is designed to work with the Android and iOS platforms.</li><li>Forgo native apps and turn your React.js app into a Progressive Web App, which still uses the browser engine to run.</li><li>Convert your React.js app into Android and iOS apps directly, with zero rebuilding, using MobiLoud.</li></ul><p>We believe the best way to convert your React.js web app into mobile apps is to use <a href="https://www.mobiloud.com/">MobiLoud</a>, as it's the most affordable, fastest way to ship your app as a native mobile app, and doesn't require you to rebuild anything, learn a new framework, or maintain a separate codebase.</p><h2>Converting a React Web App to React Mobile App</h2><p>Unfortunately it's not possible to just hit a button or add a line of code and convert a React web app into a native mobile app.</p><p>You’ll need to rebuild your app using React Native. And even though React Native is essentially React JS for mobile apps, converting a React app to React Native is not as simple as you would expect.</p><p>A simpler option is a managed service like MobiLoud, which is the closest thing you can get to a push-button React mobile app converter.</p><p>Alternatively, you can make some minor code additions to turn your React app into a PWA, but you won’t unlock all the benefits of native apps.</p><p>Here’s a breakdown of the pros and cons of each option.</p><div data-rt-embed-type='true'><style>
-  .cmp-wrap{margin:16px 0; width:100%; max-width:100% !important;}
-  .cmp-title{font-weight:600; margin:0 0 8px;}
-  .cmp-note{font-size:13px; color:#555; margin-top:6px;}
-  .cmp-table{
-    width:100% !important;
-    max-width:100% !important;
-    table-layout:fixed;
-    border-collapse:collapse;
-    font-size:15px;
-  }
-  .cmp-table th,.cmp-table td{
-    padding:10px; border:1px solid #e5e7eb; vertical-align:top; word-break:break-word;
-  }
-  .cmp-table thead tr{background:#f6f7f8; text-align:left;}
-  @media (max-width:700px){
-    .cmp-table{display:block;}
-    .cmp-table thead{display:none;}
-    .cmp-table tbody{display:block;}
-    .cmp-table tr{display:block; margin:0 0 12px; border:1px solid #e5e7eb; border-radius:8px;}
-    .cmp-table td{display:flex; gap:8px; border:none; border-bottom:1px solid #eee;}
-    .cmp-table td:last-child{border-bottom:none;}
-    .cmp-table td::before{content:attr(data-label); flex:0 0 140px; font-weight:600;}
-  }
-</style>
-
-<div class="cmp-wrap">
-  <div class="cmp-title">React Native vs PWA vs MobiLoud — At a Glance</div>
-  <table class="cmp-table" aria-label="Comparison of React Native, PWA, and MobiLoud approaches">
-    <colgroup>
-      <col style="width:22%">
-      <col style="width:26%">
-      <col style="width:26%">
-      <col style="width:26%">
-    </colgroup>
-    <thead>
-      <tr>
-        <th>Aspect</th>
-        <th>React Native (rebuild)</th>
-        <th>PWA</th>
-        <th>MobiLoud</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td data-label="Aspect"><strong>What it is</strong></td>
-        <td data-label="React Native (rebuild)">Separate native app built with React Native + native modules</td>
-        <td data-label="PWA (web only)">Your React site enhanced with Service Workers & manifest</td>
-        <td data-label="MobiLoud">Your live site inside a native shell with managed build/publish</td>
-      </tr>
-      <tr>
-        <td data-label="Aspect"><strong>Time to launch</strong></td>
-        <td data-label="React Native (rebuild)">3–6+ months</td>
-        <td data-label="PWA (web only)">Days–weeks (site-dependent)</td>
-        <td data-label="MobiLoud">~2–6 weeks</td>
-      </tr>
-      <tr>
-        <td data-label="Aspect"><strong>Codebase</strong></td>
-        <td data-label="React Native (rebuild)">Separate from your web app</td>
-        <td data-label="PWA (web only)">Same as your site</td>
-        <td data-label="MobiLoud">Same as your site</td>
-      </tr>
-      <tr>
-        <td data-label="Aspect"><strong>Maintenance</strong></td>
-        <td data-label="React Native (rebuild)">Two codebases + app store updates</td>
-        <td data-label="PWA (web only)">Web deploys only</td>
-        <td data-label="MobiLoud">Web deploys; MobiLoud handles app updates/submission</td>
-      </tr>
-      <tr>
-        <td data-label="Aspect"><strong>Native features</strong></td>
-        <td data-label="React Native (rebuild)">Full OS APIs; custom native UI</td>
-        <td data-label="PWA (web only)">Limited device access; no native UI chrome</td>
-        <td data-label="MobiLoud">Native tabs/nav, splash, deep links, push notifications</td>
-      </tr>
-      <tr>
-        <td data-label="Aspect"><strong>Push notifications</strong></td>
-        <td data-label="React Native (rebuild)">Full native iOS/Android</td>
-        <td data-label="PWA (web only)">Web push on Android; iOS 16.4+ only after Add-to-Home-Screen; lower opt-ins</td>
-        <td data-label="MobiLoud">Full native iOS/Android; integrates with OneSignal/Klaviyo</td>
-      </tr>
-      <tr>
-        <td data-label="Aspect"><strong>App Store / Play</strong></td>
-        <td data-label="React Native (rebuild)">Yes (DIY submission)</td>
-        <td data-label="PWA (web only)">No App Store; limited Play options</td>
-        <td data-label="MobiLoud">Yes (listing + submission done for you)</td>
-      </tr>
-      <tr>
-        <td data-label="Aspect"><strong>Performance</strong></td>
-        <td data-label="React Native (rebuild)">Excellent when optimized</td>
-        <td data-label="PWA (web only)">Web performance; browser-dependent</td>
-        <td data-label="MobiLoud">Fast (if your site is fast)</td>
-      </tr>
-      <tr>
-        <td data-label="Aspect"><strong>Total cost</strong></td>
-        <td data-label="React Native (rebuild)">$100K+ annually</td>
-        <td data-label="PWA (web only)">Low - use your existing web team</td>
-        <td data-label="MobiLoud">Typically ~$300-500/month</td>
-      </tr>
-      <tr>
-        <td data-label="Aspect"><strong>Best for</strong></td>
-        <td data-label="React Native (rebuild)">Highly custom native UX with large teams</td>
-        <td data-label="PWA (web only)">Content/utility sites with low budget (or in combination with a true app)</td>
-        <td data-label="MobiLoud">Brands wanting speed, feature parity, and native push with one codebase</td>
-      </tr>
-    </tbody>
-  </table>
-</div></div><p>Rule of thumb: if you need heavy device integrations + offline capabilities, and have the budget to maintain it, you can go for React Native. If you just need to replicate your web experience as a mobile app (with native touches like push notifications added on), MobiLoud is a much smoother option, with significant less overhead and tech debt.</p><blockquote><strong>Want to see your React app in action as a mobile app? </strong><a href="https://canvas.mobiloud.com/"><strong>Get a free preview of your React mobile app here</strong></a><strong>.</strong></blockquote><p>Let’s dive deeper into different ways to turn your React.js app into a mobile app now.</p><h3>#1: Rebuild Your App Using React Native</h3><p>React Native is the equivalent of React.js for building native Android and iOS apps using JavaScript.</p><p>While that may make it sound like it’s easy to just transpile your code from React to React Native, it’s not. You essentially need to rebuild everything in React Native.</p><p>That’s because React.js outputs code meant for the web, while React Native comes with native mobile components, designed specifically for iOS and Android.</p><p>To convert a React app to React Native, you’ll need to go through your whole codebase and edit the syntax from React to React Native, as well as altering the components to fit for a mobile device, rather than a web browser.&nbsp;</p><p>React Native is a fine framework for native mobile apps. Facebook, Instagram, Walmart, Bloomberg and Wix all built their mobile apps with React Native. But converting your React web app to React Native is a significant undertaking.</p><figure class="w-richtext-figure-type-image w-richtext-align-fullwidth" style="max-width:1500px" data-rt-type="image" data-rt-align="fullwidth" data-rt-max-width="1500px"><div><img src="https://cdn.prod.website-files.com/63894f0e251e567f6e443bfa/6865ac08f92bf9c2ae630207_20250702T0956-77b73586-3d05-40eb-9359-873b461b4fe1.jpeg" alt="" width="auto" height="auto" loading="auto"></div><figcaption><em>(</em><a href="https://twitter.com/reactjs?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><em>image source</em></a><em>)</em></figcaption></figure><p>The biggest issues with converting React to React Native are thus:</p><ul><li>The time (and associated costs) to convert your React code to React Native.</li><li>The overhead of having to maintain two separate codebases, duplicating the workload required each time you make a change or add a new feature.</li></ul><p>If you expect the majority of your users to use the mobile apps, it may be worth using React Native for the ability to build a UX geared towards mobile.</p><p>But if you still anticipate a lot of people to use the app via the web, and want a quicker and cheaper path to convert your React app to mobile apps, consider going in a different direction.</p><p><a href="https://www.mobiloud.com/blog/react-vs-react-native"><strong>Learn more: React vs React Native</strong></a></p><h3>#2: Convert Your React Web App to a PWA</h3><p>A quicker option is to convert your app into a <a href="https://www.mobiloud.com/blog/progressive-web-app-examples">Progressive Web Application</a>, or PWA.</p><p>A PWA is technically a web app, not a native mobile app like it would be if you decide to rebuild in React Native. But it’s designed to leverage some app-like features, to perform more like a mobile app than a traditional web-first application.</p><p>PWAs offer the use of elements like offline support, a launcher icon and push notifications.</p><figure class="w-richtext-figure-type-image w-richtext-align-fullwidth" style="max-width:1024px" data-rt-type="image" data-rt-align="fullwidth" data-rt-max-width="1024px"><div><img src="https://cdn.prod.website-files.com/63894f0e251e567f6e443bfa/6865ac08f92bf9c2ae63020d_20250702T0956-0289e643-c453-4ed0-bf38-9271928a52d0.jpeg" alt="starbucks app mockup" width="auto" height="auto" loading="auto"></div><figcaption>Starbucks' PWA</figcaption></figure><p>Converting your React app into a PWA is likely to be very simple. Your app is probably 90% of the way towards being a PWA already. You’ll just need to add a web app manifest, configure a <a href="https://www.mobiloud.com/blog/what-is-a-service-worker">service worker</a>, and perhaps make some small optimizations to your mobile web app.</p><p>Progressive Web Apps cut down the time required to launch your app, while offering some of the experience that a native app does. But you sacrifice some of the functionality of a true native mobile app, such as push notifications. As a PWA is browser-based, you won’t have the use of push notifications at all for iOS.</p><p>In addition, though you can install a shortcut to the app on home screens, you miss out on the discoverability you get from being in app stores.</p><p>All in all, while PWAs are more intuitive than normal web apps for mobile users, they are cumbersome when compared to other options.</p><blockquote>Learn more: <a href="https://www.mobiloud.com/blog/progressive-web-app-development">How to Build a Progressive Web App</a></blockquote><h3>#3: Convert Your React JS App to Mobile Apps with MobiLoud</h3><p>The best way to convert your React app into Android and iOS apps is with<a href="https://www.mobiloud.com/"> MobiLoud</a>.</p><p>MobiLoud turns your web app into a hybrid app, compatible with Android and iOS devices, using your existing web code.</p><p>MobiLoud is a fast and easy way to leverage the benefits of native mobile apps, such as a mobile-specific UI, app store discoverability and push notifications.</p><p>The functionality of your mobile apps is the same as your web app. We use webviews, coupled with native mobile UI elements (coded in Java, <a href="https://www.mobiloud.com/blog/react-native-vs-kotlin">Kotlin</a> and <a href="https://www.mobiloud.com/blog/react-native-vs-swift">Swift</a>) to build mobile apps that fully sync with your web app.</p><figure class="w-richtext-figure-type-image w-richtext-align-fullwidth" style="max-width:3494px" data-rt-type="image" data-rt-align="fullwidth" data-rt-max-width="3494px"><div><img src="https://cdn.prod.website-files.com/63894f0e251e567f6e443bfa/695cb335fda72f9546c1d65e_native.webp" loading="lazy" alt="__wf_reserved_inherit" width="auto" height="auto"></div><figcaption>This is the clean split: web for what you already built, native for what mobile users expect.</figcaption></figure><p>This allows you to maintain the same content and functionality from your web app, while still getting the improved mobile user experience of native iOS and Android mobile apps.</p><h3>Benefits of Using MobiLoud to Convert a React App to Mobile Apps</h3><p>It’s much easier, and requires far less maintenance, to build a React mobile app with MobiLoud, than to rebuild your app using React Native.</p><ul><li>You don’t need to do anything; we do all the work, including testing and (when you give the go-ahead) submitting your app to the app stores.</li><li>It’s much quicker and cheaper than writing a whole new codebase in React Native.</li><li>Once you’re live, <strong>you only need to manage one codebase</strong>. No duplicating changes for separate apps, trying to maintain consistency across both apps.</li><li>No need to worry about elements of your React web app that are difficult to do in React Native. All your features on the web will work in the app.</li><li>You don’t need to figure out how to build and configure push notifications - we have native push notifications set up out of the box.</li><li>It’s a fraction of the cost, both to build and maintain, than the cost of having a React Native developer on staff.</li><li>Compared to building a PWA, you get all the benefits of maintaining just one codebase, paired with the benefits of having separate native apps.</li></ul><figure class="w-richtext-figure-type-image w-richtext-align-fullwidth" style="max-width:2240px" data-rt-type="image" data-rt-align="fullwidth" data-rt-max-width="2240px"><div><img src="https://cdn.prod.website-files.com/63894f0e251e567f6e443bfa/6865a4f352326f55503677f1_20250702T0915-c2436afb-af62-4680-adc3-802e5704fff4.webp" alt="__wf_reserved_inherit" width="auto" height="auto" loading="auto"></div><figcaption>Examples of real mobile apps built with MobiLoud</figcaption></figure><h3>Why You Don’t Need a Fully Native App</h3><p>You might think that you need to go native (or cross-platform, like React Native) if you want to build a high-quality mobile app.</p><p>But today, that’s not the case.</p><p>Your web app already looks and functions great on mobile. You don’t need wholesale changes to make it look and feel great as a mobile app too.</p><p>Just remove the browser tabs, make some small tweaks, and your web app’s UI will look just like a native app.</p><figure class="w-richtext-figure-type-image w-richtext-align-fullwidth" style="max-width:800px" data-rt-type="image" data-rt-align="fullwidth" data-rt-max-width="800px"><div><img src="https://cdn.prod.website-files.com/63894f0e251e567f6e443bfa/6865a4f411c5deea2720215b_20250702T0917-1cbe6e0e-c126-4762-9d49-bce8002c0360.webp" loading="lazy" alt="__wf_reserved_inherit" width="auto" height="auto"></div></figure><p>All the rest is overkill. </p><p>Unless you need to add specific native functionality that’s different to what your website does, rebuilding your app for mobile would be a waste of time and money.</p><p>You're dropping $100k+, as well as adding major overhead, just to build the same thing that already exists for the web.</p><p><a href="https://www.mobiloud.com/blog/canvas-is-enough"><strong>Click here to read more about why MobiLoud beats developing native apps from scratch.</strong></a></p><h2>Convert Your React Web App to Mobile Apps with MobiLoud</h2><p>MobiLoud is the best way to convert a React.js app into mobile apps. Compared to rebuilding your app using native frameworks or React Native, you'll have significantly less work to do, and you'll only have one codebase to maintain once everything is said and done.</p><p>And even though the learning curve for React Native is minimal for anyone experienced with JavaScript and React, the time and complexity we save you is enormous.</p><p>Unless you really need new, purpose-built functionality for your mobile apps, and can justify the investment of time, money and additional resources in building fully native mobile apps, MobiLoud is the best option for you.</p><p><a href="https://www.mobiloud.com/demo"><strong>Book a free consultation now</strong></a><strong> to get started!</strong></p>
-    </div>
-  </section>
-
+  <DarkHero />
+  <LogoMarquee />
+  <ComparisonSection />
+  <ValueProp heading="From your React store to the App Store in 3 steps" />
+  <CaseStudies />
+  <DarkFeatures />
+  <IntegrationsSection />
+  <TestimonialsRow />
   <FAQSidebar faqs={faqs} />
   <FinalCTA />
   <Footer />
